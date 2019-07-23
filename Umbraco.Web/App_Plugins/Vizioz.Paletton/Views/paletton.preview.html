@@ -1,0 +1,10 @@
+﻿<div class="paletton-preview">
+    <span class="colorset" ng-repeat="colorset in palette">
+        <span class="color-block" ng-repeat="color in colorset" style="left: {{color.left}}%; width: {{color.width}}%">
+            <span class="color-block-color" style="background-color: {{color.rgb}}"></span>
+            <span class="color-block-desc" ng-if="hideLabels !== true">
+                {{color.id}}<br/>{{color.rgb}}
+            </span>
+        </span>
+    </span>
+</div>

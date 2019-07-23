@@ -1,0 +1,39 @@
+﻿{
+  "propertyEditors": [
+    {
+      "alias": "Vizioz.PalettonPicker",
+      "name": "Paletton Picker",
+      "icon": "icon-palette",
+      "editor": {
+        "view": "~/App_Plugins/Vizioz.Paletton/views/paletton.html",
+        "valueType": "JSON"
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "label": "Color patterns",
+            "description": "Please add your predefined paletton color patterns here",
+            "key": "patterns",
+            "view": "~/App_Plugins/Vizioz.Paletton/views/paletton.editor.html",
+            "css": [ "~/App_Plugins/Vizioz.Paletton/css/paletton.css" ],
+            "validation": [
+              {
+                "type": "Required"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "javascript": [
+    "~/App_Plugins/Vizioz.Paletton/js/paletton.propertyeditor.controller.js",
+    "~/App_Plugins/Vizioz.Paletton/js/paletton.editorprevalue.controller.js",
+    "~/App_Plugins/Vizioz.Paletton/js/paletton.controller.js",
+    "~/App_Plugins/Vizioz.Paletton/js/paletton.valuepicker.controller.js",
+    "~/App_Plugins/Vizioz.Paletton/js/palettonpreview.directive.js"
+  ],
+  "css": [
+    "~/App_Plugins/Vizioz.Paletton/css/paletton.css"
+  ]
+}

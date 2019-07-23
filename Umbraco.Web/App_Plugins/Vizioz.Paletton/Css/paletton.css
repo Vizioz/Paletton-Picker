@@ -1,0 +1,97 @@
+﻿/* Paletton prevalue picker */
+.paletton-value-picker-container .umb-pane {
+    display: flex;
+}
+
+.paletton-value-picker-container .help-text {
+    font-size: 14px;
+    color: #a2a1a6;
+    line-height: 1.5em;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    display: block;
+    font-weight: 400;
+}
+
+.paletton-value-picker textarea {
+    width: 100%;
+}
+
+/* Paletton preview */
+.paletton-preview {
+    display: block;
+    padding: 10px;
+}
+
+.paletton-preview .colorset {
+    display: block;
+    width: 100%;
+    position: relative;
+    min-height: 75px;
+}
+
+.paletton-preview .colorset .color-block {
+    display: block;
+    position: absolute;
+    top: 0;
+}
+
+.paletton-preview .colorset .color-block-color {
+    display: block;
+    height: 50px;
+    width: 100%;
+}
+
+.paletton-preview .colorset .color-block-desc {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    line-height: 10px;
+}
+
+/* Paletton picker */
+.paletton-item {
+    cursor: pointer;
+    position: relative;
+}
+
+    .paletton-item:hover {
+        color: #1b264f;
+        background: #fafafa;
+    }
+
+    .paletton-item.selected {
+        color: #1b264f;
+    }
+
+    .paletton-item.selected::before {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border: 1px solid #f5c1bc;
+        border-radius: 5px;
+        box-shadow: 0 0 2px 0 #e86f63, inset 0 0 2px 0 #e86f63;
+        pointer-events: none;
+    }
+
+.paletton-checkbox {
+    display: block;
+    width: 100%;
+}
+
+    .paletton-checkbox input[type=radio], .paletton-checkbox input[type=checkbox] {
+        display: none;
+    }
+
+/***/
+
+.paletton-property {
+    display: block;
+    width: 100%;
+}
