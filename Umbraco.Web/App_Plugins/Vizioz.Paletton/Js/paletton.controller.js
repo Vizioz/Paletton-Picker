@@ -13,7 +13,6 @@
         }
 
         function setPatternValue(item) {
-            console.log(item)
             $scope.model.value = item;
         }
 

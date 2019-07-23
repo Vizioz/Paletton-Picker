@@ -12,7 +12,6 @@
         $scope.selectedIndex = null;
 
         function select($index) {
-            console.log($index);
             $scope.selectedIndex = $index;
         }
 

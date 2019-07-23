@@ -14,6 +14,7 @@
 
                 var preview = function () {
 
+                    scope.hasTooltip = scope.hideLabels === true;
                     scope.palette = [];
 
                     var xml;
@@ -29,7 +30,11 @@
 
                     angular.forEach(colorsets,
                         function (colorset) {
-                            var paletteColorset = [];
+                            var paletteColorset = {
+                                id: $(colorset).attr("id"),
+                                title: $(colorset).attr("title"),
+                                colors: []
+                            };
 
                             var colors = $(colorset).find("color");
                             var width = 100 / (colors.length + 1);
@@ -49,7 +54,7 @@
                                     var colorWidth = nr === "0" ? width * 2 : width;
                                     var colorLeft = parseInt(nr) > midPoint ? ((index + 1) * width) : (index * width);
 
-                                    paletteColorset.push({
+                                    paletteColorset.colors.push({
                                         id: id,
                                         rgb: "#" + rgb,
                                         left: colorLeft,
@@ -68,6 +73,19 @@
                     });
 
                 preview();
+            },
+            controller: function($scope) {
+                $scope.mouseOver = function ($event, color) {
+                    if ($scope.hasTooltip) {
+                        color.tooltip = { show: true, event: $event };
+                    }
+                };
+
+                $scope.mouseLeave = function (color) {
+                    if ($scope.hasTooltip) {
+                        color.tooltip = { show: false, event: null };;
+                    }
+                };
             }
         };
     });

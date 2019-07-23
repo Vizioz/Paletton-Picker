@@ -24,32 +24,54 @@
     padding: 10px;
 }
 
-.paletton-preview .colorset {
+    .paletton-preview .colorset .colorset-title {
+        font-size: 12px;
+    }
+
+.paletton-preview .colorset .colorset-colors {
     display: block;
     width: 100%;
     position: relative;
-    min-height: 75px;
+    min-height: 45px;
+    padding-bottom: 8px;
+    box-sizing: content-box;
 }
 
-.paletton-preview .colorset .color-block {
-    display: block;
-    position: absolute;
-    top: 0;
+    .paletton-preview .colorset .colorset-colors.has-labels {
+        min-height: 70px;
+    }
+
+    .paletton-preview .colorset .colorset-colors .color-block {
+        display: block;
+        position: absolute;
+        top: 0;
+    }
+
+.paletton-preview .colorset .colorset-colors .color-block .umb-tooltip {
+    text-align: center;
 }
 
-.paletton-preview .colorset .color-block-color {
-    display: block;
-    height: 50px;
-    width: 100%;
-}
+    .paletton-preview .colorset .colorset-colors .color-block-color {
+        display: block;
+        height: 40px;
+        width: 100%;
+        border: 1px solid black;
+    }
 
-.paletton-preview .colorset .color-block-desc {
+.paletton-preview .colorset .colorset-colors .color-block-desc {
     display: block;
     width: 100%;
     text-align: center;
     font-size: 10px;
     line-height: 10px;
+    padding: 5px 0;
 }
+
+.paletton-editor-preview .paletton-preview .colorset .colorset-colors .color-block-desc {
+    font-size: 9px;
+    line-height: 9px;
+}
+
 
 /* Paletton picker */
 .paletton-item {

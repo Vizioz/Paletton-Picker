@@ -9,13 +9,13 @@
         </umb-editor-header>
 
         <umb-editor-container class="flex paletton-value-picker-container">
-            <umb-box class="flex" style="height:100%;">
+            <umb-box class="flex" style="min-height:100%;">
                 <umb-box-content>
                     <div class="umb-control-group paletton-value-picker">
                         <div class="help-text">Paste a valid XML snippet from Paletton containing your pallette of colors</div>
                         <textarea ng-model="editModel.content" rows="10" required></textarea>
                     </div>
-                    <div class="umb-control-group paletton-value-picker">
+                    <div class="umb-control-group paletton-value-picker paletton-editor-preview">
                         <paletton-preview value="editModel.content" type="editModel.type"></paletton-preview>
                     </div>
                 </umb-box-content>
