@@ -1,8 +1,10 @@
-Paletton.Core/bin/
-Paletton.Core/obj/
-Umbraco.Web/
-!Umbraco.Web/App_Plugins/Vizioz.Paletton/
+Source/Paletton.Core/bin/
+Source/Paletton.Core/obj/
+Source/Umbraco.Web/
+!Source/Umbraco.Web/App_Plugins/Vizioz.Paletton/
 
-.vs/
-packages/
-Paletton.sln
+Source/.vs/
+Source/packages/
+Source/Paletton.sln
+
+nuget.exe
