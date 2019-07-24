@@ -13,6 +13,9 @@
 /* BASE RULES */
 /**************/
 
+html, body {
+	height: 100%;
+}
 html {
   font-size: 100%;
 }
@@ -21,8 +24,17 @@ body {
 	background: $white;
   font: 18px/1.4 $helvetica;
   color: $darkGray;
+	display: flex;
+	flex-direction: column;
 }
 
+#main {
+	flex: 1 0 auto;
+}
+
+#foot{
+	flex-shrink: 0;
+}
 .container {
   margin: 0 auto;
   max-width: 740px;
