@@ -348,6 +348,7 @@ nav {
   border-bottom: 1px solid $color-secondary-2;
   padding: 20px 0;
   color: $color-primary-3;
+box-shadow: 0 1px 2px $color-secondary-2;
 }
 
 .video {
@@ -377,6 +378,7 @@ nav {
 footer {
   padding: 20px 0;
   text-align: center;
+box-shadow: 0 -2px 5px #999;
 
   .footer-top {
     padding: 30px 0;
