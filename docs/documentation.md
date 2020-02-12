@@ -12,7 +12,7 @@
         <li class="side-link"><a href="#reference-api">API</a></li>
         <li class="side-link"><a href="#reference-css">CSS rules</a></li>
       </ul>
-    </nav>
+    </div>
   </aside>
   <div class="main-content">
 
