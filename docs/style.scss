@@ -106,13 +106,11 @@ h1 {
   a {
     color: inherit;
   }
-
-  ::after {
-  }
 }
 
 h2 {
   font-size: 28px;
+padding-left: 38px;
 	
 &::before{
     content: "";
@@ -127,6 +125,7 @@ h2 {
 
 h3 {
   font-size: 22px;
+padding-left: 22px;
 	
 &::before{
     content: "";
