@@ -1,3 +1,9 @@
+---
+layout: documentation_layout
+title: Documentation
+permalink: /documentation.html
+---
+
 <div class="container-side-bar">
   <aside id="side" class="side-bar">
     <div class="side-bar-nav">
