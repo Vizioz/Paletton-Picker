@@ -9,6 +9,8 @@ The following steps explain how to configure and use the Paletton Picker from th
 
 We assume the package has been installed already. Otherwise, please refer to the [Resources]({{ site.baseurl }}/resources) section.
 
+---
+
 ### Configure data types {#guide-data-type}
 
 To create the data type we do as for any other data type that we want to create in the Umbraco backoffice. In Umbraco V8, we find our collection of data types in the Settings section, while in previous versions we can find it in the Developer section. In any case, the process is the same and we can create a new one by clicking on the three dots next to the "Data Types" title on the left hand side tree.
@@ -25,9 +27,13 @@ Finally, we give a name to our newly created data type and save it.
 
 For editors to be able to use the Paletton Picker in the content nodes, we will have to add it previously as a property in our document types.
 
+---
+
 ### Editors {#guide-editors}
 
 Editors can very easily change the value of the Paletton Picker value in content nodes. The property is displayed in a similar way to a content picker. Editors can add a single color pattern or remove it.
+
+---
 
 ### Add to view {#guide-view}
 
@@ -112,6 +118,8 @@ Will result in something similar to:
 ![View Example]({{ site.baseurl }}/images/view-example.png)
 
 By changing the value of the Paletton Picker property in the content nodes, the colors displayed in the view will change accordingly.
+
+---
 
 ## Reference {#reference}
 
@@ -266,6 +274,8 @@ As a general rule, the naming of the classes used for the CSS selectors consists
 1. attribute to apply the color to (empty for color, "bg" for background-color, "border" for border-color).
 2. pseudo class or pseudo element name, if any (i.e. "after", "first-of-type", etc).
 3. the color id (i.e. "primary-1", "secondary-1-1", "complement-1").
+
+---
 
 #### Class selectors
 
