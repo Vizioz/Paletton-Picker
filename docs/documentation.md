@@ -3,7 +3,7 @@ layout: documentation_layout
 title: Documentation
 ---
 
-## Guide {#guide}
+## Quick guide {#guide}
 
 The following steps explain how to configure and use the Paletton Picker from the creating of the data type to using it in the views.
 
