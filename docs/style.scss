@@ -113,10 +113,30 @@ h1 {
 
 h2 {
   font-size: 28px;
+	
+&::before{
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    bottom: 8px;
+    left: 0;
+    background-color: $color-primary-4;
+  }
 }
 
 h3 {
   font-size: 22px;
+	
+&::before{
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 22px;
+    bottom: 6px;
+    left: 0;
+    background-color: $color-primary-4;
+  }
 }
 
 h4 {
@@ -175,6 +195,11 @@ strong, b {
 
 img {
   max-width: 100%;
+}
+
+hr {
+  margin-bottom: 1.5em;
+  margin-top: 2em;
 }
 
 .bold {
