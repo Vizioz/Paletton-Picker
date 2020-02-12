@@ -121,7 +121,9 @@ By changing the value of the Paletton Picker property in the content nodes, the 
 
 ##### Get CSS styles (with Models Builder)
 
-*GetCssStyles(this JToken value, bool addStyleTag = true, bool includePseudoElements = false, bool includePseudoClasses = false) _: IHtmlString_* {.declaration}
+*GetCssStyles(this JToken value, bool addStyleTag = true, bool includePseudoElements = false, bool includePseudoClasses = false)*_ : IHtmlString_
+
+_GetCssStyles(this JToken value, bool addStyleTag = true, bool includePseudoElements = false, bool includePseudoClasses = false)*_ : IHtmlString*_
 
 This method will return a CSS stylesheet as an Html string and is used on Paletton Picker properties of PublishedContentModel objects. It is an extension method for the JToken class, which is the actual type of Paletton Picker property returned by Models Builder. It accepts several optional parameters.
 
