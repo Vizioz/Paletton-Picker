@@ -109,7 +109,7 @@ We now can apply the necessary classes to our HTML elements. For instance:
 
 Will result in something similar to:
 
-![View Example]({{ site.baseUrl }}images/view-example.png)
+![View Example]({{ site.baseUrl }}/images/view-example.png)
 
 By changing the value of the Paletton Picker property in the content nodes, the colors displayed in the view will change accordingly.
 
