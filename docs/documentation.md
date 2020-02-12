@@ -109,7 +109,7 @@ We now can apply the necessary classes to our HTML elements. For instance:
 
 Will result in something similar to:
 
-![View Example]({{ site.baseurl }}/images/view-example.png)
+![View Example]({{ site.baseUrl }}images/view-example.png)
 
 By changing the value of the Paletton Picker property in the content nodes, the colors displayed in the view will change accordingly.
 
@@ -121,7 +121,7 @@ By changing the value of the Paletton Picker property in the content nodes, the 
 
 ##### Get CSS styles (with Models Builder)
 
-_GetCssStyles(this JToken value, bool addStyleTag = true, bool includePseudoElements = false, bool includePseudoClasses = false) **: IHtmlString**_
+_**GetCssStyles(this JToken value, bool addStyleTag = true, bool includePseudoElements = false, bool includePseudoClasses = false)** : IHtmlString_
 
 This method will return a CSS stylesheet as an Html string and is used on Paletton Picker properties of PublishedContentModel objects. It is an extension method for the JToken class, which is the actual type of Paletton Picker property returned by Models Builder. It accepts several optional parameters.
 
@@ -143,7 +143,7 @@ parameter | type | mandatory | description
 
 ##### Get CSS styles (without Models Builder)
 
-*IHtmlString GetCssStyles(this IPublishedContent content, string propertyAlias, bool addStyleTag = true, bool includePseudoElements = false, bool includePseudoClasses = false) _: IHtmlString_* {.declaration}
+_**IHtmlString GetCssStyles(this IPublishedContent content, string propertyAlias, bool addStyleTag = true, bool includePseudoElements = false, bool includePseudoClasses = false)** : IHtmlString_
 
 This method will return a CSS stylesheet as an Html string and is used on IPublishedContent objects. It is an extension method for the IPublishedContent class. It accepts the same optional parameters as the previous method.
 
@@ -166,7 +166,7 @@ parameter | type | mandatory | description
 
 ##### Get palette (with Models Builder)
 
-*GetPalette(JToken value) _: PalettonPalette_* {.declaration}
+_**GetPalette(JToken value)** : PalettonPalette_
 
 This method will return all colors and color sets information as a PalettonPalette object and is used on Paletton Picker properties of PublishedContentModel objects. It is an extension method for the JToken class, which is the actual type of Paletton Picker property returned by Models Builder.
 
@@ -184,7 +184,7 @@ parameter | type | mandatory | description
 
 ##### Get palette (without Models Builder)
 
-*GetPalette(this IPublishedContent content, string propertyAlias) _: PalettonPalette_* {.declaration}
+_GetPalette(this IPublishedContent content, string propertyAlias)** : PalettonPalette_
 
 This method will return all colors and color sets information as a Paletton Picker object and is used on IPublishedContent objects. It is an extension method for the IPublishedContent class.
 
@@ -209,21 +209,21 @@ It defines the palette object, containing the list of color sets (primary, secon
 
 **Properties**
 
-- *Url (string)_. Optional Url indicating the source of the color palette._* {.declaration}
+- _**Url (string)**. Optional Url indicating the source of the color palette._
 
-- *ColorSets (IEnumerable<PalettonColorSet>)_. The list of color sets included in the palette._* {.declaration}
+- _**ColorSets (IEnumerable<PalettonColorSet>)**. The list of color sets included in the palette._
 
 **Methods**
 
-- *ColorSet(string id)_ : PalettonColorSet_* {.declaration}
+- _**ColorSet(string id)** : PalettonColorSet_
 
   Returns a color set by id (i.e. "primary", "secondary-1", "secondary-2", "complement")
 
-- *Color(string colorId)_ : PalettonColorSet_* {.declaration}
+- _**Color(string colorId)** : PalettonColorSet_
 
   Returns a color from among all color sets by color id (i.e. "primary-0", "secondary-1-0", "secondary-2-0", "complement-0", etc)
 
-- *Alpha(string colorId, decimal alphaValue)_ : string_* {.declaration}
+- _**Alpha(string colorId, decimal alphaValue)** : string_
 
   Returns an alpha color from among all color sets by color id (i.e. "primary-0", "secondary-1-0", "secondary-2-0", "complement-0", etc) and an alpha value between 0 and 1, in the form of rgba color.
 
@@ -233,9 +233,9 @@ Individual set of colors (primary, secondary or complement) that compose a Palet
 
 **Properties**
 
-- *Id (string)_. The id of the color set (primary, secondary-1, secondary-2, complement)._*
-- *Title (string)_. Optional title of the color set._*
-- *Colors (IEnumerable<PalettonColor>)_. The list of colors included in the color set._*
+- _**Id (string)**. The id of the color set (primary, secondary-1, secondary-2, complement)._
+- _**Title (string)**. Optional title of the color set._
+- _**Colors (IEnumerable<PalettonColor>)**. The list of colors included in the color set._
 
 ##### PalettonColor
 
@@ -243,17 +243,17 @@ A single color within a color set.
 
 **Properties**
 
-- *Id (string)_. The id of the color (i.e. "primary-0", "secondary-1-0", "secondary-2-0", "complement-0", etc)._* {.declaration}
-- *Hex (string)_. The color expressed as a hexadecimal value (i.e. AA3939)._* {.declaration}
-- *Red (int)_. The red component of the color as an integer between 0 and 255._* {.declaration}
-- *Green (int)_. The green component of the color as an integer between 0 and 255._* {.declaration}
-- *Blue (int)_. The blue component of the color as an integer between 0 and 255._* {.declaration}
-- *HexColor (string)_. The Hex Code (#RRGGBB) of the color (i.e. #AA3939)._* {.declaration}
-- *RgbColor (string)_. The Decimal Code (R, G, B) of the color (i.e. rgb(170,57,57))._* {.declaration}
+- _**Id (string)**. The id of the color (i.e. "primary-0", "secondary-1-0", "secondary-2-0", "complement-0", etc)._
+- _**Hex (string)**. The color expressed as a hexadecimal value (i.e. AA3939)._
+- _**Red (int)**. The red component of the color as an integer between 0 and 255._
+- _**Green (int)**. The green component of the color as an integer between 0 and 255._
+- _**Blue (int)**. The blue component of the color as an integer between 0 and 255._
+- _**HexColor (string)**. The Hex Code (#RRGGBB) of the color (i.e. #AA3939)._
+- _**RgbColor (string)**. The Decimal Code (R, G, B) of the color (i.e. rgb(170,57,57))._
 
 **Methods**
 
-- *Alpha(decimal alphaValue)_ : string_* {.declaration}
+- _**Alpha(decimal alphaValue)** : string_
 
   Returns the color with an alpha transparency between 0 and 1, in the form of rgba color.
 
