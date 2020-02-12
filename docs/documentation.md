@@ -265,6 +265,8 @@ A single color within a color set.
 
   Returns the color with an alpha transparency between 0 and 1, in the form of rgba color.
 
+---
+
 ### CSS rules {#reference-css}
 
 This is the full list of possible CSS rules that can be rendered using the Paletton Picker methods. The rules available will depend on the color sets used on our template (primary, secondary-1, secondary-2, complement), and whether we are including pseudo elements and pseudo classes.
@@ -274,8 +276,6 @@ As a general rule, the naming of the classes used for the CSS selectors consists
 1. attribute to apply the color to (empty for color, "bg" for background-color, "border" for border-color).
 2. pseudo class or pseudo element name, if any (i.e. "after", "first-of-type", etc).
 3. the color id (i.e. "primary-1", "secondary-1-1", "complement-1").
-
----
 
 #### Class selectors
 
