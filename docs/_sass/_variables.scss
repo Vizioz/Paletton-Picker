@@ -29,7 +29,14 @@ $font-family-native: -apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,ubu
 
 // Mobile breakpoints
 @mixin mobile {
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+// Mobile breakpoints
+@mixin tablet {
+  @media screen and (max-width: 992px) {
     @content;
   }
 }
