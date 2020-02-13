@@ -72,7 +72,12 @@ body {
 
   .side-bar-nav {
     margin-right: 40px;
-    width: 210px;		
+    width: 210px;
+	  
+    @include tablet {
+      margin-right: 20px;
+      width: 190px;
+    }
   }
 
   .nav-section {
@@ -92,6 +97,11 @@ body {
 			font-weight: 700;
 		}
   }
+	
+  @include tablet {
+    width: 210px;
+  }
+	
   @include mobile {
     display: none;
   }
