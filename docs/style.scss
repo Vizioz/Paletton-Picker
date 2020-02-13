@@ -60,10 +60,11 @@ body {
 }
 
 .side-bar {
-  width: auto;
+  width: 250px;
   padding: 30px 0 20px;
   color: $color-secondary-0;
   font-size: 15px;
+	position: relative;
 
   a {
     color: $color-secondary-0;
@@ -71,6 +72,11 @@ body {
 
   .side-bar-nav {
     margin-right: 40px;
+		width: 210px;
+
+		@include mobile {
+	    display: none;
+	  }
   }
 
   .nav-section {
@@ -84,6 +90,11 @@ body {
     padding: 8px 40px 8px 0;
     border-right: 4px solid $color-secondary-2;
     font-weight: 600;
+
+		&.main-link {
+			text-transform: uppercase;
+			font-weight: 700;
+		}
   }
 }
 
@@ -102,40 +113,24 @@ position: relative;
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 28px;
+  font-weight: 100;
+  text-transform: uppercase;
+
   a {
     color: inherit;
   }
 }
 
 h2 {
-  font-size: 28px;
-padding-left: 38px;
-	
-&::before{
-    content: "";
-    position: absolute;
-    width: 28px;
-    height: 28px;
-    bottom: 8px;
-    left: 0;
-    background-color: $color-primary-4;
-  }
+  font-size: 24px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ccc;
 }
 
 h3 {
   font-size: 22px;
-padding-left: 22px;
-	
-&::before{
-    content: "";
-    position: absolute;
-    width: 12px;
-    height: 22px;
-    bottom: 6px;
-    left: 0;
-    background-color: $color-primary-4;
-  }
+  border-bottom: 1px solid #ccc;
 }
 
 h4 {
@@ -165,11 +160,15 @@ a {
 
 ul, ol {
   margin: 15px 0;
-  padding-left: 30px;
+  padding-left: 40px;
+
+	h1, h2, h3, h4, h5, h6 {
+		margin-left: -14px;
+	}
 }
 
 ul {
-  list-style-type: disc;
+  list-style-type: none;
 }
 
 ol {
@@ -188,6 +187,10 @@ em, i {
   font-style: italic;
 }
 
+em {
+	color: $color-secondary-3;
+}
+
 strong, b {
   font-weight: bold;
 }
@@ -199,6 +202,19 @@ img {
 hr {
   margin-bottom: 1.5em;
   margin-top: 2em;
+}
+
+table {
+
+	font-size: 0.8em;
+
+	tr {
+		border: 1px solid $color-secondary-2;
+	}
+
+	td, th {
+    padding: 5px 10px;
+	}
 }
 
 .bold {
@@ -266,10 +282,12 @@ hr {
   height: 70px;
   margin-right: 15px;
 
-  @include mobile {
+  @include tablet {
     float: none;
-    display: block;
+    display: inline-block;
     margin: 0 auto;
+		width: 50px;
+	  height: 50px;
   }
 
   img {
@@ -280,7 +298,7 @@ hr {
 .site-info {
   float: left;
 
-  @include mobile {
+  @include tablet {
     float: none;
     display: block;
     margin: 0 auto;
@@ -296,6 +314,12 @@ hr {
   font-weight: bolder;
   font-size: 34px;
   letter-spacing: -2px;
+	vertical-align: top;
+
+	@include tablet {
+    font-size: 28px;
+    margin-top: 10px;
+  }
 }
 
 .site-description {
@@ -313,6 +337,10 @@ nav {
   margin-top: 35px; // @TODO: Vertically middle align
   font-family: $font-family-native;
   font-size: 18px;
+
+	@include tablet {
+    margin-top: 22px;
+  }
 
   @include mobile {
     float: none;
@@ -334,7 +362,6 @@ nav {
 
     @include mobile {
       margin: 0 10px;
-      color: $color-primary-0;
     }
   }
 }
@@ -348,6 +375,18 @@ nav {
   padding: 20px 0;
   color: $color-primary-3;
 box-shadow: 0 1px 2px $color-secondary-2;
+
+	@include tablet {
+		padding: 2px 0;
+	}
+
+	@include mobile {
+		text-align: center;
+
+		h1 {
+			margin: 10px 0;
+		}
+	}
 }
 
 .video {
