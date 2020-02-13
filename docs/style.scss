@@ -84,6 +84,11 @@ body {
     padding: 8px 40px 8px 0;
     border-right: 4px solid $color-secondary-2;
     font-weight: 600;
+
+		&.main-link {
+			text-transform: uppercase;
+			font-weight: 700;
+		}
   }
 }
 
@@ -102,40 +107,24 @@ position: relative;
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 28px;
+  font-weight: 100;
+  text-transform: uppercase;
+
   a {
     color: inherit;
   }
 }
 
 h2 {
-  font-size: 28px;
-padding-left: 38px;
-	
-&::before{
-    content: "";
-    position: absolute;
-    width: 28px;
-    height: 28px;
-    bottom: 8px;
-    left: 0;
-    background-color: $color-primary-4;
-  }
+  font-size: 24px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ccc;
 }
 
 h3 {
   font-size: 22px;
-padding-left: 22px;
-	
-&::before{
-    content: "";
-    position: absolute;
-    width: 12px;
-    height: 22px;
-    bottom: 6px;
-    left: 0;
-    background-color: $color-primary-4;
-  }
+  border-bottom: 1px solid #ccc;
 }
 
 h4 {
@@ -165,11 +154,15 @@ a {
 
 ul, ol {
   margin: 15px 0;
-  padding-left: 30px;
+  padding-left: 40px;
+
+	h1, h2, h3, h4, h5, h6 {
+		margin-left: -14px;
+	}
 }
 
 ul {
-  list-style-type: disc;
+  list-style-type: none;
 }
 
 ol {
@@ -188,6 +181,10 @@ em, i {
   font-style: italic;
 }
 
+em {
+	color: $color-secondary-3;
+}
+
 strong, b {
   font-weight: bold;
 }
@@ -199,6 +196,19 @@ img {
 hr {
   margin-bottom: 1.5em;
   margin-top: 2em;
+}
+
+table {
+
+	font-size: 0.8em;
+
+	tr {
+		border: 1px solid $color-secondary-2;
+	}
+
+	td, th {
+    padding: 5px 10px;
+	}
 }
 
 .bold {
