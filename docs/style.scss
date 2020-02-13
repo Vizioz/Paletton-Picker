@@ -108,7 +108,7 @@ body {
 	  }
 
 	  @include mobile {
-	    display: none;
+	    width: 100%;
 	  }
   }
 }
@@ -450,6 +450,10 @@ box-shadow: 0 -2px 5px #999;
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+
+.highlight {
+  font-size: 0.8em;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
