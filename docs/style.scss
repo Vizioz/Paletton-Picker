@@ -51,15 +51,7 @@ body {
   display: flex;
 
   .side-bar {
-    flex: 1 0 auto !important;
-  }
-
-  .main-content {
-    flex: 0 1 auto !important;
-  }
-}
-
-.side-bar {
+  flex: 1 0 auto !important;
   width: 250px;
   padding: 30px 0 20px;
   color: $color-secondary-0;
@@ -104,6 +96,20 @@ body {
 	
   @include mobile {
     display: none;
+  }
+}
+
+  .main-content {
+    flex: 0 1 auto !important;
+    width: calc(100% - 250px);
+	  
+	  @include tablet {
+	    width: calc(100% - 210px);
+	  }
+
+	  @include mobile {
+	    display: none;
+	  }
   }
 }
 
