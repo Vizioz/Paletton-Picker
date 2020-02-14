@@ -1,10 +1,15 @@
-Source/Paletton.Core/bin/
-Source/Paletton.Core/obj/
-Source/Umbraco.Web/
-!Source/Umbraco.Web/App_Plugins/Vizioz.Paletton/
+Source/PalettePicker.Core.V7/bin/
+Source/PalettePicker.Core.V7/obj/
+Source/PalettePicker.Web.V7/
+!Source/PalettePicker.Web.V7/App_Plugins/Vizioz.Paletton/
+
+Source/PalettePicker.Core.V8/bin/
+Source/PalettePicker.Core.V8/obj/
+Source/PalettePicker.Web.V8/
+!Source/PalettePicker.Web.V8/App_Plugins/Vizioz.Paletton/
 
 Source/.vs/
 Source/packages/
-Source/Paletton.sln
+Source/PalettePicker.sln
 
 nuget.exe
