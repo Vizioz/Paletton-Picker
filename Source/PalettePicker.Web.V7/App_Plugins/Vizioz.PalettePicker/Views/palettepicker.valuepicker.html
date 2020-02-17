@@ -1,0 +1,31 @@
+﻿<div ng-controller="Vizioz.PalettePicker.ValuePickerController as vm">
+    <form name="dialogForm" ng-submit="vm.submit(model)">
+        <umb-panel>
+            <div class="umb-panel-header">
+                <h4>{{title}}</h4>
+            </div>
+            <div class="umb-panel-body with-footer">
+                <umb-pane>
+                    <umb-box ng-repeat="item in model.config.palettes" ng-click="vm.select($index)" class="palette-item" ng-class="{selected:$index===selectedIndex}">
+                        <umb-box-content>
+                            <label class="palette-checkbox" for="palette-item-{{$index}}">
+                                <input id="palette-item-{{$index}}" type="radio" ng-model="model.value" ng-value="item" />
+                                <palette-preview value="item" hide-labels="true"></palette-preview>
+                            </label>
+                        </umb-box-content>
+                    </umb-box>
+                </umb-pane>
+            </div>
+            <div class="umb-panel-footer">
+                <div class="btn-toolbar umb-btn-toolbar pull-right">
+                    <a class="btn btn-link" ng-click="vm.close()">
+                        <localize key="cancel" />
+                    </a>
+                    <button type="submit" class="btn btn-primary" ng-disabled="!dialogForm.$valid">
+                        <localize key="buttons_save">Save</localize>
+                    </button>
+                </div>
+            </div>
+        </umb-panel>
+    </form>
+</div>

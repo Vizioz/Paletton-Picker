@@ -1,12 +1,12 @@
 Source/PalettePicker.Core.V7/bin/
 Source/PalettePicker.Core.V7/obj/
 Source/PalettePicker.Web.V7/
-!Source/PalettePicker.Web.V7/App_Plugins/Vizioz.Paletton/
+!Source/PalettePicker.Web.V7/App_Plugins/Vizioz.PalettePicker/
 
 Source/PalettePicker.Core.V8/bin/
 Source/PalettePicker.Core.V8/obj/
 Source/PalettePicker.Web.V8/
-!Source/PalettePicker.Web.V8/App_Plugins/Vizioz.Paletton/
+!Source/PalettePicker.Web.V8/App_Plugins/Vizioz.PalettePicker/
 
 Source/.vs/
 Source/packages/

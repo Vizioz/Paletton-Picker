@@ -1,0 +1,31 @@
+﻿<div ng-controller="Vizioz.PalettePicker.EditorPrevalueController as vm" class="palette-dialog">
+    <form name="dialogForm" ng-submit="vm.submit(editModel)">
+        <umb-panel>
+            <div class="umb-panel-header">
+                <h4>{{title}}</h4>
+            </div>
+            <div class="umb-panel-body with-footer">
+                <umb-pane>
+                    <div class="umb-control-group palette-value-picker">
+                        <div class="help-text">Paste a valid XML snippet containing your pallette of colors (i.e. paletton.com)</div>
+                        <textarea ng-model="editModel.content" rows="10" required></textarea>
+                    </div>
+                    <div class="palette-value-picker palette-editor-preview">
+                        <palette-preview value="editModel"></palette-preview>
+                    </div>
+                    <div ng-if="editModel.content && !editModel.valid" class="red">Invalid XML.</div>
+                </umb-pane>
+            </div>
+            <div class="umb-panel-footer">
+                <div class="btn-toolbar umb-btn-toolbar pull-right">
+                    <a class="btn btn-link" ng-click="vm.close()">
+                        <localize key="cancel"/>
+                    </a>
+                    <button type="submit" class="btn btn-primary" ng-disabled="!dialogForm.$valid">
+                        <localize key="buttons_save">Save</localize>
+                    </button>
+                </div>
+            </div>
+        </umb-panel>
+    </form>
+</div>
