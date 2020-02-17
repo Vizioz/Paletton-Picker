@@ -20,7 +20,7 @@
             dialogService.open({
                 template: "/App_Plugins/Vizioz.PalettePicker/Views/palettepicker.valuepicker.html",
                 dialogData: {
-                    title: "Select a color template",
+                    title: "Select a colour template",
                     value: $scope.model.value,
                     config: $scope.model.config
                 },

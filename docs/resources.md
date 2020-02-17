@@ -3,9 +3,9 @@ layout: default
 title: Resources
 ---
 
-Paletton Picker can be installed from Our Umbraco, the NuGet package repository, or by downloading and compiling the source code from GitHub. You are also welcome to contribute to the package from GitHub.
+Palette Picker can be installed from Our Umbraco, the NuGet package repository, or by downloading and compiling the source code from GitHub. You are also welcome to contribute to the package from GitHub.
 
-Paletton Picker comes in two versions, compatible with the two major Umbraco versions that most people currently use, V7 and V8. Please make sure you download the one compatible with your CMS.
+Palette Picker comes in two versions, compatible with the two major Umbraco versions that most people currently use, V7 and V8. Please make sure you download the one compatible with your CMS.
 
 ## Our Umbraco
 

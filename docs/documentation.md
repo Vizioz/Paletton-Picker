@@ -5,7 +5,7 @@ title: Documentation
 
 ## Quick guide {#guide}
 
-The following steps explain how to configure and use the Paletton Picker from the creating of the data type to using it in the views.
+The following steps explain how to configure and use the Palette Picker from the creating of the data type to using it in the views.
 
 We assume the package has been installed already. Otherwise, please refer to the [Resources]({{ site.baseurl }}/resources) section.
 
@@ -15,11 +15,11 @@ To create the data type we do as for any other data type that we want to create 
 
 ![Create Data Type]({{ site.baseurl }}/images/Developer-1.jpg)
 
-From the property editor dropdown, we need to select "Paletton Picker". Once selected, we can see a new configuration property underneath for "Color patterns". Here we will configure the color patterns that will be available to use on our document types. We can add new ones by clicking on the "Add" button. We will be prompted then by a side panel to paste a valid XML snippet to define a new palette of colors.
+From the property editor dropdown, we need to select "Palette Picker". Once selected, we can see a new configuration property underneath for "Colour palettes". Here we will configure the colour templates that will be available to use on our document types. We can add new ones by clicking on the "Add" button. We will be prompted then by a side panel to paste a valid XML snippet to define a new palette of colours.
 
-![Configure Paletton Picker]({{ site.baseurl }}/images/Developer-3.jpg)
+![Configure Palette Picker]({{ site.baseurl }}/images/Developer-3.jpg)
 
-Paletton picker is based on [Paletton.com](https://paletton.com/). We can get our color palette from there. The paletton interface is very intuitive. We can have a play with it until we find the right colors. Generally, it will let us choose up to 4 different colors, each one configuring a color set. Each color set will then split into 5 different shades, making then our full palette. Once happy, if we click on "Tables/Export" on the bottom right corner, and then click on "as XML", it will generate the XML snippet with all selected colors. Paletton picker will accept any color configuration with sets of primary, secondary and complement colors. But the current version will only accept snippets in XML format. Future versions of this package might accept other formats. We can use a snippet from any other source as long as it is in XML format.
+Palette picker is based on [Paletton.com](https://paletton.com/). We can get our colour palette from there. The paletton interface is very intuitive. We can have a play with it until we find the right colours. Generally, it will let us choose up to 4 different colours, each one configuring a colour set. Each colour set will then split into 5 different shades, making our full palette. Once happy, if we click on "Tables/Export" on the bottom right corner, and then click on "as XML", it will generate the XML snippet with all selected colours. Palette picker will accept any colour configuration with sets of primary, secondary and complement colours. But the current version will only accept snippets in XML format. Future versions of this package might accept other formats. We can use a snippet from any other source as long as it is in XML format.
 
 ![Paletton]({{ site.baseurl }}/images/Paletton-1.jpg)
 
@@ -27,21 +27,21 @@ Paletton picker is based on [Paletton.com](https://paletton.com/). We can get ou
 
 We then copy the snippet into the textbox. If it is well formatted, we will see the template preview below it, otherwise it means the snippet is not well formatted or contains errors.
 
-![Paletton Picker Color Template]({{ site.baseurl }}/images/Developer-4.jpg)
+![Palette Picker Colour Template]({{ site.baseurl }}/images/Developer-4.jpg)
 
 We can add as many templates as we like, which are visible in the data type configuration.
 
 Finally, we give a name to our newly created data type and save it.
 
-![Paletton Picker Data Type]({{ site.baseurl }}/images/Developer-5.jpg)
+![Palette Picker Data Type]({{ site.baseurl }}/images/Developer-5.jpg)
 
-For editors to be able to use the Paletton Picker in the content nodes, we will have to add it previously as a property in our document types.
+For editors to be able to use the Palette Picker in the content nodes, we will have to add it previously as a property in our document types.
 
-![Add Paletton Picker Property]({{ site.baseurl }}/images/Developer-6.jpg)
+![Add Palette Picker Property]({{ site.baseurl }}/images/Developer-6.jpg)
 
 ### Editors {#guide-editors}
 
-Editors can very easily change the value of the Paletton Picker value in content nodes. The property is displayed in a similar way to a content picker. Editors can add a single color pattern or remove it.
+Editors can very easily change the value of the Palette Picker value in content nodes. The property is displayed in a similar way to a content picker. Editors can add a single colour template or remove it.
 
 ![Content Property - Empty]({{ site.baseurl }}/images/Editor-1.jpg)
 
@@ -53,19 +53,19 @@ Editors can very easily change the value of the Paletton Picker value in content
 
 This is the part that involves a bit of code.
 
-The first thing to do is to import the color template styles into our view. We use the Paletton Picker extension methods to do this. Depending on whether we are using Models Builder or not, we can use the following methods:
+The first thing to do is to import the colour template styles into our view. We use the Palette Picker extension methods to do this. Depending on whether we are using Models Builder or not, we can use the following methods:
 
 ````csharp
 // With models builder
-@Html.Raw(Model.ColorPatternProperty.GetCssStyles())
+@Html.Raw(Model.PalettePickerProperty.GetCssStyles())
 ````
 
 ````csharp
 // Without models builder
-@Html.Raw(Model.GetCssStyles("colorPatterPropertyAlias"))
+@Html.Raw(Model.GetCssStyles("palettePickerPropertyAlias"))
 ````
 
-This will render an internal CSS stylesheet with a series of rules from to the colors contained in the Paletton Picker value. These rules will have class selectors for font color, background color and border color, for every color defined in the Paletton Picker value, as in the example below.
+This will render an internal CSS stylesheet with a series of rules from to the colours contained in the Palette Picker value. These rules will have class selectors containing properties for color, background-color and bordercolor, for every colour defined in the Palette Picker value, as in the example below.
 
 ````html
 <style type="text/css">
@@ -117,21 +117,21 @@ This will render an internal CSS stylesheet with a series of rules from to the c
 </style>
 ````
 
-For secondary and complementary colors, the rules will have similar class selectors, for instance, bg-secondary-1-1, bg-complement-1. For full reference, please go to [CSS rules](#reference-css).
+For secondary and complementary colours, the rules will have similar class selectors, for instance, bg-secondary-1-1, bg-complement-1. For full reference, please go to [CSS rules](#reference-css).
 
 Besides class selector, we can generate selectors for pseudo classes and pseudo elements. For full specification, please go to the [API section](#reference-api).
 
 We now can apply the necessary classes to our HTML elements. For instance:
 
 ````html
-<div class="primary-0 bg-primary-1 border-primary-4">I love Paletton Picker</div>
+<div class="primary-0 bg-primary-1 border-primary-4">I love Palette Picker</div>
 ````
 
 Will result in something similar to:
 
 ![View Example]({{ site.baseurl }}/images/view-example.png)
 
-By changing the value of the Paletton Picker property in the content nodes, the colors displayed in the view will change accordingly.
+By changing the value of the Palette Picker property in the content nodes, the colours displayed in the view will change accordingly.
 
 ![View Example]({{ site.baseurl }}/images/view-example-2.png)
 
@@ -145,12 +145,12 @@ By changing the value of the Paletton Picker property in the content nodes, the 
 
   _**GetCssStyles(this JToken value, bool addStyleTag = true, bool includePseudoElements = false, bool includePseudoClasses = false)** : IHtmlString_
 
-  This method will return a CSS stylesheet as an Html string and is used on Paletton Picker properties of PublishedContentModel objects. It is an extension method for the JToken class, which is the actual type of Paletton Picker property returned by Models Builder. It accepts several optional parameters.
+  This method will return a CSS stylesheet as an Html string and is used on Palette Picker properties of PublishedContentModel objects. It is an extension method for the JToken class, which is the actual type of Palette Picker property returned by Models Builder. It accepts several optional parameters.
 
   **How to use**
 
   ````csharp
-  @{ var styles = Model.ColorPatternProperty.GetCssStyles(); }
+  @{ var styles = Model.PalettePickerProperty.GetCssStyles(); }
   @Html.Raw(styles)
   ````
 
@@ -158,8 +158,8 @@ By changing the value of the Paletton Picker property in the content nodes, the 
 
   parameter | type | mandatory | description
   :--- | :--- | :--- | :---
-  **value** | JToken | mandatory | The actual Paletton Picker value.
-  **addStyleTag** | boolean | optional (default = true) | Wheter to add the \<style\> tag to the returned Html string. If true, it will return the whole CSS stylesheet within the \<style\> tag. If false, it will return only the CSS rules.
+  **value** | JToken | mandatory | The actual Palette Picker value.
+  **addStyleTag** | boolean | optional (default = true) | Whether to add the \<style\> tag to the returned Html string. If true, it will return the whole CSS stylesheet within the \<style\> tag. If false, it will return only the CSS rules.
   **includePseudoClasses** | boolean | optional (default = false) | Whether to include CSS rules for pseudo elements, such as ::after, ::before, etc.
   **includePseudoElements** | boolean | optional (default = false) | Whether to include CSS rules for pseudo classes, such as :focus, :hover, :last-child, etc.
 
@@ -172,7 +172,7 @@ By changing the value of the Paletton Picker property in the content nodes, the 
   **How to use**
 
   ````csharp
-  @{ var styles = Model.GetCssStyles("colorPatterPropertyAlias"); }
+  @{ var styles = Model.GetCssStyles("palettePickerPropertyAlias"); }
   @Html.Raw(styles)
   ````
 
@@ -180,154 +180,154 @@ By changing the value of the Paletton Picker property in the content nodes, the 
 
   parameter | type | mandatory | description
   :--- | :--- | :--- | :---
-  **content** | IPublishedContent | mandatory | The IPublishedContent from which we want to get the Paletton Picker value.
-  **propertyAlias** | string | mandatory | The alias of the Paletton Picker property.
+  **content** | IPublishedContent | mandatory | The IPublishedContent from which we want to get the Palette Picker value.
+  **propertyAlias** | string | mandatory | The alias of the Palette Picker property.
   **addStyleTag** | boolean | optional (default = true) | Wheter to add the \<style\> tag to the returned Html string. If true, it will return the whole CSS stylesheet within the \<style\> tag. If false, it will return only the CSS rules.
   **includePseudoClasses** | boolean | optional (default = false) | Whether to include CSS rules for pseudo elements, such as ::after, ::before, etc.
   **includePseudoElements** | boolean | optional (default = false) | Whether to include CSS rules for pseudo classes, such as :focus, :hover, :last-child, etc.
 
 - ##### Get palette (with Models Builder)
 
-  _**GetPalette(JToken value)** : PalettonPalette_
+  _**GetPalette(JToken value)** : Palette_
 
-  This method will return all colors and color sets information as a PalettonPalette object and is used on Paletton Picker properties of PublishedContentModel objects. It is an extension method for the JToken class, which is the actual type of Paletton Picker property returned by Models Builder.
+  This method will return all colours and colour sets information as a Palette object and is used on Palette Picker properties of PublishedContentModel objects. It is an extension method for the JToken class, which is the actual type of Palette Picker property returned by Models Builder.
 
   **How to use**
 
   ````csharp
-  @{ var palette = Model.ColorPatternProperty.GetPalette(); }
+  @{ var palette = Model.PalettePickerProperty.GetPalette(); }
   ````
 
   **Parameters**
 
   parameter | type | mandatory | description
   :--- | :--- | :--- | :---
-  **value** | JToken | mandatory | The actual Paletton Picker value.
+  **value** | JToken | mandatory | The actual Palette Picker value.
 
 - ##### Get palette (without Models Builder)
 
-  _**GetPalette(this IPublishedContent content, string propertyAlias)** : PalettonPalette_
+  _**GetPalette(this IPublishedContent content, string propertyAlias)** : Palette_
 
-  This method will return all colors and color sets information as a Paletton Picker object and is used on IPublishedContent objects. It is an extension method for the IPublishedContent class.
+  This method will return all colours and colour sets information as a Palette Picker object and is used on IPublishedContent objects. It is an extension method for the IPublishedContent class.
 
   **How to use**
 
   ````csharp
-  @{ var palette = Model.GetPalette("colorPatterPropertyAlias"); }
+  @{ var palette = Model.GetPalette("palettePickerPropertyAlias"); }
   ````
 
   **Parameters**
 
   parameter | type | mandatory | description
   :--- | :--- | :--- | :---
-  **content** | IPublishedContent | mandatory | The IPublishedContent from which we want to get the Paletton Picker value.
-  **propertyAlias** | string | mandatory | The alias of the Paletton Picker property.
+  **content** | IPublishedContent | mandatory | The IPublishedContent from which we want to get the Palette Picker value.
+  **propertyAlias** | string | mandatory | The alias of the Palette Picker property.
 
 #### Models {#reference-api-models}
 
-- ##### PalettonPalette
+- ##### Palette
 
-  It defines the palette object, containing the list of color sets (primary, secondary, complement).
+  It defines the palette object, containing the list of colour sets (primary, secondary, complement).
 
   **Properties**
 
   - _**Url** : string_
 
-    Optional URL indicating the source of the color palette.
+    Optional URL indicating the source of the colour palette.
 
-  - _**ColorSets** : IEnumerable&lt;PalettonColorSet&gt;_
+  - _**ColorSets** : IEnumerable&lt;PaletteColorSet&gt;_
 
-    The list of color sets included in the palette.
+    The list of colour sets included in the palette.
 
   **Methods**
 
-  - _**ColorSet(string id)** : PalettonColorSet_
+  - _**ColorSet(string id)** : PaletteColorSet_
 
-    Returns a color set by id (i.e. "primary", "secondary-1", "secondary-2", "complement")
+    Returns a colour set by id (i.e. "primary", "secondary-1", "secondary-2", "complement")
 
-  - _**Color(string colorId)** : PalettonColorSet_
+  - _**Color(string colorId)** : PaletteColorSet_
 
-    Returns a color from among all color sets by color id (i.e. "primary-0", "secondary-1-0", "secondary-2-0", "complement-0", etc)
+    Returns a colour from among all colour sets by colour id (i.e. "primary-0", "secondary-1-0", "secondary-2-0", "complement-0", etc)
 
   - _**Alpha(string colorId, decimal alphaValue)** : string_
 
-    Returns an alpha color from among all color sets by color id (i.e. "primary-0", "secondary-1-0", "secondary-2-0", "complement-0", etc) and an alpha value between 0 and 1, in the form of rgba color.
+    Returns an alpha colour from among all colour sets by colour id (i.e. "primary-0", "secondary-1-0", "secondary-2-0", "complement-0", etc) and an alpha value between 0 and 1, as an rgba value.
 
-- ##### PalettonColorSet
+- ##### PaletteColorSet
 
-  Individual set of colors (primary, secondary or complement) that compose a PalettonColorPalette object.
+  Individual set of colours (primary, secondary or complement) that compose a Palette object.
 
   **Properties**
 
   - _**Id** : string_
 
-    The id of the color set (primary, secondary-1, secondary-2, complement).
+    The id of the colour set (primary, secondary-1, secondary-2, complement).
 
   - _**Title** : string_
 
-    Optional title of the color set.
+    Optional title of the colour set.
 
-  - _**Colors** : IEnumerable&lt;PalettonColor&gt;_
+  - _**Colors** : IEnumerable&lt;PaletteColor&gt;_
 
-    The list of colors included in the color set.
+    The list of colours included in the colour set.
 
-- ##### PalettonColor
+- ##### PaletteColor
 
-  A single color within a color set.
+  A single colour within a colour set.
 
   **Properties**
 
   - _**Id** : string._
 
-    The id of the color (i.e. "primary-0", "secondary-1-0", "secondary-2-0", "complement-0", etc)
+    The id of the colour (i.e. "primary-0", "secondary-1-0", "secondary-2-0", "complement-0", etc)
 
   - _**Hex** : string_
 
-  The color expressed as a hexadecimal value (i.e. AA3939).
+  The colour expressed as a hexadecimal value (i.e. AA3939).
 
   - _**Red** : int_
 
-    The red component of the color as an integer between 0 and 255.
+    The red component of the colour as an integer between 0 and 255.
 
   - _**Green** : int_
 
-    The green component of the color as an integer between 0 and 255.
+    The green component of the colour as an integer between 0 and 255.
 
   - _**Blue** : int_
 
-    The blue component of the color as an integer between 0 and 255.
+    The blue component of the colour as an integer between 0 and 255.
 
   - _**HexColor** : string_
 
-    The Hex Code (#RRGGBB) of the color (i.e. #AA3939).
+    The Hex Code (#RRGGBB) of the colour (i.e. #AA3939).
 
   - _**RgbColor** : string_
 
-    The Decimal Code (R, G, B) of the color (i.e. rgb(170,57,57)).
+    The Decimal Code (R, G, B) of the colour (i.e. rgb(170,57,57)).
 
   **Methods**
 
   - _**Alpha(decimal alphaValue)** : string_
 
-    Returns the color with an alpha transparency between 0 and 1, in the form of rgba color.
+    Returns the colour with an alpha transparency between 0 and 1, in the form of rgba colour (i.e. rgb(170,57,57,0.5)).
 
 ### CSS rules {#reference-css}
 
-The CSS rules available to render will depend on the color sets used on our template (primary, secondary-1, secondary-2, complement), and whether we are including pseudo elements and pseudo classes.
+The CSS rules available to render will depend on the colour sets used on our template (primary, secondary-1, secondary-2, complement), and whether we are including pseudo elements and pseudo classes.
 
 As a general convention, the naming of the classes used for the CSS selectors are formed by 3 parts or words separated by "-":
 
-1. attribute to apply the color to (empty for color, "bg" for background-color, "border" for border-color).
+1. attribute to apply the colour to (empty for color, "bg" for background-color, "border" for border-color).
 2. pseudo class or pseudo element name, if any (i.e. "after", "first-of-type", etc).
-3. the color id (i.e. "primary-1", "secondary-1-1", "complement-1").
+3. the colour id (i.e. "primary-1", "secondary-1-1", "complement-1").
 
-For instance, the class ".bg-hover-primary-1" is formed by "bg" (for background-color), "hover" (for the :hover pseudo class), "primary-1" (for the primary-1 color). It will apply primary-1 as the background color on hover.
+For instance, the class ".bg-hover-primary-1" is formed by "bg" (for background-color), "hover" (for the :hover pseudo class), "primary-1" (for the primary-1 colour). It will apply primary-1 as the background colour on hover.
 
-This is the full list of possible CSS rules that can be rendered using the Paletton Picker methods.
+This is the full list of possible CSS rules that can be rendered using the Palette Picker methods.
 
 #### Class selectors
 
-##### Primary color
+##### Primary colour
 
 - .primary-0 { color: $primary-0 !important; }
 - .bg-primary-0 { background-color: $primary-0 !important; }
@@ -345,7 +345,7 @@ This is the full list of possible CSS rules that can be rendered using the Palet
 - .bg-primary-4 { background-color: $primary-4 !important; }
 - .border-primary-4 { border-color: $primary-4 !important; }
 
-##### Secondary color 1
+##### Secondary colour 1
 
 - .secondary-1-0 { color: $secondary-1-0 !important; }
 - .bg-secondary-1-0 { background-color: $secondary-1-0 !important; }
@@ -363,7 +363,7 @@ This is the full list of possible CSS rules that can be rendered using the Palet
 - .bg-secondary-1-4 { background-color: $secondary-1-4!important; }
 - .border-secondary-1-4 { border-color: $secondary-1-4!important; }
 
-##### Secondary color 2
+##### Secondary colour 2
 
 - .secondary-2-0 { color: $secondary-2-0 !important; }
 - .bg-secondary-2-0 { background-color: $secondary-2-0 !important; }
@@ -381,7 +381,7 @@ This is the full list of possible CSS rules that can be rendered using the Palet
 - .bg-secondary-2-4 { background-color: $secondary-2-4 !important; }
 - .border-secondary-2-4 { border-color: $secondary-2-4 !important; }
 
-##### Complement color
+##### Complement colour
 
 - .complement-0 { color: $complement-0 !important; }
 - .bg-complement-0 { background-color: $complement-0 !important; }
@@ -401,7 +401,7 @@ This is the full list of possible CSS rules that can be rendered using the Palet
 
 #### Pseudo element selectors
 
-##### Primary color
+##### Primary colour
 
 - .after-primary-0::after { color: $primary-0 !important; }
 - .bg-after-primary-0::after { background-color: $primary-0 !important; }
@@ -479,7 +479,7 @@ This is the full list of possible CSS rules that can be rendered using the Palet
 - .bg-selection-primary-4::selection { background-color: $primary-4 !important; }
 - .border-selection-primary-4::selection { border-color: $primary-4 !important; }
 
-##### Secondary color 1
+##### Secondary colour 1
 
 - .after-secondary-1-0::after { color: $secondary-1-0 !important; }
 - .bg-after-secondary-1-0::after { background-color: $secondary-1-0 !important; }
@@ -557,7 +557,7 @@ This is the full list of possible CSS rules that can be rendered using the Palet
 - .bg-selection-secondary-1-4::selection { background-color: $secondary-1-4!important; }
 - .border-selection-secondary-1-4::selection { border-color: $secondary-1-4!important; }
 
-##### Secondary color 2
+##### Secondary colour 2
 
 - .after-secondary-2-0::after { color: $secondary-2-0 !important; }
 - .bg-after-secondary-2-0::after { background-color: $secondary-2-0 !important; }
@@ -635,7 +635,7 @@ This is the full list of possible CSS rules that can be rendered using the Palet
 - .bg-selection-secondary-2-4::selection { background-color: $secondary-2-4 !important; }
 - .border-selection-secondary-2-4::selection { border-color: $secondary-2-4 !important; }
 
-##### Complement color
+##### Complement colour
 
 - .after-complement-0::after { color: $complement-0 !important; }
 - .bg-after-complement-0::after { background-color: $complement-0 !important; }
@@ -715,7 +715,7 @@ This is the full list of possible CSS rules that can be rendered using the Palet
 
 #### Pseudo class selectors
 
-##### Primary color
+##### Primary colour
 
 - .active-primary-0:active { color: $primary-0 !important; }
 - .bg-active-primary-0:active { background-color: $primary-0 !important; }
@@ -1093,7 +1093,7 @@ This is the full list of possible CSS rules that can be rendered using the Palet
 - .bg-visited-primary-4:visited { background-color: $primary-4 !important; }
 - .border-visited-primary-4:visited { border-color: $primary-4 !important; }
 
-##### Secondary color 1
+##### Secondary colour 1
 
 - .active-secondary-1-0:active { color: $secondary-1-0 !important; }
 - .bg-active-secondary-1-0:active { background-color: $secondary-1-0 !important; }
@@ -1471,7 +1471,7 @@ This is the full list of possible CSS rules that can be rendered using the Palet
 - .bg-visited-secondary-1-4:visited { background-color: $secondary-1-4!important; }
 - .border-visited-secondary-1-4:visited { border-color: $secondary-1-4!important; }
 
-##### Secondary color 2
+##### Secondary colour 2
 
 - .active-secondary-2-0:active { color: $secondary-2-0 !important; }
 - .bg-active-secondary-2-0:active { background-color: $secondary-2-0 !important; }
@@ -1849,7 +1849,7 @@ This is the full list of possible CSS rules that can be rendered using the Palet
 - .bg-visited-secondary-2-4:visited { background-color: $secondary-2-4 !important; }
 - .border-visited-secondary-2-4:visited { border-color: $secondary-2-4 !important; }
 
-##### Complement color
+##### Complement colour
 
 - .active-complement-0:active { color: $complement-0 !important; }
 - .bg-active-complement-0:active { background-color: $complement-0 !important; }

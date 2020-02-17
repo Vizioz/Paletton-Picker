@@ -17,7 +17,7 @@
         };
 
         var dialogOptions = {
-            title: "Add a color palette",
+            title: "Add a colour palette",
             view: "/App_Plugins/Vizioz.PalettePicker/Views/palettepicker.editorprevaluedialog.html",
             size: "small",
             value: null,

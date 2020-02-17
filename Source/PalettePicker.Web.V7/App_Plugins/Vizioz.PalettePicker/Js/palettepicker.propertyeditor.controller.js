@@ -19,7 +19,7 @@
         var dialogOptions = {
             template: "/App_Plugins/Vizioz.PalettePicker/Views/palettepicker.editorprevaluedialog.html",
             dialogData: {
-                title: "Add a color palette",
+                title: "Add a colour palette",
                 value: null
             },
             

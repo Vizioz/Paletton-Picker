@@ -18,7 +18,7 @@
 
         function edit() {
             var dialogOptions = {
-                title: "Select a color template",
+                title: "Select a colour template",
                 view: "/App_Plugins/Vizioz.PalettePicker/Views/palettepicker.valuepicker.html",
                 size: "small",
                 value: $scope.model.value,
