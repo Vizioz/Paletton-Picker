@@ -7,7 +7,7 @@ scripts: example
 
 <h2 class="complement-4 border-complement-2">Palette Picker. A customizable colour template data type for Umbraco.</h2>
 
-Palette Picker allows editors to select a predefined coloer template for any particular page of their site.
+Palette Picker allows editors to select a predefined colour template for any particular page of their site.
 
 This can be especially useful for document types where we want colours to change often or be customizable.
 
