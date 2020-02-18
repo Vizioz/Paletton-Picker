@@ -1,0 +1,307 @@
+<div class="backoffice" id="backoffice-example">
+  <!--content properties-->
+  <div class="umb-pane">
+    <div class="umb-group-panel">
+      <div class="umb-group-panel__header">
+        <div>Content</div>
+      </div>
+      <div class="umb-group-panel__content">
+        <div class="umb-property">
+          <form name="propertyForm">
+            <div class="control-group umb-control-group">
+              <div class="umb-el-wrap">
+                <div class="control-header">
+                  <label class="control-label" for="colorTemplate" title="colorTemplate">Color Template</label>
+                </div>
+                <div class="controls">
+                  <div>
+                    <div class="umb-property-editor db">
+                      <div>
+                        <div>
+                          <div ng-controller>
+                            <div>
+                              <a id="editor-picker" class="umb-node-preview-add" onclick="vm.edit()">
+                                <span class="add-text">Add</span>
+                                <div class="palette-preview" style="display: none;">
+                                  <div class="colorset">
+                                      <div class="colorset-title">Primary Color</div>
+                                      <div class="colorset-colors">
+                                          <span class="color-block" data-id="primary-1" data-rgb="a7c1db" style="left: 0%; width: 16.66%">
+                                              <span class="color-block-color" style="background-color: #a7c1db"></span>
+                                          </span>
+                                          <span class="color-block" data-id="primary-2" data-rgb="7eb0e1" style="left: 16.66%; width: 16.66%">
+                                              <span class="color-block-color" style="background-color: #7eb0e1"></span>
+                                          </span>
+                                          <span class="color-block" data-id="primary-0" data-rgb="4183C4" style="left: 33.33%; width: 33.33%">
+                                              <span class="color-block-color" style="background-color: #4183C4"></span>
+                                          </span>
+                                          <span class="color-block" data-id="primary-3" data-rgb="234261" style="left: 66.66%; width: 16.66%">
+                                              <span class="color-block-color" style="background-color: #234261"></span>
+                                          </span>
+                                          <span class="color-block" data-id="primary-4" data-rgb="052748" style="left: 83.33%; width: 16.66%">
+                                              <span class="color-block-color" style="background-color: #052748"></span>
+                                          </span>
+                                      </div>
+                                  </div>
+                                  <div class="colorset">
+                                      <div class="colorset-title">Complement Color 1</div>
+                                      <div class="colorset-colors">
+                                          <span class="color-block" data-id="complement-1" data-rgb="eee" style="left: 0%; width: 16.66%">
+                                              <span class="color-block-color" style="background-color: #eee"></span>
+                                          </span>
+                                          <span class="color-block" data-id="complement-2" data-rgb="999" style="left: 16.66%; width: 16.66%">
+                                              <span class="color-block-color" style="background-color: #999"></span>
+                                          </span>
+                                          <span class="color-block" data-id="complement-0" data-rgb="666" style="left: 33.33%; width: 33.33%">
+                                              <span class="color-block-color" style="background-color: #666"></span>
+                                          </span>
+                                          <span class="color-block" data-id="complement-3" data-rgb="333" style="left: 66.66%; width: 16.66%">
+                                              <span class="color-block-color" style="background-color: #333"></span>
+                                          </span>
+                                          <span class="color-block" data-id="complement-4" data-rgb="222" style="left: 83.33%; width: 16.66%">
+                                              <span class="color-block-color" style="background-color: #222"></span>
+                                          </span>
+                                      </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                            <div style="display: none;" class="remove-text">
+                              <a class="umb-node-preview__action umb-node-preview__action--red" title="Remove" onclick="vm.remove()">
+                                Remove
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of content properties -->
+  <!-- footer -->
+  <div class="umb-editor-footer">
+    <div class="umb-editor-footer-content">
+      <div class="umb-editor-footer-content__right-side">
+        <div class="btn-group umb-button-group ng-scope ng-isolate-scope dropup">
+          <div class="umb-button">
+            <button class="btn umb-button__button btn-success umb-button--" onclick="vm.savePublish()">
+              <span class="umb-button__content">Save and publish</span>
+            </button>
+          </div>
+          <button class="btn btn-success dropdown-toggle umb-button-group__toggle umb-button--">
+            <span class="caret"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of footer -->
+  <!--dialog panel-->
+  <div class="umb-editor__overlay"></div>
+  <div class="umb-editors">
+    <div class="umb-editor umb-editor--small umb-editor--infiniteMode umb-editor--n1 umb-editor--level1">
+      <div>
+        <div ng-controller="Vizioz.PalettePicker.ValuePickerController as vm">
+          <div class="umb-panel umb-editor-wrapper">
+            <!--editor-header-->
+            <div class="umb-editor-header">
+              <div class="flex items-center" style="height: 100%;">
+                <div class="flex items-center" style="flex: 1;">
+                  <div id="nameField" class="umb-editor-header__name-and-description" style="flex: 1 1 auto;">
+                    <div class="umb-panel-header-name" title="">Select a colour template</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--editor-body-->
+            <div class="umb-editor-container umb-panel-body umb-scrollable row-fluid ng-scope">
+              <div class="umb-pane">
+                <div>
+                  <!--color-template-->
+                  <div class="palette-item umb-box" data-item-id="1" onclick="vm.select(this)">
+                    <div class="umb-box-content">
+                      <label class="palette-checkbox" for="palette-item-1">
+                        <input id="palette-item-1" type="radio"/>
+                        <div class="palette-preview">
+                          <div class="colorset">
+                              <div class="colorset-title">Primary Color</div>
+                              <div class="colorset-colors">
+                                  <span class="color-block" data-id="primary-1" data-rgb="757095" style="left: 0%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #757095"></span>
+                                  </span>
+                                  <span class="color-block" data-id="primary-2" data-rgb="7068A4" style="left: 16.66%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #7068A4"></span>
+                                  </span>
+                                  <span class="color-block" data-id="primary-0" data-rgb="3B3176" style="left: 33.33%; width: 33.33%">
+                                      <span class="color-block-color" style="background-color: #3B3176"></span>
+                                  </span>
+                                  <span class="color-block" data-id="primary-3" data-rgb="160D4E" style="left: 66.66%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #160D4E"></span>
+                                  </span>
+                                  <span class="color-block" data-id="primary-4" data-rgb="02010B" style="left: 83.33%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #02010B"></span>
+                                  </span>
+                              </div>
+                          </div>
+                          <div class="colorset">
+                              <div class="colorset-title">Complement Color</div>
+                              <div class="colorset-colors">
+                                  <span class="color-block" data-id="complement-1" data-rgb="FFF4D3" style="left: 0%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #FFF4D3"></span>
+                                  </span>
+                                  <span class="color-block" data-id="complement-2" data-rgb="F1E7C5" style="left: 16.66%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #F1E7C5"></span>
+                                  </span>
+                                  <span class="color-block" data-id="complement-0" data-rgb="B4AA8B" style="left: 33.33%; width: 33.33%">
+                                      <span class="color-block-color" style="background-color: #B4AA8B"></span>
+                                  </span>
+                                  <span class="color-block" data-id="complement-3" data-rgb="76705D" style="left: 66.66%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #76705D"></span>
+                                  </span>
+                                  <span class="color-block" data-id="complement-4" data-rgb="21201B" style="left: 83.33%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #21201B"></span>
+                                  </span>
+                              </div>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                  <!--color-template-->
+                  <div class="palette-item umb-box" data-item-id="2" onclick="vm.select(this)">
+                    <div class="umb-box-content">
+                      <label class="palette-checkbox" for="palette-item-2">
+                        <input id="palette-item-2" type="radio"/>
+                        <div class="palette-preview">
+                          <div class="colorset">
+                              <div class="colorset-title">Primary Color</div>
+                              <div class="colorset-colors">
+                                  <span class="color-block" data-id="primary-1" data-rgb="FF9359" style="left: 0%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #FF9359"></span>
+                                  </span>
+                                  <span class="color-block" data-id="primary-2" data-rgb="FF5900" style="left: 16.66%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #FF5900"></span>
+                                  </span>
+                                  <span class="color-block" data-id="primary-0" data-rgb="9E3700" style="left: 33.33%; width: 33.33%">
+                                      <span class="color-block-color" style="background-color: #9E3700"></span>
+                                  </span>
+                                  <span class="color-block" data-id="primary-3" data-rgb="682400" style="left: 66.66%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #682400"></span>
+                                  </span>
+                                  <span class="color-block" data-id="primary-4" data-rgb="240D00" style="left: 83.33%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #240D00"></span>
+                                  </span>
+                              </div>
+                              <div class="colorset">
+                              <div class="colorset-title">Complement Color</div>
+                              <div class="colorset-colors">
+                                  <span class="color-block" data-id="complement-1" data-rgb="CCFFEB" style="left: 0%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #CCFFEB"></span>
+                                  </span>
+                                  <span class="color-block" data-id="complement-2" data-rgb="C2EBDA" style="left: 16.66%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #C2EBDA"></span>
+                                  </span>
+                                  <span class="color-block" data-id="complement-0" data-rgb="94B8A9" style="left: 33.33%; width: 33.33%">
+                                      <span class="color-block-color" style="background-color: #94B8A9"></span>
+                                  </span>
+                                  <span class="color-block" data-id="complement-3" data-rgb="618274" style="left: 66.66%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #618274"></span>
+                                  </span>
+                                  <span class="color-block" data-id="complement-4" data-rgb="618274" style="left: 83.33%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #618274"></span>
+                                  </span>
+                              </div>
+                          </div>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                  <!--color-template-->
+                  <div class="palette-item umb-box" data-item-id="3" onclick="vm.select(this)">
+                    <div class="umb-box-content">
+                      <label class="palette-checkbox" for="palette-item-3">
+                        <input id="palette-item-3" type="radio"/>
+                        <div class="palette-preview">
+                          <div class="colorset">
+                              <div class="colorset-title">Primary Color</div>
+                              <div class="colorset-colors">
+                                  <span class="color-block" data-id="primary-1" data-rgb="89668D" style="left: 0%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #89668D"></span>
+                                  </span>
+                                  <span class="color-block" data-id="primary-2" data-rgb="935C9B" style="left: 16.66%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #935C9B"></span>
+                                  </span>
+                                  <span class="color-block" data-id="primary-0" data-rgb="672670" style="left: 33.33%; width: 33.33%">
+                                      <span class="color-block-color" style="background-color: #672670"></span>
+                                  </span>
+                                  <span class="color-block" data-id="primary-3" data-rgb="41054A" style="left: 66.66%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #41054A"></span>
+                                  </span>
+                                  <span class="color-block" data-id="primary-4" data-rgb="09000B" style="left: 83.33%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #09000B"></span>
+                                  </span>
+                              </div>
+                              <div class="colorset">
+                              <div class="colorset-title">Complement Color</div>
+                              <div class="colorset-colors">
+                                  <span class="color-block" data-id="complement-1" data-rgb="ECECEC" style="left: 0%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #ECECEC"></span>
+                                  </span>
+                                  <span class="color-block" data-id="complement-2" data-rgb="BAC1C1" style="left: 16.66%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #BAC1C1"></span>
+                                  </span>
+                                  <span class="color-block" data-id="complement-0" data-rgb="859696" style="left: 33.33%; width: 33.33%">
+                                      <span class="color-block-color" style="background-color: #859696"></span>
+                                  </span>
+                                  <span class="color-block" data-id="complement-3" data-rgb="4A6565" style="left: 66.66%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #4A6565"></span>
+                                  </span>
+                                  <span class="color-block" data-id="complement-4" data-rgb="2F4848" style="left: 83.33%; width: 16.66%">
+                                      <span class="color-block-color" style="background-color: #2F4848"></span>
+                                  </span>
+                              </div>
+                          </div>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--editor-footer-->
+            <div class="umb-editor-footer">
+              <div class="umb-editor-footer-content">
+                <div class="umb-editor-footer-content__right-side">
+                  <div class="umb-button">
+                    <div>
+                      <button type="button" class="btn umb-button__button btn-link umb-button--" onclick="vm.close()">
+                        <span class="umb-button__content">Close </span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="umb-button">
+                    <div>
+                      <button type="button" class="btn umb-button__button btn-action umb-button--" onclick="vm.submit()">
+                        <span class="umb-button__content">Submit</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of dialog panel -->
+</div>

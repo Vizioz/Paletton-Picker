@@ -13,17 +13,21 @@
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/prism.css" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
 
+    {% if page.styles %}
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/{{ page.styles }}.css" />
+    {% endif %}
+
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>
 
   <body>
     <div class="wrapper-masthead">
-      <header class="masthead clearfix">
+      <header class="masthead clearfix bg-primary-1 border-complement-0">
         <div class="container">
           <div class="site-info">
             <a href="{{ site.baseurl }}">
               <img class="site-avatar" src="{{ site.baseurl }}/images/{{ site.logo }}" />
-              <span class="site-name">{{ site.name }}</span>
+              <span class="site-name primary-3">{{ site.name }}</span>
             </a>
           </div>
           <nav>
@@ -38,9 +42,9 @@
 
     <div id="main" role="main" class="wrapper-body">
       {% if page.title %}
-      <div class="body-title">
+      <div class="body-title border-complement-2">
         <div class="container">
-          <h1>{{ page.title }}</h1>
+          <h1 class="complement-4">{{ page.title }}</h1>
         </div>
       </div>
       {% endif %}
@@ -51,14 +55,14 @@
       </div>
     </div>
 
-    <div class="wrapper-footer">
+    <div class="wrapper-footer bg-complement-1 border-complement-2">
       <footer class="footer">
         <div class="footer-top">
           <div class="container">
             {% include svg-icons.html %}
           </div>
         </div>
-        <div class="footer-bottom">
+        <div class="footer-bottom bg-complement-2 border-complement-3">
           <div class="container">
             <span>&copy; {{ site.company.name }} 2020</span>
           </div>
@@ -68,6 +72,10 @@
     <script src="{{ site.baseurl }}/js/jquery-3.4.1.slim.min.js"></script>
     <script src="{{ site.baseurl }}/js/prism.js"></script>
     <script src="{{ site.baseurl }}/js/scripts.js"></script>
+
+    {% if page.scripts %}
+    <script src="{{ site.baseurl }}/js/{{ page.scripts }}..js"></script>
+    {% endif %}
 
     {% include analytics.html %}
 

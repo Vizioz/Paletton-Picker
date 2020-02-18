@@ -21,9 +21,9 @@ html {
 }
 
 body {
-	background: $color-secondary-1;
+	background: $color-complement-1;
   font: 18px/1.4 $font-family-native;
-  color: $color-secondary-3;
+  color: $color-complement-3;
 	display: flex;
 	flex-direction: column;
 }
@@ -54,18 +54,18 @@ body {
   flex: 1 0 auto !important;
   width: 250px;
   padding: 30px 0 20px;
-  color: $color-secondary-0;
+  color: $color-complement-0;
   font-size: 15px;
   position: relative;
 
   a {
-    color: $color-secondary-0;
+    color: $color-complement-0;
   }
 
   .side-bar-nav {
     margin-right: 40px;
     width: 210px;
-	  
+
     @include tablet {
       margin-right: 20px;
       width: 190px;
@@ -81,7 +81,7 @@ body {
   .side-link {
     display: block;
     padding: 8px 40px 8px 0;
-    border-right: 4px solid $color-secondary-2;
+    border-right: 4px solid $color-complement-2;
     font-weight: 600;
 
 		&.main-link {
@@ -89,11 +89,11 @@ body {
 			font-weight: 700;
 		}
   }
-	
+
   @include tablet {
     width: 210px;
   }
-	
+
   @include mobile {
     display: none;
   }
@@ -102,7 +102,7 @@ body {
   .main-content {
     flex: 0 1 auto !important;
     width: calc(100% - 250px);
-	  
+
 	  @include tablet {
 	    width: calc(100% - 210px);
 	  }
@@ -115,7 +115,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-native;
-  color: $color-secondary-4;
+  color: $color-complement-4;
   font-weight: bold;
 position: relative;
   line-height: 1.7;
@@ -224,14 +224,14 @@ table {
 	font-size: 0.8em;
 
 	tr {
-		border: 1px solid $color-secondary-2;
+		border: 1px solid $color-complement-2;
 	}
 
 	td, th {
           padding: 5px 10px;
 	}
 	th {
-	  background: $color-secondary-2;
+	  background: $color-complement-2;
     	  font-weight: 700;
     	  text-transform: capitalize;
 	}
@@ -252,17 +252,17 @@ table {
 
 .date {
   font-style: italic;
-  color: $color-secondary-0;
+  color: $color-complement-0;
 }
 
 // Specify the color of the selection
 ::-moz-selection {
   color: $black;
-  background: $color-secondary-2;
+  background: $color-complement-2;
 }
 ::selection {
   color: $black;
-  background: $color-secondary-2;
+  background: $color-complement-2;
 }
 
 // Nicolas Gallagher's micro clearfix hack
@@ -287,9 +287,9 @@ table {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 2px solid $color-secondary-0;
+  border-bottom: 2px solid $color-complement-0;
   background-color: $color-primary-1;
-  box-shadow: 0 2px 5px $color-secondary-2;
+  box-shadow: 0 2px 5px $color-complement-2;
 
   @include mobile {
     text-align: center;
@@ -344,7 +344,7 @@ table {
 
 .site-description {
   margin: -5px 0 0 0;
-  color: $color-secondary-0;
+  color: $color-complement-0;
   font-size: 16px;
 
   @include mobile {
@@ -371,13 +371,13 @@ nav {
 
   a {
     margin-left: 20px;
-    color: $color-secondary-3;
+    color: $color-complement-3;
     text-align: right;
     font-weight: 300;
     letter-spacing: 1px;
 
     &:hover {
-      color: $color-primary-3;
+      color: $color-complement-3;
     }
 
     @include mobile {
@@ -391,10 +391,10 @@ nav {
 //
 
 .body-title {
-  border-bottom: 1px solid $color-secondary-2;
+  border-bottom: 1px solid $color-complement-2;
   padding: 20px 0;
   color: $color-primary-3;
-box-shadow: 0 1px 2px $color-secondary-2;
+box-shadow: 0 1px 2px $color-complement-2;
 
 	@include tablet {
 		padding: 2px 0;
@@ -429,12 +429,12 @@ box-shadow: 0 1px 2px $color-secondary-2;
 
 .wrapper-footer {
   margin-top: 50px;
-  border-top: 1px solid $color-secondary-2;
-  background-color: $color-secondary-1;
+  border-top: 1px solid $color-complement-2;
+  background-color: $color-complement-1;
 }
 
 footer {
-  padding: 20px 0;
+  padding: 20px 0 0;
   text-align: center;
 box-shadow: 0 -2px 5px #999;
 
@@ -443,8 +443,8 @@ box-shadow: 0 -2px 5px #999;
   }
 
   .footer-bottom {
-    border-top: 1px solid $color-secondary-3;
-    background-color: $color-secondary-2;
+    border-top: 1px solid $color-complement-3;
+    background-color: $color-complement-2;
     padding: 30px 0;
     font-size: 12px;
     color: $black;

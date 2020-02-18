@@ -12,7 +12,7 @@
         "fields": [
           {
             "label": "Color palettes",
-            "description": "Please add your predefined color palettes here",
+            "description": "Please add your predefined colour palettes here",
             "key": "palettes",
             "view": "~/App_Plugins/Vizioz.PalettePicker/views/palettepicker.editor.html",
             "css": [ "~/App_Plugins/Vizioz.PalettePicker/css/palettepicker.css" ],
