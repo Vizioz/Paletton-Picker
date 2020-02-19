@@ -3,17 +3,17 @@
   font-size: 15px;
   line-height: 20px;
   color: #000;
-  min-height: 600px;
+  min-height: 500px;
   background-color: #f9f6f5;
   position: relative;
 }
-.umb-group-panel {
+.backoffice .umb-group-panel {
   background: #fff;
   border-radius: 3px;
   box-shadow: 0 1px 1px 0 rgba(0,0,0,.16);
   margin-bottom: 20px;
 }
-.umb-group-panel__header {
+.backoffice .umb-group-panel__header {
   padding: 12px 20px;
   font-weight: 700;
   font-size: 16px;
@@ -26,31 +26,31 @@
   color: #343434;
   border-bottom: 1px solid #e9e9eb;
 }
-.umb-group-panel__content {
+.backoffice .umb-group-panel__content {
   padding: 20px;
 }
-.umb-property:last-of-type .umb-control-group {
+.backoffice .umb-property:last-of-type .umb-control-group {
   margin-bottom: 0!important;
 }
-.umb-control-group {
+.backoffice .umb-control-group {
   position: relative;
 }
-.umb-control-group .umb-el-wrap {
+.backoffice .umb-control-group .umb-el-wrap {
   padding: 0;
 }
-.umb-control-group .control-header {
+.backoffice .umb-control-group .control-header {
   float: left;
   width: 160px;
   padding-top: 5px;
   text-align: left;
 }
 @media (max-width: 767px) {
-	.umb-control-group .control-header {
+	.backoffice .umb-control-group .control-header {
 	    float: none;
 	    width: 100%;
 	}
 }
-.umb-control-group .control-header .control-label {
+.backoffice .umb-control-group .control-header .control-label {
   float: left;
   width: auto;
   text-align: left;
@@ -59,21 +59,21 @@
   color: #000;
   font-size: 14px;
 }
-.controls {
+.backoffice .controls {
   margin-left: 180px;
 }
 @media (max-width: 767px) {
-	.umb-control-group .controls {
+	.backoffice .umb-control-group .controls {
 	    margin-left: 0;
 	}
 }
-.umb-property-editor {
+.backoffice .umb-property-editor {
   width: 100%;
 }
-.db {
+.backoffice .db {
   display: block;
 }
-.umb-editor__overlay {
+.backoffice .umb-editor__overlay {
   display: none;
   position: absolute;
   top: 0;
@@ -87,7 +87,7 @@
   -webkit-transition: opacity .32s 20ms,visibility 0s;
   transition: opacity .32s 20ms,visibility 0s;
 }
-.umb-editors {
+.backoffice .umb-editors {
   position: absolute;
   top: 0;
   right: 0;
@@ -97,7 +97,7 @@
   visibility: hidden;
   opacity: 0;
 }
-.umb-editors .umb-editor {
+.backoffice .umb-editors .umb-editor {
   box-shadow: 0 0 30px 0 rgba(0,0,0,.3);
   transition: transform .4s ease-in-out,-webkit-transform .4s ease-in-out;
   -webkit-transform: none;
@@ -108,11 +108,11 @@
   transition: transform .4s ease-in-out;
   transition: transform .4s ease-in-out,-webkit-transform .4s ease-in-out;
 	width: 500px;
-	max-width: 100%
+	max-width: 100%;
   will-change: transform;
   left: auto;
 }
-.umb-editor {
+.backoffice .umb-editor {
   position: absolute;
   top: 0;
   right: 0;
@@ -121,7 +121,7 @@
   background: #f6f4f4;
   z-index: 100;
 }
-.umb-panel {
+.backoffice .umb-panel {
   background: #fff;
   position: absolute;
   top: 0;
@@ -129,7 +129,7 @@
   left: 0;
   right: 0;
 }
-.umb-panel-body {
+.backoffice .umb-panel-body {
   top: 101px;
   left: 0;
   right: 0;
@@ -138,7 +138,7 @@
   clear: both;
   overflow: auto;
 }
-.umb-editor-wrapper {
+.backoffice .umb-editor-wrapper {
   background: #f3f3f5;
   position: absolute;
   top: 0;
@@ -146,7 +146,7 @@
   right: 0;
   bottom: 0;
 }
-.umb-editor-header {
+.backoffice .umb-editor-header {
   background: #fff;
   position: absolute;
   padding-left: 20px;
@@ -156,7 +156,7 @@
   box-sizing: border-box;
   height: 70px;
 }
-.umb-editor-container {
+.backoffice .umb-editor-container {
   position: absolute;
   top: 70px;
   right: 0;
@@ -165,7 +165,7 @@
   overflow: auto;
   background: #f6f4f4;
 }
-.umb-editor-footer {
+.backoffice .umb-editor-footer {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -181,7 +181,7 @@
   z-index: 30;
   bottom: 0;
 }
-.umb-editor-footer-content {
+.backoffice .umb-editor-footer-content {
   -webkit-box-flex: 1;
   flex: 1 1 auto;
   display: -webkit-box;
@@ -189,40 +189,40 @@
   -webkit-box-align: center;
   align-items: center;
 }
-.umb-editor-footer-content__right-side {
+.backoffice .umb-editor-footer-content__right-side {
   margin-left: auto;
   -webkit-box-flex: 0;
   flex: 0 0 auto;
   padding-left: 10px;
 }
-.umb-pane {
+.backoffice .umb-pane {
   margin: 20px;
 }
-.umb-box {
+.backoffice .umb-box {
   background: #fff;
   border-radius: 3px;
   margin-bottom: 20px;
   box-shadow: 0 1px 1px 0 rgba(0,0,0,.16);
 }
-.umb-box-content {
+.backoffice .umb-box-content {
   padding: 20px;
 }
-.items-center {
+.backoffice .items-center {
   -webkit-box-align: center;
   align-items: center;
 }
-.flex {
+.backoffice .flex {
   display: -webkit-box;
   display: flex;
 }
-.umb-editor-header__name-and-description {
+.backoffice .umb-editor-header__name-and-description {
   margin-right: 20px;
 }
-.umb-panel-header-name {
+.backoffice .umb-panel-header-name {
   font-size: 16px;
   font-weight: 700;
 }
-.umb-node-preview-add {
+.backoffice .umb-node-preview-add {
   max-width: 800px;
   display: -webkit-box;
   display: flex;
@@ -238,12 +238,12 @@
   box-sizing: border-box;
   width: 100%;
 }
-.umb-node-preview-add:hover {
+.backoffice .umb-node-preview-add:hover {
   color: #2152a3;
   border-color: #2152a3;
   text-decoration: none;
 }
-.umb-node-preview__action {
+.backoffice .umb-node-preview__action {
   background: 0 0;
   padding: 0;
   border: 0;
@@ -254,31 +254,31 @@
   color: #1b264f;
   cursor: pointer;
 }
-.umb-node-preview__action:hover {
+.backoffice .umb-node-preview__action:hover {
   color: #2152a3;
   text-decoration: none;
   opacity: 1;
 }
-.umb-node-preview__action--red:hover {
+.backoffice .umb-node-preview__action--red:hover {
   color: #d42054;
 }
-.umb-button {
+.backoffice .umb-button {
   position: relative;
   display: inline-block;
   margin-left: 5px;
 }
-button {
+.backoffice button {
   font-size: 15px;
   font-weight: 400;
   line-height: 20px;
 }
-button.btn {
+.backoffice button.btn {
   margin: 0;
 }
-.umb-button, umb-button__button {
+.backoffice .umb-button, umb-button__button {
   position: relative;
 }
-.btn {
+.backoffice .btn {
   display: inline-block;
   padding: 6px 14px;
   margin-bottom: 0;
@@ -293,7 +293,7 @@ button.btn {
   box-shadow: none;
   border-radius: 3px;
 }
-.btn-link {
+.backoffice .btn-link {
   border-color: transparent;
   cursor: pointer;
   color: #000;
@@ -302,27 +302,27 @@ button.btn {
   background-image: none;
   box-shadow: none;
 }
-.btn-action {
+.backoffice .btn-action {
   color: #fff;
   border-color: #1b264f #1b264f #080b16;
   border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
   background-color: #1b264f;
 }
-.btn-success {
+.backoffice .btn-success {
   color: #fff;
   border-color: #2bc37c #2bc37c #1d8454;
   border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
   background-color: #2bc37c;
   font-weight: 700;
 }
-.btn-group {
+.backoffice .btn-group {
   position: relative;
   display: inline-block;
   font-size: 0;
   vertical-align: middle;
   white-space: nowrap;
 }
-.umb-button-group .umb-button-group__toggle {
+.backoffice .umb-button-group .umb-button-group__toggle {
   border-radius: 0 3px 3px 0;
   border-left: 1px solid rgba(0,0,0,.09);
   margin-left: -2px;
@@ -331,20 +331,20 @@ button.btn {
   float: none;
   position: relative;
 }
-.dropup .caret, .navbar-fixed-bottom .dropdown .caret {
+.backoffice .dropup .caret, .navbar-fixed-bottom .dropdown .caret {
   border-top: 0;
   border-bottom: 4px solid #000;
   content: "";
 }
-.btn .caret {
+.backoffice .btn .caret {
   margin-top: 8px;
   margin-left: 0;
 }
-.btn-success .caret {
+.backoffice .btn-success .caret {
   border-top-color: #fff;
   border-bottom-color: #fff;
 }
-.caret {
+.backoffice .caret {
   display: inline-block;
   width: 0;
   height: 0;
@@ -354,7 +354,7 @@ button.btn {
   border-left: 4px solid transparent;
   content: "";
 }
-label {
+.backoffice label {
   display: inline-block;
   margin-bottom: 5px;
   font-size: 15px;
@@ -362,11 +362,11 @@ label {
   line-height: 20px;
 }
 
-.palette-item {
+.backoffice .palette-item {
   cursor: pointer;
   position: relative;
 }
-.palette-item.selected::before {
+.backoffice .palette-item.selected::before {
   content: "";
   position: absolute;
   z-index: 2;
@@ -379,23 +379,23 @@ label {
   box-shadow: 0 0 2px 0 #e86f63, inset 0 0 2px 0 #e86f63;
   pointer-events: none;
 }
-.palette-checkbox {
+.backoffice .palette-checkbox {
   display: block;
   width: 100%;
 }
-.palette-checkbox input[type=radio], .paletton-checkbox input[type=checkbox] {
+.backoffice .palette-checkbox input[type=radio], .paletton-checkbox input[type=checkbox] {
   display: none;
 }
-.palette-preview {
+.backoffice .palette-preview {
   display: block;
   padding: 10px;
   cursor: pointer;
   width: 100%;
 }
-.palette-preview .colorset .colorset-title {
+.backoffice .palette-preview .colorset .colorset-title {
   font-size: 12px;
 }
-.palette-preview .colorset .colorset-colors {
+.backoffice .palette-preview .colorset .colorset-colors {
   display: block;
   width: 100%;
   position: relative;
@@ -403,12 +403,12 @@ label {
   padding-bottom: 8px;
   box-sizing: content-box;
 }
-.palette-preview .colorset .colorset-colors .color-block {
+.backoffice .palette-preview .colorset .colorset-colors .color-block {
   display: block;
   position: absolute;
   top: 0;
 }
-.palette-preview .colorset .colorset-colors .color-block-color {
+.backoffice .palette-preview .colorset .colorset-colors .color-block-color {
   display: block;
   height: 40px;
   width: 100%;
@@ -416,5 +416,71 @@ label {
 }
 
 .ui-view {
-
+	min-height: 500px;
+	background-color: #fff;
+	color: #333;
+  position: relative;
+	font-size: 15px;
+}
+.ui-view .container {
+	padding: 0 20px;
+}
+.ui-view .header {
+	background: #e1e1e1;
+  border-bottom: 2px solid #ddd;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+.ui-view .site-name {
+	color: #333;
+  font-size: 1.3em;
+  float: left;
+  margin-top: 30px;
+}
+.ui-view .nav {
+	margin-top: 36px;
+	margin-bottom: 0;
+}
+.ui-view .nav li {
+	display: inline-block;
+	margin-left: 1.3em;
+	font-size: 0.9em;
+	text-transform: uppercase;
+}
+.ui-view .nav a {
+	color: #333;
+}
+.ui-view .nav a:hover {
+	color: #999;
+}
+.ui-view h1 {
+	color: #333;
+	font-size: 26px;
+  font-weight: 500;
+  text-transform: uppercase;
+	border-bottom: 1px solid #ccc;
+	margin: 1em 0;
+}
+.ui-view a {
+	color: #222;
+	font-weight: bold;
+}
+.ui-view a:hover {
+	color: #999;
+}
+.ui-view .btn {
+	border: 1px solid #999;
+  color: #333;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 10px 20px;
+  min-width: 150px;
+  border-radius: 3px;
+	background: #e1e1e1;
+}
+.ui-view .btn:hover {
+	border: 1px solid #000;
+  color: #000;
+	background: #ccc;
 }
