@@ -422,6 +422,9 @@
   position: relative;
 	font-size: 15px;
 }
+.ui-view .body {
+	min-height: 500px;
+}
 .ui-view .container {
 	padding: 0 20px;
 }
@@ -481,6 +484,7 @@
 	background: #e1e1e1;
 	display: inline-block;
   text-align: center;
+	cursor: pointer;
 }
 .ui-view .btn:hover {
 	border: 1px solid #000;
