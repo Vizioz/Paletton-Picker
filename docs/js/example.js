@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
-  var palette = [["4183C4", "a7c1db", "7eb0e1", "234261", "052748"], ["eee", "666", "999", "333", "222"]];
+  var itemId = 0;
+  var palette = [[], []];
 
   function submitColor(id) {
     var item = $(".palette-item[data-item-id='" + id + "']");
@@ -24,7 +25,8 @@ $(document).ready(function(){
   };
 
   function resetColor(){
-    palette = [["4183C4", "a7c1db", "7eb0e1", "234261", "052748"], ["666", "eee", "999", "333", "222"]];
+    itemId = 0;
+    palette = [[], []];
 
     $("#editor-picker .add-text").show();
     $("#editor-picker .palette-preview").hide();
@@ -63,6 +65,10 @@ $(document).ready(function(){
     else if("addRule" in sheet) {
       sheet.addRule(selector, rules, index);
     }
+  }
+
+  function removeStyles() {
+    $("#style-palette").remove();
   }
 
   function applyStyles() {
@@ -142,7 +148,11 @@ $(document).ready(function(){
         submitColor(itemId);
       },
       savePublish: function() {
-        applyStyles();
+        if (itemId === 0) {
+          removeStyles();
+        } else {
+          applyStyles();
+        }
       }
     };
 });
