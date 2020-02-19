@@ -444,6 +444,8 @@
 .ui-view .nav {
 	margin-top: 22px;
 	margin-bottom: 0;
+	float: right;
+	text-align: right;
 }
 .ui-view .nav li {
 	display: inline-block;
