@@ -45,6 +45,12 @@
   padding-top: 5px;
   text-align: left;
 }
+@media (max-width: 767px) {
+	.umb-control-group .control-header {
+	    float: none;
+	    width: 100%;
+	}
+}
 .umb-control-group .control-header .control-label {
   float: left;
   width: auto;
@@ -56,6 +62,11 @@
 }
 .controls {
   margin-left: 180px;
+}
+@media (max-width: 767px) {
+	.umb-control-group .controls {
+	    margin-left: 0;
+	}
 }
 .umb-property-editor {
   width: 100%;
@@ -97,9 +108,8 @@
   transition: -webkit-transform .4s ease-in-out;
   transition: transform .4s ease-in-out;
   transition: transform .4s ease-in-out,-webkit-transform .4s ease-in-out;
-}
-.umb-editor--small {
-  width: 500px;
+	width: 500px;
+	max-width: 100%
   will-change: transform;
   left: auto;
 }
@@ -404,4 +414,8 @@ label {
   height: 40px;
   width: 100%;
   border: 1px solid black;
+}
+
+.ui-view {
+
 }

@@ -20,14 +20,14 @@
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>
 
-  <body class="complement-3 bg-complement-1">
+  <body>
     <div class="wrapper-masthead">
-      <header class="masthead clearfix bg-primary-1 border-complement-0">
+      <header class="masthead clearfix">
         <div class="container">
           <div class="site-info">
             <a href="{{ site.baseurl }}">
               <img class="site-avatar" src="{{ site.baseurl }}/images/{{ site.logo }}" />
-              <span class="site-name primary-3">{{ site.name }}</span>
+              <span class="site-name">{{ site.name }}</span>
             </a>
           </div>
           <nav>
@@ -42,9 +42,9 @@
 
     <div id="main" role="main" class="wrapper-body">
       {% if page.title %}
-      <div class="body-title border-complement-2">
+      <div class="body-title">
         <div class="container">
-          <h1 class="complement-4">{{ page.title }}</h1>
+          <h1>{{ page.title }}</h1>
         </div>
       </div>
       {% endif %}
@@ -55,14 +55,14 @@
       </div>
     </div>
 
-    <div class="wrapper-footer bg-complement-1 border-complement-2">
+    <div class="wrapper-footer">
       <footer class="footer">
         <div class="footer-top">
           <div class="container">
             {% include svg-icons.html %}
           </div>
         </div>
-        <div class="footer-bottom bg-complement-2 border-complement-3">
+        <div class="footer-bottom">
           <div class="container">
             <span>&copy; {{ site.company.name }} 2020</span>
           </div>

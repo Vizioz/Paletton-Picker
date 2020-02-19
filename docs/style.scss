@@ -461,6 +461,12 @@ box-shadow: 0 -2px 5px #999;
   font-size: 0.8em;
 }
 
+.example {
+	border: 3px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 30px;
+}
+
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "svg-icons";
