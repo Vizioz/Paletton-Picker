@@ -1,7 +1,11 @@
 ---
 layout: default
 ---
-
+<div class="content-top-bar-mobile">
+  <span class="side-link main-link"><a href="{{ site.baseurl }}/documentation">Quick Guide</a></span>
+  <span class="side-link main-link"><a href="{{ site.baseurl }}/api">API reference</a></span>
+  <span class="side-link main-link"><a href="{{ site.baseurl }}/cssrules">CSS rules</a></span>
+</div>
 <div class="container-side-bar">
   <aside id="side" class="side-bar">
     <div class="side-bar-nav">
@@ -19,7 +23,7 @@ layout: default
       <span class="side-link main-link"><a href="{{ site.baseurl }}/cssrules">CSS rules</a></span>
     </div>
   </aside>
-  <div class="main-content">
+  <div class="main-content">    
     {{ content }}
   </div>
 </div>
