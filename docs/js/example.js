@@ -155,4 +155,20 @@ $(document).ready(function(){
         }
       }
     };
+
+    $(".color-block").mouseover(function(ev){
+        if (!$(this).find(".umb-tooltip").length){
+          var id = $(this).data("id");
+          var rgb = $(this).data("rgb");
+          var tooltip = $("<div class=\"umb-tooltip shadow-depth-2\"><span><span class=\"color-block-id\">" + id + "</span><br/><span class=\"color-block-rgb\">#" + rgb + "</span></span></div>");
+          tooltip.css("top", (ev.pageY - window.pageYOffset) + "px");
+          tooltip.css("left", (ev.pageX - window.pageXOffset) + "px");
+          $(this).append(tooltip);
+        }
+      });
+
+      $(".color-block").mouseleave(function(){
+        var tooltip = $(this).find(".umb-tooltip");
+        tooltip.remove();
+      });
 });
