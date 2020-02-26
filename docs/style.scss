@@ -49,6 +49,22 @@ body {
 
 .content-top-bar-mobile {
 	display: none;
+	margin-left: -10px;
+	margin-right: -10px;
+	margin-top: -14px;
+	margin-bottom: 16px;
+	padding: 0 10px;
+	border-bottom: 1px solid $color-primary-1;
+	text-align: center;
+	.side-link {
+		display: inline-block;
+		border: none;
+		padding: 2px 10px 2px 0;
+		font-size: 0.7em;
+		&:last-child{
+			padding-right: 0;
+		}
+	}
 	  @include mobile {
 	    display: block;
 	  }
@@ -64,11 +80,6 @@ body {
   color: $color-complement-0;
   font-size: 15px;
   position: relative;
-
-  a {
-    color: $color-primary-1;
-  }
-	  
 	  
   .side-bar-nav {
     margin-right: 40px;
@@ -113,12 +124,18 @@ body {
     display: block;
     padding: 8px 40px 8px 0;
     border-right: 4px solid $color-primary-1;
-    font-weight: 600;
+    font-weight: 600;	
 
 	&.main-link {
 		text-transform: uppercase;
 		font-weight: 700;
 	}
+	a {
+	    color: $color-primary-1;
+		&:hover {
+			color: $color-primary-1;
+		}
+	  }
 }
 
 h1, h2, h3, h4, h5, h6 {
