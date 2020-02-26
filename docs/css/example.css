@@ -445,6 +445,9 @@
   position: relative;
 	font-size: 15px;
 }
+.ui-view .body {
+	padding-bottom: 20px;
+}
 .ui-view .container {
 	padding: 0 20px;
 }
@@ -464,6 +467,9 @@
 .ui-view .nav {
 	margin-top: 22px;
 	margin-bottom: 0;
+	text-align: right;
+	display: inline-block;
+	float: right;
 }
 .ui-view .nav li {
 	display: inline-block;
@@ -527,9 +533,11 @@
   color: #000;
 }
 .ui-view .row {
-  max-width: 100%;
+  max-width: calc(100% + 20px);
+    width: calc(100% + 20px);
+    margin: 0 -10px;
 }
-.ui-view .row ::before{
+.ui-view .row::before{
   display: table;
   content: ' ';
 }
@@ -541,6 +549,11 @@
 .ui-view .row .span4 {
   float: left;
   width: 33.33%;
-  padding-right: .9375rem;
-  padding-left: .9375rem;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.ui-view .tile {
+padding: 10px;
+    border: 1px solid #999;
+    border-radius: 5px;
 }
