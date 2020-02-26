@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   var itemId = 0;
-  var palette = [[], []];
+  var palette = [[], [], [], []];
 
   function submitColor(id) {
     var item = $(".palette-item[data-item-id='" + id + "']");
