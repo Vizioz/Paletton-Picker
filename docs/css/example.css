@@ -3,7 +3,7 @@
   font-size: 15px;
   line-height: 20px;
   color: #000;
-  min-height: 500px;
+  min-height: 600px;
   background-color: #f9f6f5;
   position: relative;
 }
@@ -439,7 +439,7 @@
 }
 
 .ui-view {
-	min-height: 500px;
+	min-height: 600px;
 	background-color: #fff;
 	color: #333;
   position: relative;
