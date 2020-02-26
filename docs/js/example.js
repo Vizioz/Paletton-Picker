@@ -5,30 +5,30 @@ $(document).ready(function(){
 
   function submitColor(id) {
     var item = $(".palette-item[data-item-id='" + id + "']");
+    var colors = item.find(".color-block[data-id]");
 
-    palette[0][0] = item.find(".color-block[data-id='primary-0']").data("rgb");
-    palette[0][1] = item.find(".color-block[data-id='primary-1']").data("rgb");
-    palette[0][2] = item.find(".color-block[data-id='primary-2']").data("rgb");
-    palette[0][3] = item.find(".color-block[data-id='primary-3']").data("rgb");
-    palette[0][4] = item.find(".color-block[data-id='primary-4']").data("rgb");
+    for (var i = 0; i < colors.length; i++){
+      var color = $(colors[i]);
+      var id = color.data("id");
+      var charIndex = id.lastIndexOf("-");
+      var colorSetName = id.substring(0, charIndex);
+      var colorNumber = parseInt(id.substring(charIndex + 1));
+      var setNumber;
 
-    palette[1][0] = item.find(".color-block[data-id='secondary-1-0']").data("rgb");
-    palette[1][1] = item.find(".color-block[data-id='secondary-1-1']").data("rgb");
-    palette[1][2] = item.find(".color-block[data-id='secondary-1-2']").data("rgb");
-    palette[1][3] = item.find(".color-block[data-id='secondary-1-3']").data("rgb");
-    palette[1][4] = item.find(".color-block[data-id='secondary-1-4']").data("rgb");
+      if (colorSetName === "primary"){
+        setNumber = 0;
+      } else if (colorSetName === "secondary-1"){
+        setNumber = 1;
+      } else if (colorSetName === "secondary-2"){
+        setNumber = 2;
+      } else if (colorSetName === "complement"){
+        setNumber = 3;
+      }
 
-    palette[2][0] = item.find(".color-block[data-id='secondary-2-0']").data("rgb");
-    palette[2][1] = item.find(".color-block[data-id='secondary-2-1']").data("rgb");
-    palette[2][2] = item.find(".color-block[data-id='secondary-2-2']").data("rgb");
-    palette[2][3] = item.find(".color-block[data-id='secondary-2-3']").data("rgb");
-    palette[2][4] = item.find(".color-block[data-id='secondary-2-4']").data("rgb");
-
-    palette[3][0] = item.find(".color-block[data-id='complement-0']").data("rgb");
-    palette[3][1] = item.find(".color-block[data-id='complement-1']").data("rgb");
-    palette[3][2] = item.find(".color-block[data-id='complement-2']").data("rgb");
-    palette[3][3] = item.find(".color-block[data-id='complement-3']").data("rgb");
-    palette[3][4] = item.find(".color-block[data-id='complement-4']").data("rgb");
+      if (!isNaN(colorNumber) && !isNaN(setNumber)){
+        palette[setNumber][colorNumber] = item.find(".color-block[data-id='" + colorSetName + "-" + colorNumber + "']").data("rgb");
+      }
+    }
 
     $("#editor-picker .add-text").hide();
     $("#editor-picker .palette-preview").show();
@@ -49,29 +49,24 @@ $(document).ready(function(){
   }
 
   function preview() {
-    $("#editor-picker .palette-preview .color-block[data-id='primary-0'] .color-block-color").css("background-color", "#" + palette[0][0]);
-    $("#editor-picker .palette-preview .color-block[data-id='primary-1'] .color-block-color").css("background-color", "#" + palette[0][1]);
-    $("#editor-picker .palette-preview .color-block[data-id='primary-2'] .color-block-color").css("background-color", "#" + palette[0][2]);
-    $("#editor-picker .palette-preview .color-block[data-id='primary-3'] .color-block-color").css("background-color", "#" + palette[0][3]);
-    $("#editor-picker .palette-preview .color-block[data-id='primary-4'] .color-block-color").css("background-color", "#" + palette[0][4]);
+    for (var i = 0; i < palette.length; i++){
+      var colorSet = palette[i];
 
-    $("#editor-picker .palette-preview .color-block[data-id='secondary-1-0'] .color-block-color").css("background-color", "#" + palette[1][0]);
-    $("#editor-picker .palette-preview .color-block[data-id='secondary-1-1'] .color-block-color").css("background-color", "#" + palette[1][1]);
-    $("#editor-picker .palette-preview .color-block[data-id='secondary-1-2'] .color-block-color").css("background-color", "#" + palette[1][2]);
-    $("#editor-picker .palette-preview .color-block[data-id='secondary-1-3'] .color-block-color").css("background-color", "#" + palette[1][3]);
-    $("#editor-picker .palette-preview .color-block[data-id='secondary-1-4'] .color-block-color").css("background-color", "#" + palette[1][4]);
+      if (i === 0){
+        colorSetName = "primary";
+      } else if (i === 1){
+        colorSetName = "secondary-1";
+      } else if (i === 2){
+        colorSetName = "secondary-2";
+      } else if (i === 3){
+        colorSetName = "complement";
+      }
 
-    $("#editor-picker .palette-preview .color-block[data-id='secondary-2-0'] .color-block-color").css("background-color", "#" + palette[2][0]);
-    $("#editor-picker .palette-preview .color-block[data-id='secondary-2-1'] .color-block-color").css("background-color", "#" + palette[2][1]);
-    $("#editor-picker .palette-preview .color-block[data-id='secondary-2-2'] .color-block-color").css("background-color", "#" + palette[2][2]);
-    $("#editor-picker .palette-preview .color-block[data-id='secondary-2-3'] .color-block-color").css("background-color", "#" + palette[2][3]);
-    $("#editor-picker .palette-preview .color-block[data-id='secondary-2-4'] .color-block-color").css("background-color", "#" + palette[2][4]);
-
-    $("#editor-picker .palette-preview .color-block[data-id='complement-0'] .color-block-color").css("background-color", "#" + palette[3][0]);
-    $("#editor-picker .palette-preview .color-block[data-id='complement-1'] .color-block-color").css("background-color", "#" + palette[3][1]);
-    $("#editor-picker .palette-preview .color-block[data-id='complement-2'] .color-block-color").css("background-color", "#" + palette[3][2]);
-    $("#editor-picker .palette-preview .color-block[data-id='complement-3'] .color-block-color").css("background-color", "#" + palette[3][3]);
-    $("#editor-picker .palette-preview .color-block[data-id='complement-4'] .color-block-color").css("background-color", "#" + palette[3][4]);
+      for (var j = 0; j < colorSet.length; j++) {
+        $("#editor-picker .palette-preview .color-block[data-id='" + colorSetName + "-" + j + "'] .color-block-color").css("background-color", "#" + palette[i][j]);
+        $("#editor-picker .palette-preview .color-block[data-id='" + colorSetName + "-" + j + "']").data("rgb", palette[i][j]);
+      }
+    }
   }
 
   function getSheet() {
@@ -100,129 +95,28 @@ $(document).ready(function(){
   function applyStyles() {
     var sheet = getSheet();
 
-    addCSSRule(sheet, ".primary-0", "color: #" + palette[0][0] + " !important;");
-    addCSSRule(sheet, ".bg-primary-0", "background-color: #" + palette[0][0] + " !important;");
-    addCSSRule(sheet, ".border-primary-0", "border-color: #" + palette[0][0] + " !important;");
-    addCSSRule(sheet, ".hover-primary-0:hover", "color: #" + palette[0][0] + " !important;");
-    addCSSRule(sheet, ".hover-bg-primary-0:hover", "background-color: #" + palette[0][0] + " !important;");
-    addCSSRule(sheet, ".hover-border-primary-0:hover", "border-color: #" + palette[0][0] + " !important;");
-    addCSSRule(sheet, ".primary-1", "color: #" + palette[0][1] + " !important;");
-    addCSSRule(sheet, ".bg-primary-1", "background-color: #" + palette[0][1] + " !important;");
-    addCSSRule(sheet, ".border-primary-1", "border-color: #" + palette[0][1] + " !important;");
-    addCSSRule(sheet, ".hover-primary-1:hover", "color: #" + palette[0][1] + " !important;");
-    addCSSRule(sheet, ".hover-bg-primary-1:hover", "background-color: #" + palette[0][1] + " !important;");
-    addCSSRule(sheet, ".hover-border-primary-1:hover", "border-color: #" + palette[0][1] + " !important;");
-    addCSSRule(sheet, ".primary-2", "color: #" + palette[0][2] + " !important;");
-    addCSSRule(sheet, ".bg-primary-2", "background-color: #" + palette[0][2] + " !important;");
-    addCSSRule(sheet, ".border-primary-2", "border-color: #" + palette[0][2] + " !important;");
-    addCSSRule(sheet, ".hover-primary-2:hover", "color: #" + palette[0][2] + " !important;");
-    addCSSRule(sheet, ".hover-bg-primary-2:hover", "background-color: #" + palette[0][2] + " !important;");
-    addCSSRule(sheet, ".hover-border-primary-2:hover", "border-color: #" + palette[0][2] + " !important;");
-    addCSSRule(sheet, ".primary-3", "color: #" + palette[0][3] + " !important;");
-    addCSSRule(sheet, ".bg-primary-3", "background-color: #" + palette[0][3] + " !important;");
-    addCSSRule(sheet, ".border-primary-3", "border-color: #" + palette[0][3] + " !important;");
-    addCSSRule(sheet, ".hover-primary-3:hover", "color: #" + palette[0][3] + " !important;");
-    addCSSRule(sheet, ".hover-bg-primary-3:hover", "background-color: #" + palette[0][3] + " !important;");
-    addCSSRule(sheet, ".hover-border-primary-3:hover", "border-color: #" + palette[0][3] + " !important;");
-    addCSSRule(sheet, ".primary-4", "color: #" + palette[0][4] + " !important;");
-    addCSSRule(sheet, ".bg-primary-4", "background-color: #" + palette[0][4] + " !important;");
-    addCSSRule(sheet, ".border-primary-4", "border-color: #" + palette[0][4] + " !important;");
-    addCSSRule(sheet, ".hover-primary-4:hover", "color: #" + palette[0][4] + " !important;");
-    addCSSRule(sheet, ".hover-bg-primary-4:hover", "background-color: #" + palette[0][4] + " !important;");
-    addCSSRule(sheet, ".hover-border-primary-4:hover", "border-color: #" + palette[0][4] + " !important;");
+    for (var i = 0; i < palette.length; i++){
+      var colorSet = palette[i];
 
-    addCSSRule(sheet, ".secondary-1-0", "color: #" + palette[1][0] + " !important;");
-    addCSSRule(sheet, ".bg-secondary-1-0", "background-color: #" + palette[1][0] + " !important;");
-    addCSSRule(sheet, ".border-secondary-1-0", "border-color: #" + palette[1][0] + " !important;");
-    addCSSRule(sheet, ".hover-secondary-1-0:hover", "color: #" + palette[1][0] + " !important;");
-    addCSSRule(sheet, ".hover-bg-secondary-1-0:hover", "background-color: #" + palette[1][0] + " !important;");
-    addCSSRule(sheet, ".hover-border-secondary-1-0:hover", "border-color: #" + palette[1][0] + " !important;");
-    addCSSRule(sheet, ".secondary-1-1", "color: #" + palette[1][1] + " !important;");
-    addCSSRule(sheet, ".bg-secondary-1-1", "background-color: #" + palette[1][1] + " !important;");
-    addCSSRule(sheet, ".border-secondary-1-1", "border-color: #" + palette[1][1] + " !important;");
-    addCSSRule(sheet, ".hover-secondary-1-1:hover", "color: #" + palette[1][1] + " !important;");
-    addCSSRule(sheet, ".hover-bg-secondary-1-1:hover", "background-color: #" + palette[1][1] + " !important;");
-    addCSSRule(sheet, ".hover-border-secondary-1-1:hover", "border-color: #" + palette[1][1] + " !important;");
-    addCSSRule(sheet, ".secondary-1-2", "color: #" + palette[1][2] + " !important;");
-    addCSSRule(sheet, ".bg-secondary-1-2", "background-color: #" + palette[1][2] + " !important;");
-    addCSSRule(sheet, ".border-secondary-1-2", "border-color: #" + palette[1][2] + " !important;");
-    addCSSRule(sheet, ".hover-secondary-1-2:hover", "color: #" + palette[1][2] + " !important;");
-    addCSSRule(sheet, ".hover-bg-secondary-1-2:hover", "background-color: #" + palette[1][2] + " !important;");
-    addCSSRule(sheet, ".hover-border-secondary-1-2:hover", "border-color: #" + palette[1][2] + " !important;");
-    addCSSRule(sheet, ".secondary-1-3", "color: #" + palette[1][3] + " !important;");
-    addCSSRule(sheet, ".bg-secondary-1-3", "background-color: #" + palette[1][3] + " !important;");
-    addCSSRule(sheet, ".border-secondary-1-3", "border-color: #" + palette[1][3] + " !important;");
-    addCSSRule(sheet, ".hover-secondary-1-3:hover", "color: #" + palette[1][3] + " !important;");
-    addCSSRule(sheet, ".hover-bg-secondary-1-3:hover", "background-color: #" + palette[1][3] + " !important;");
-    addCSSRule(sheet, ".hover-border-secondary-1-3:hover", "border-color: #" + palette[1][3] + " !important;");
-    addCSSRule(sheet, ".secondary-1-4", "color: #" + palette[1][4] + " !important;");
-    addCSSRule(sheet, ".bg-secondary-1-4", "background-color: #" + palette[1][4] + " !important;");
-    addCSSRule(sheet, ".border-secondary-1-4", "border-color: #" + palette[1][4] + " !important;");
-    addCSSRule(sheet, ".hover-secondary-1-4:hover", "color: #" + palette[1][4] + " !important;");
-    addCSSRule(sheet, ".hover-bg-secondary-1-4:hover", "background-color: #" + palette[1][4] + " !important;");
-    addCSSRule(sheet, ".hover-border-secondary-1-4:hover", "border-color: #" + palette[1][4] + " !important;");
+      if (i === 0){
+        colorSetName = "primary";
+      } else if (i === 1){
+        colorSetName = "secondary-1";
+      } else if (i === 2){
+        colorSetName = "secondary-2";
+      } else if (i === 3){
+        colorSetName = "complement";
+      }
 
-    addCSSRule(sheet, ".secondary-2-0", "color: #" + palette[2][0] + " !important;");
-    addCSSRule(sheet, ".bg-secondary-2-0", "background-color: #" + palette[2][0] + " !important;");
-    addCSSRule(sheet, ".border-secondary-2-0", "border-color: #" + palette[2][0] + " !important;");
-    addCSSRule(sheet, ".hover-secondary-2-0:hover", "color: #" + palette[2][0] + " !important;");
-    addCSSRule(sheet, ".hover-bg-secondary-2-0:hover", "background-color: #" + palette[2][0] + " !important;");
-    addCSSRule(sheet, ".hover-border-secondary-2-0:hover", "border-color: #" + palette[2][0] + " !important;");
-    addCSSRule(sheet, ".secondary-2-1", "color: #" + palette[2][1] + " !important;");
-    addCSSRule(sheet, ".bg-secondary-2-1", "background-color: #" + palette[2][1] + " !important;");
-    addCSSRule(sheet, ".border-secondary-2-1", "border-color: #" + palette[2][1] + " !important;");
-    addCSSRule(sheet, ".hover-secondary-2-1:hover", "color: #" + palette[2][1] + " !important;");
-    addCSSRule(sheet, ".hover-bg-secondary-2-1:hover", "background-color: #" + palette[2][1] + " !important;");
-    addCSSRule(sheet, ".hover-border-secondary-2-1:hover", "border-color: #" + palette[2][1] + " !important;");
-    addCSSRule(sheet, ".secondary-2-2", "color: #" + palette[2][2] + " !important;");
-    addCSSRule(sheet, ".bg-secondary-2-2", "background-color: #" + palette[2][2] + " !important;");
-    addCSSRule(sheet, ".border-secondary-2-2", "border-color: #" + palette[2][2] + " !important;");
-    addCSSRule(sheet, ".hover-secondary-2-2:hover", "color: #" + palette[2][2] + " !important;");
-    addCSSRule(sheet, ".hover-bg-secondary-2-2:hover", "background-color: #" + palette[2][2] + " !important;");
-    addCSSRule(sheet, ".hover-border-secondary-2-2:hover", "border-color: #" + palette[2][2] + " !important;");
-    addCSSRule(sheet, ".secondary-2-3", "color: #" + palette[2][3] + " !important;");
-    addCSSRule(sheet, ".bg-secondary-2-3", "background-color: #" + palette[2][3] + " !important;");
-    addCSSRule(sheet, ".border-secondary-2-3", "border-color: #" + palette[2][3] + " !important;");
-    addCSSRule(sheet, ".hover-secondary-2-3:hover", "color: #" + palette[2][3] + " !important;");
-    addCSSRule(sheet, ".hover-bg-secondary-2-3:hover", "background-color: #" + palette[2][3] + " !important;");
-    addCSSRule(sheet, ".hover-border-secondary-2-3:hover", "border-color: #" + palette[2][3] + " !important;");
-    addCSSRule(sheet, ".secondary-2-4", "color: #" + palette[2][4] + " !important;");
-    addCSSRule(sheet, ".bg-secondary-2-4", "background-color: #" + palette[2][4] + " !important;");
-    addCSSRule(sheet, ".border-secondary-2-4", "border-color: #" + palette[2][4] + " !important;");
-    addCSSRule(sheet, ".hover-secondary-2-4:hover", "color: #" + palette[2][4] + " !important;");
-    addCSSRule(sheet, ".hover-bg-secondary-2-4:hover", "background-color: #" + palette[2][4] + " !important;");
-    addCSSRule(sheet, ".hover-border-secondary-2-4:hover", "border-color: #" + palette[2][4] + " !important;");
-
-    addCSSRule(sheet, ".complement-0", "color: #" + palette[3][0] + " !important;");
-    addCSSRule(sheet, ".bg-complement-0", "background-color: #" + palette[3][0] + " !important;");
-    addCSSRule(sheet, ".border-complement-0", "border-color: #" + palette[3][0] + " !important;");
-    addCSSRule(sheet, ".hover-complement-0:hover", "color: #" + palette[3][0] + " !important;");
-    addCSSRule(sheet, ".hover-bg-complement-0:hover", "background-color: #" + palette[3][0] + " !important;");
-    addCSSRule(sheet, ".hover-border-complement-0:hover", "border-color: #" + palette[3][0] + " !important;");
-    addCSSRule(sheet, ".complement-1", "color: #" + palette[3][1] + " !important;");
-    addCSSRule(sheet, ".bg-complement-1", "background-color: #" + palette[3][1] + " !important;");
-    addCSSRule(sheet, ".border-complement-1", "border-color: #" + palette[3][1] + " !important;");
-    addCSSRule(sheet, ".hover-complement-1:hover", "color: #" + palette[3][1] + " !important;");
-    addCSSRule(sheet, ".hover-bg-complement-1:hover", "background-color: #" + palette[3][1] + " !important;");
-    addCSSRule(sheet, ".hover-border-complement-1:hover", "border-color: #" + palette[3][1] + " !important;");
-    addCSSRule(sheet, ".complement-2", "color: #" + palette[3][2] + " !important;");
-    addCSSRule(sheet, ".bg-complement-2", "background-color: #" + palette[3][2] + " !important;");
-    addCSSRule(sheet, ".border-complement-2", "border-color: #" + palette[3][2] + " !important;");
-    addCSSRule(sheet, ".hover-complement-2:hover", "color: #" + palette[3][2] + " !important;");
-    addCSSRule(sheet, ".hover-bg-complement-2:hover", "background-color: #" + palette[3][2] + " !important;");
-    addCSSRule(sheet, ".hover-border-complement-2:hover", "border-color: #" + palette[3][2] + " !important;");
-    addCSSRule(sheet, ".complement-3", "color: #" + palette[3][3] + " !important;");
-    addCSSRule(sheet, ".bg-complement-3", "background-color: #" + palette[3][3] + " !important;");
-    addCSSRule(sheet, ".border-complement-3", "border-color: #" + palette[3][3] + " !important;");
-    addCSSRule(sheet, ".hover-complement-3:hover", "color: #" + palette[3][3] + " !important;");
-    addCSSRule(sheet, ".hover-bg-complement-3:hover", "background-color: #" + palette[3][3] + " !important;");
-    addCSSRule(sheet, ".hover-border-complement-3:hover", "border-color: #" + palette[3][3] + " !important;");
-    addCSSRule(sheet, ".complement-4", "color: #" + palette[3][4] + " !important;");
-    addCSSRule(sheet, ".bg-complement-4", "background-color: #" + palette[3][4] + " !important;");
-    addCSSRule(sheet, ".border-complement-4", "border-color: #" + palette[3][4] + " !important;");
-    addCSSRule(sheet, ".hover-complement-4:hover", "color: #" + palette[3][4] + " !important;");
-    addCSSRule(sheet, ".hover-bg-complement-4:hover", "background-color: #" + palette[3][4] + " !important;");
-    addCSSRule(sheet, ".hover-border-complement-4:hover", "border-color: #" + palette[3][4] + " !important;");
+      for (var j = 0; j < colorSet.length; j++) {
+        addCSSRule(sheet, "." + colorSetName + "-" + j, "color: #" + palette[i][j] + " !important;");
+        addCSSRule(sheet, ".bg-" + colorSetName + "-" + j, "background-color: #" + palette[i][j] + " !important;");
+        addCSSRule(sheet, ".border-" + colorSetName + "-" + j, "border-color: #" + palette[i][j] + " !important;");
+        addCSSRule(sheet, ".hover-" + colorSetName + "-" + j + ":hover", "color: #" + palette[i][j] + " !important;");
+        addCSSRule(sheet, ".hover-bg-" + colorSetName + "-" + j + ":hover", "background-color: #" + palette[i][j] + " !important;");
+        addCSSRule(sheet, ".hover-border-" + colorSetName + "-" + j + ":hover", "border-color: #" + palette[i][j] + " !important;");
+      }
+    }
   }
 
   vm = {
