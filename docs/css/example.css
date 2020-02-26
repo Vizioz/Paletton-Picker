@@ -526,3 +526,21 @@
 .ui-view .btn:hover a {
   color: #000;
 }
+.ui-view .row {
+  max-width: 100%;
+}
+.ui-view .row ::before{
+  display: table;
+  content: ' ';
+}
+.ui-view .row::after {
+  clear: both;
+  display: table;
+  content: ' ';
+}
+.ui-view .row .span4 {
+  float: left;
+  width: 33.33%;
+  padding-right: .9375rem;
+  padding-left: .9375rem;
+}
