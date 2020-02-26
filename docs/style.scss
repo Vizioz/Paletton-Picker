@@ -286,9 +286,9 @@ table {
 //
 
 .masthead {
-  padding: 20px 0;
+  padding: 20px 0 10px;
   border-bottom: 2px solid $color-primary-3;
-  background-color: $color-primary-1;
+  background-color: $color-complement-1;
   box-shadow: 0 2px 5px $color-primary-0;
 
   @include mobile {
@@ -327,12 +327,12 @@ table {
 
 .site-name {
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 28px;
   color: $color-primary-0;
   cursor: pointer;
   font-family: $font-family-native;
   font-weight: bolder;
-  font-size: 34px;
+  font-size: 38px;
   letter-spacing: -2px;
 	vertical-align: top;
 
@@ -354,7 +354,7 @@ table {
 
 nav {
   float: right;
-  margin-top: 35px; // @TODO: Vertically middle align
+  margin-top: 50px; // @TODO: Vertically middle align
   font-family: $font-family-native;
   font-size: 18px;
 
@@ -373,8 +373,8 @@ nav {
     margin-left: 20px;
     color: $color-primary-0;
     text-align: right;
-    font-weight: 300;
-    letter-spacing: 1px;
+    font-weight: normal;
+    letter-spacing: -1px;
 	  display: inline-block;
 
     &:hover {
