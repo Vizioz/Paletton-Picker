@@ -414,6 +414,29 @@
   width: 100%;
   border: 1px solid black;
 }
+.backoffice .umb-tooltip {
+  position: fixed;
+  display: -webkit-box;
+  display: flex;
+  background: #fff;
+  padding: 10px;
+  z-index: 1000;
+  max-width: 200px;
+  font-size: 12px;
+  -webkit-animation-duration: .1s;
+  animation-duration: .1s;
+  -webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
+  -webkit-animation: fadeIn;
+  animation: fadeIn;
+  margin-top: 15px;
+  pointer-events: none;
+  border-radius: 3px;
+}
+
+.backoffice .shadow-depth-2 {
+  box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+}
 
 .ui-view {
 	min-height: 500px;
@@ -421,9 +444,6 @@
 	color: #333;
   position: relative;
 	font-size: 15px;
-}
-.ui-view .body {
-	min-height: 500px;
 }
 .ui-view .container {
 	padding: 0 20px;
@@ -444,8 +464,6 @@
 .ui-view .nav {
 	margin-top: 22px;
 	margin-bottom: 0;
-	float: right;
-	text-align: right;
 }
 .ui-view .nav li {
 	display: inline-block;
@@ -486,10 +504,25 @@
 	background: #e1e1e1;
 	display: inline-block;
   text-align: center;
-	cursor: pointer;
+}
+.ui-view .btn a {
+	border: 1px solid #999;
+  color: #333;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 10px 20px;
+  min-width: 150px;
+  border-radius: 3px;
+	background: #e1e1e1;
+	display: inline-block;
+  text-align: center;
 }
 .ui-view .btn:hover {
 	border: 1px solid #000;
   color: #000;
 	background: #ccc;
+}
+.ui-view .btn:hover a {
+  color: #000;
 }
