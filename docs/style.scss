@@ -23,7 +23,7 @@ html {
 body {
 	background: $white;
   font: 18px/1.4 $font-family-native;
-  color: $color-complement-3;
+  color: $color-primary-3;
 	display: flex;
 	flex-direction: column;
 }
@@ -140,12 +140,12 @@ h1 {
 h2 {
   font-size: 24px;
   text-transform: uppercase;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid $color-primary-1;
 }
 
 h3 {
   font-size: 22px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid $color-primary-1;
 }
 
 h4 {
@@ -165,11 +165,11 @@ p {
 }
 
 a {
-  color: $color-primary-0;
+  color: $color-complement-4;
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
-    color: $color-primary-0;
+    color: $color-complement-0;
   }
 }
 
@@ -437,7 +437,7 @@ box-shadow: 0 1px 2px $color-primary-0;
 footer {
   padding: 20px 0 0;
   text-align: center;
-box-shadow: 0 -2px 5px #999;
+box-shadow: 0 -2px 5px $color-primary-0;
 
   .footer-top {
     padding: 30px 0;
@@ -448,7 +448,7 @@ box-shadow: 0 -2px 5px #999;
     background-color: $color-complement-2;
     padding: 30px 0;
     font-size: 12px;
-    color: $black;
+    color: $color-primary-4;
   }
 }
 
