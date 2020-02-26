@@ -59,7 +59,7 @@ body {
   position: relative;
 
   a {
-    color: $color-complement-0;
+    color: $color-primary-1;
   }
 
   .side-bar-nav {
@@ -81,7 +81,7 @@ body {
   .side-link {
     display: block;
     padding: 8px 40px 8px 0;
-    border-right: 4px solid $color-complement-2;
+    border-right: 4px solid $color-primary-1;
     font-weight: 600;
 
 		&.main-link {
@@ -203,7 +203,7 @@ em, i {
 }
 
 em {
-	color: $color-primary-3;
+	color: $color-primary-0;
 }
 
 strong, b {
@@ -224,14 +224,14 @@ table {
 	font-size: 0.8em;
 
 	tr {
-		border: 1px solid $color-complement-2;
+		border: 1px solid $color-primary-1;
 	}
 
 	td, th {
           padding: 5px 10px;
 	}
 	th {
-	  background: $color-complement-2;
+	  background: $color-primary-1;
     	  font-weight: 700;
     	  text-transform: capitalize;
 	}
@@ -460,6 +460,10 @@ box-shadow: 0 -2px 5px $color-primary-0;
 
 .highlight {
   font-size: 0.8em;
+}
+
+pre[class*="language-"] {
+    background: $color-primary-3;
 }
 
 .example {
