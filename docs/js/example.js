@@ -39,7 +39,7 @@ $(document).ready(function(){
 
   function resetColor(){
     itemId = 0;
-    palette = [[], []];
+    palette = [[], [], [], []];
 
     $("#editor-picker .add-text").show();
     $("#editor-picker .palette-preview").hide();
