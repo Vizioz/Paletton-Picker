@@ -447,6 +447,7 @@
 }
 .ui-view .body {
 	padding-bottom: 20px;
+	min-height: 600px;
 }
 .ui-view .container {
 	padding: 0 20px;
@@ -551,8 +552,14 @@
   padding-right: 10px;
   padding-left: 10px;
 }
+@media (max-width: 767px) {
+	.ui-view .row .span4 {
+	  width: 100%%;
+	}
+}
 .ui-view .tile {
 padding: 10px;
+	margin-bottom: 10px;
     border: 1px solid #999;
     border-radius: 5px;
 }
