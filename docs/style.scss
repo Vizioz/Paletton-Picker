@@ -47,6 +47,13 @@ body {
   padding-bottom: 20px;
 }
 
+.content-top-bar-mobile {
+	display: none;
+	  @include mobile {
+	    display: block;
+	  }
+}
+
 .container-side-bar {
   display: flex;
 
@@ -61,7 +68,8 @@ body {
   a {
     color: $color-primary-1;
   }
-
+	  
+	  
   .side-bar-nav {
     margin-right: 40px;
     width: 210px;
@@ -76,19 +84,7 @@ body {
     padding-left: 6px;
     margin: 0;
     list-style: none;
-  }
-
-  .side-link {
-    display: block;
-    padding: 8px 40px 8px 0;
-    border-right: 4px solid $color-primary-1;
-    font-weight: 600;
-
-		&.main-link {
-			text-transform: uppercase;
-			font-weight: 700;
-		}
-  }
+  } 
 
   @include tablet {
     width: 210px;
@@ -111,6 +107,18 @@ body {
 	    width: 100%;
 	  }
   }
+}
+
+.side-link {
+    display: block;
+    padding: 8px 40px 8px 0;
+    border-right: 4px solid $color-primary-1;
+    font-weight: 600;
+
+	&.main-link {
+		text-transform: uppercase;
+		font-weight: 700;
+	}
 }
 
 h1, h2, h3, h4, h5, h6 {
