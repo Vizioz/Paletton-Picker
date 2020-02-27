@@ -8,7 +8,7 @@
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/Vizioz/Palette-Picker</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A customizable colour template data type for Umbraco CMS. Version 1 of this package is intended for Umbraco V7 while version 2 is intended for Umbraco V8.</description>
+    <description>A customizable colour template data type for Umbraco CMS.</description>
 	<title>Palette Picker</title>
     <copyright>Copyright 2020</copyright>
 	<icon>packageIcon.png</icon>
