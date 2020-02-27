@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Vizioz.PalettePicker</id>
+    <version>2.0.0</version>
+    <authors>Vizioz Limited</authors>
+    <owners>Vizioz Limited</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/Vizioz/Palette-Picker</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A customizable colour template data type for Umbraco CMS. Version 1 of this package is intended for Umbraco V7 while version 2 is intended for Umbraco V8.</description>
+	<title>Palette Picker</title>
+    <copyright>Copyright 2020</copyright>
+	<icon>packageIcon.png</icon>
+    <dependencies>
+      <dependency id="UmbracoCms" version="8.0.0" />
+      <dependency id="Newtonsoft.Json" version="12.0.1" />
+    </dependencies>
+  </metadata>
+  <files>
+	<file src="..\Source\PalettePicker.Web.V8\bin\Vizioz.PalettePicker.Core.V8.dll" target="lib"/>
+	<file src="..\Source\PalettePicker.Web.V8\App_Plugins\Vizioz.PalettePicker\**" target="content\App_Plugins\Vizioz.PalettePicker" />
+	<file src="..\icon.png" target="packageIcon.png" />
+  </files>
+</package>

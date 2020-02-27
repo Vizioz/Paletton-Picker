@@ -7,16 +7,15 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace PalettePicker.Core.V7
+using System.Web;
+using Newtonsoft.Json.Linq;
+using Umbraco.Core.Models;
+using Umbraco.Web;
+using Vizioz.PalettePicker.Core.V7.Models;
+using Vizioz.PalettePicker.Core.V7.Service;
+
+namespace Vizioz.PalettePicker.Core.V7
 {
-    using Newtonsoft.Json.Linq;
-    using Models;
-    using Service;
-
-    using System.Web;
-    using Umbraco.Core.Models;
-    using Umbraco.Web;
-
     /// <summary>
     /// The palette picker extension methods.
     /// </summary>
@@ -109,7 +108,7 @@ namespace PalettePicker.Core.V7
         /// <returns>
         /// The <see cref="Palette"/>.
         /// </returns>
-        public static Palette GetPalette(IPublishedContent content, string propertyAlias)
+        public static Palette GetPalette(this IPublishedContent content, string propertyAlias)
         {
             var service = new PaletteService();
             var jsonValue = content.GetPropertyValue<Newtonsoft.Json.Linq.JToken>(propertyAlias);
@@ -126,7 +125,7 @@ namespace PalettePicker.Core.V7
         /// <returns>
         /// The <see cref="Palette"/>.
         /// </returns>
-        public static Palette GetPalette(JToken value)
+        public static Palette GetPalette(this JToken value)
         {
             var service = new PaletteService();
 

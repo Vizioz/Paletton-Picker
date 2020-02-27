@@ -7,11 +7,11 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace PalettePicker.Core.V7.Models
-{
-    using System.Collections.Generic;
-    using System.Linq;
+using System.Collections.Generic;
+using System.Linq;
 
+namespace Vizioz.PalettePicker.Core.V7.Models
+{
     /// <summary>
     /// The palette.
     /// </summary>

@@ -7,20 +7,18 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace PalettePicker.Core.V8.Service
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Reflection;
+using System.Xml;
+using Newtonsoft.Json.Linq;
+using Vizioz.PalettePicker.Core.V8.Enumerations;
+using Vizioz.PalettePicker.Core.V8.Models;
+
+namespace Vizioz.PalettePicker.Core.V8.Service
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Reflection;
-    using System.Xml;
-    
-    using Newtonsoft.Json.Linq;
-
-    using PalettePicker.Core.V8.Enumerations;
-    using PalettePicker.Core.V8.Models;
-
     /// <summary>
     /// The palette service.
     /// </summary>

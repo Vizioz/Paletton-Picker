@@ -7,10 +7,10 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace PalettePicker.Core.V7.Enumerations
-{
-    using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
+namespace Vizioz.PalettePicker.Core.V7.Enumerations
+{
     /// <summary>
     /// The source type.
     /// </summary>

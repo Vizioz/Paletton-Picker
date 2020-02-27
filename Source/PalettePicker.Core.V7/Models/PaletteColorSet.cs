@@ -7,10 +7,10 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace PalettePicker.Core.V7.Models
-{
-    using System.Collections.Generic;
+using System.Collections.Generic;
 
+namespace Vizioz.PalettePicker.Core.V7.Models
+{
     /// <summary>
     /// The color set.
     /// </summary>
