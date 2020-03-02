@@ -11,10 +11,10 @@ using System.Web;
 using Newtonsoft.Json.Linq;
 using Umbraco.Core.Models;
 using Umbraco.Web;
-using Vizioz.PalettePicker.Core.V7.Models;
-using Vizioz.PalettePicker.Core.V7.Service;
+using Vizioz.PalettePicker.Models;
+using Vizioz.PalettePicker.Service;
 
-namespace Vizioz.PalettePicker.Core.V7
+namespace Vizioz.PalettePicker
 {
     /// <summary>
     /// The palette picker extension methods.

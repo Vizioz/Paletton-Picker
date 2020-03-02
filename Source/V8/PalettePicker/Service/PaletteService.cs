@@ -14,10 +14,10 @@ using System.Linq;
 using System.Reflection;
 using System.Xml;
 using Newtonsoft.Json.Linq;
-using Vizioz.PalettePicker.Core.V7.Enumerations;
-using Vizioz.PalettePicker.Core.V7.Models;
+using Vizioz.PalettePicker.Enumerations;
+using Vizioz.PalettePicker.Models;
 
-namespace Vizioz.PalettePicker.Core.V7.Service
+namespace Vizioz.PalettePicker.Service
 {
     /// <summary>
     /// The palette service.

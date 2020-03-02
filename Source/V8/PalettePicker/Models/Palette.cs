@@ -10,7 +10,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Vizioz.PalettePicker.Core.V8.Models
+namespace Vizioz.PalettePicker.Models
 {
     /// <summary>
     /// The palette.

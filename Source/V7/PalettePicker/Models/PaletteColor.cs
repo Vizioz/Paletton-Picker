@@ -7,7 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Vizioz.PalettePicker.Core.V8.Models
+namespace Vizioz.PalettePicker.Models
 {
     /// <summary>
     /// The color.

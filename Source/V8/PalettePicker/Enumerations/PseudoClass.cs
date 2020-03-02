@@ -9,7 +9,7 @@
 
 using System.ComponentModel.DataAnnotations;
 
-namespace Vizioz.PalettePicker.Core.V7.Enumerations
+namespace Vizioz.PalettePicker.Enumerations
 {
     /// <summary>
     /// The source type.
