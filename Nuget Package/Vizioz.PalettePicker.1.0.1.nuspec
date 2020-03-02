@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Vizioz.PalettePicker</id>
-    <version>2.0.0</version>
+    <version>1.0.1</version>
     <authors>Vizioz Limited</authors>
     <owners>Vizioz Limited</owners>
     <license type="expression">MIT</license>
@@ -13,13 +13,13 @@
     <copyright>Copyright 2020</copyright>
 	<icon>packageIcon.png</icon>
     <dependencies>
-      <dependency id="UmbracoCms" version="8.0.0" />
-      <dependency id="Newtonsoft.Json" version="12.0.1" />
+      <dependency id="UmbracoCms" version="[7.0.0,8.0.0)" />
+      <dependency id="Newtonsoft.Json" version="9.0.1" />
     </dependencies>
   </metadata>
   <files>
-	<file src="..\Source\PalettePicker.Web.V8\bin\Vizioz.PalettePicker.Core.V8.dll" target="lib"/>
-	<file src="..\Source\PalettePicker.Web.V8\App_Plugins\Vizioz.PalettePicker\**" target="content\App_Plugins\Vizioz.PalettePicker" />
+	<file src="..\Source\V7\PalettePicker.Web\bin\Vizioz.PalettePicker.dll" target="lib"/>
+	<file src="..\Source\V7\PalettePicker.Web\App_Plugins\Vizioz.PalettePicker\**" target="content\App_Plugins\Vizioz.PalettePicker" />
 	<file src="..\icon.png" target="packageIcon.png" />
   </files>
 </package>
