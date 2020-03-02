@@ -55,11 +55,15 @@ The first thing to do is to import the colour template styles into our view. We 
 
 ````csharp
 // With models builder
+@using Vizioz.PalettePicker
+
 @Html.Raw(Model.PalettePickerProperty.GetCssStyles())
 ````
 
 ````csharp
 // Without models builder
+@using Vizioz.PalettePicker
+
 @Html.Raw(Model.GetCssStyles("palettePickerPropertyAlias"))
 ````
 
