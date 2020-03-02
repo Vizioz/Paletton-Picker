@@ -51,7 +51,7 @@ Editors can very easily change the value of the Palette Picker value in content 
 
 This is the part that involves a bit of code.
 
-The first thing to do is to import the colour template styles into our view. We use the Palette Picker extension methods to do this. Depending on whether we are using Models Builder or not, we can use the following methods:
+The first thing to do is to import the colour template styles into our view. We use the Palette Picker extension methods to do this. Don't forget to include the @using statement. Depending on whether we are using Models Builder or not, we can use the following methods:
 
 ````csharp
 // With models builder
