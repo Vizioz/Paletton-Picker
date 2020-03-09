@@ -554,7 +554,7 @@
 }
 @media (max-width: 767px) {
 	.ui-view .row .span4 {
-	  width: 100%%;
+	  width: 100%;
 	}
 }
 .ui-view .tile {
