@@ -47,9 +47,30 @@
         top: 0;
     }
 
-.palette-preview .colorset .colorset-colors .color-block .umb-tooltip {
-    text-align: center;
-}
+        .palette-preview .colorset .colorset-colors .color-block .spectrum-color-picker + .sp-replacer {
+            position: absolute;
+            display: block;
+            left: 0;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 42px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+            .palette-preview .colorset .colorset-colors .color-block .spectrum-color-picker + .sp-replacer .sp-preview {
+                width: calc(100% - 20px);
+                height: 100%;
+            }
+
+            .palette-preview .colorset .colorset-colors .color-block .spectrum-color-picker + .sp-replacer + .color-block-color {
+                display: none;
+            }
+
+            .palette-preview .colorset .colorset-colors .color-block .umb-tooltip {
+                text-align: center;
+            }
 
     .palette-preview .colorset .colorset-colors .color-block-color {
         display: block;
@@ -59,13 +80,13 @@
     }
 
 .palette-preview .colorset .colorset-colors .color-block-desc {
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-size: 10px;
-    line-height: 10px;
-    padding: 5px 0;
-}
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-size: 10px;
+            line-height: 10px;
+            padding: 5px 0;
+        }
 
 .palette-editor-preview .paletton-preview .colorset .colorset-colors .color-block-desc {
     font-size: 9px;

@@ -7,7 +7,7 @@
                            hide-icon="true"
                            hide-description="true">
         </umb-editor-header>
-
+        
         <umb-editor-container class="flex palette-value-picker-container">
             <umb-box class="flex" style="min-height:100%;">
                 <umb-box-content>
@@ -16,7 +16,7 @@
                         <textarea ng-model="editModel.content" rows="10" required></textarea>
                     </div>
                     <div class="palette-value-picker palette-editor-preview">
-                        <palette-preview value="editModel"></palette-preview>
+                        <palette-preview value="editModel" editable="isEditable"></palette-preview>
                     </div>
                     <div ng-if="editModel.content && !editModel.valid" class="red">Invalid XML.</div>
                 </umb-box-content>

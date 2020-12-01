@@ -9,6 +9,7 @@
         vm.close = close;
         
         $scope.editModel = $scope.model.value ? angular.copy($scope.model.value) : { type: 1 };
+        $scope.isEditable = true;
 
         function submit() {
             if ($scope.model.submit) {
@@ -23,7 +24,6 @@
                 $scope.model.close();
             }
         }
-
     }
 
     angular.module("umbraco").controller("Vizioz.PalettePicker.EditorPrevalueController", paletteEditorPrevalueController);
