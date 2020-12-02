@@ -2,14 +2,14 @@
     <div>
         <table class="table table-striped" ng-if="model.value && model.value.length">
             <tbody ui-sortable="sortableOptions" ng-model="model.value">
-            <tr ng-repeat="config in model.value">
-                <td class="icon-navigation-hand" style="width: 20px;">
+            <tr ng-repeat="config in model.value" class="palette-prevalue">
+                <td class="icon-navigation-hand palette-prevalue-drag" style="width: 20px;">
                     <i class="icon icon-navigation"></i>
                 </td>
-                <td style="width: 100%;">
+                <td style="width: 100%;" class="palette-prevalue-preview">
                     <palette-preview value="config"></palette-preview>
                 </td>
-                <td style="width: 90px;">
+                <td style="width: 90px;" class="palette-prevalue-buttons">
                     <div class="flex">
                         <a class="btn btn-info" ng-click="vm.edit($index)" title="Edit">
                             <i class="icon icon-edit"></i>

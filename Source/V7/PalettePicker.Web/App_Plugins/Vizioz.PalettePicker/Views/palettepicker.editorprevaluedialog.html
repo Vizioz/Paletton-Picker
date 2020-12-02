@@ -11,7 +11,7 @@
                         <textarea ng-model="editModel.content" rows="10" required></textarea>
                     </div>
                     <div class="palette-value-picker palette-editor-preview">
-                        <palette-preview value="editModel"></palette-preview>
+                        <palette-preview value="editModel" editable="isEditable"></palette-preview>
                     </div>
                     <div ng-if="editModel.content && !editModel.valid" class="red">Invalid XML.</div>
                 </umb-pane>

@@ -9,6 +9,7 @@
         vm.close = close;
         
         $scope.editModel = $scope.dialogData.value ? angular.copy($scope.dialogData.value) : { type: 1 };
+        $scope.isEditable = true;
         $scope.title = $scope.dialogData.title;
         
         function submit() {

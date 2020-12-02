@@ -3,7 +3,8 @@
         return {
             scope: {
                 value: "=",
-                hideLabels: "="
+                hideLabels: "=",
+                editable: "="
             },
             restrict: "E",
             replace: true,
@@ -12,70 +13,67 @@
             link: function (scope) {
 
                 var preview = function () {
+                    var ret = scope.getPalette();
 
-                    scope.hasTooltip = scope.hideLabels === true;
-                    scope.palette = [];
-
-                    var xml;
-                    
-                    try {
-                        xml = $.parseXML(scope.value.content);
-                        scope.value.valid = true;
-                    } catch(error) {
-                        console.log(error); // Invalid XML
+                    if (!ret.valid) {
                         scope.value.valid = false;
                         return;
+                    } else {
+                        scope.value.valid = true;
+                        scope.hasTooltip = scope.hideLabels === true;
+                        scope.palette = ret.palette;
                     }
-                    
-                    var colorsets = $(xml).find("colorset");
 
-                    angular.forEach(colorsets,
-                        function (colorset) {
-                            var paletteColorset = {
-                                id: $(colorset).attr("id"),
-                                title: $(colorset).attr("title"),
-                                colors: []
-                            };
-
-                            var colors = $(colorset).find("color");
-                            var width = 100 / (colors.length + 1);
-                            var midPoint = Math.floor(colors.length / 2);
-
-                            var base = colors[0];
-                            var left = colors.slice(1, midPoint + 1);
-                            var right = colors.slice(midPoint + 1);
-                            left.push(base);
-                            left = $.merge(left, right);
-
-                            angular.forEach(left,
-                                function(color, index) {
-                                    var id = $(color).attr("id");
-                                    var nr = $(color).attr("nr");
-                                    var rgb = $(color).attr("rgb");
-                                    var colorWidth = nr === "0" ? width * 2 : width;
-                                    var colorLeft = parseInt(nr) > midPoint ? ((index + 1) * width) : (index * width);
-
-                                    paletteColorset.colors.push({
-                                        id: id,
-                                        rgb: "#" + rgb,
-                                        left: colorLeft,
-                                        width: colorWidth
-                                    });
-                                });
-
-
-                            scope.palette.push(paletteColorset);
-                        });
+                    if (scope.editable === true) {
+                        scope.makePaletteEditable();
+                    }
                 };
-
+                
                 scope.$watch("value.content",
                     function () {
                         preview();
                     }, true);
-
-                preview();
             },
-            controller: function($scope) {
+            controller: function ($scope, $element, $timeout, angularHelper, assetsService, palettePickerXmlHelper) {
+
+                function changeColor(color, rgb) {
+                    var newPalette = palettePickerXmlHelper.changePaletteColor($scope.value.content, color, rgb);
+                    angularHelper.safeApply($scope,
+                        function () {
+                            $scope.value.content = newPalette;
+                        });
+                }
+
+                function addSpectrum() {
+                    angular.forEach($scope.palette,
+                        function (colorset) {
+                            angular.forEach(colorset.colors,
+                                function (color) {
+                                    var elem = $element.find(".color-block[data-color-id='" +
+                                        color.id +
+                                        "'] input.spectrum-color-picker");
+                                    elem.spectrum({
+                                        color: color.rgb,
+                                        showInitial: false,
+                                        chooseText: "choose",
+                                        cancelText: "cancel",
+                                        preferredFormat: "hex",
+                                        showInput: true,
+                                        clickoutFiresChange: true,
+                                        hide: function hide() {
+                                            $element.find(".btn.add").show();
+                                        },
+                                        change: function change(c) {
+                                            changeColor(color, c.toHexString());
+                                        },
+                                        show: function show() {
+                                            $element.find(".btn.add").hide();
+                                        }
+                                    });
+                                });
+                        });
+                }
+
                 $scope.mouseOver = function ($event, color) {
                     if ($scope.hasTooltip) {
                         color.tooltip = { show: true, event: $event };
@@ -85,6 +83,35 @@
                 $scope.mouseLeave = function (color) {
                     if ($scope.hasTooltip) {
                         color.tooltip = { show: false, event: null };
+                    }
+                };
+
+                $scope.getPalette = function () {
+                    return palettePickerXmlHelper.parsePaletteContent($scope.value.content);
+                };
+
+                $scope.makePaletteEditable = function() {
+                    assetsService
+                        .load(["/App_Plugins/Vizioz.PalettePicker/vendor/spectrum/spectrum.js"], $scope).then(
+                            function () {
+                                assetsService.loadCss("/App_Plugins/Vizioz.PalettePicker/vendor/spectrum/spectrum.css",
+                                    $scope);
+                                $timeout(function() {
+                                    addSpectrum();
+                                });
+                            });
+                };
+
+                $scope.colorBlockStyles = function (color) {
+                    return {
+                        "left": color.left + "%",
+                        "width": color.width + "%"
+                    }
+                };
+
+                $scope.colorInnerStyles = function (color) {
+                    return {
+                        "background-color": color.rgb
                     }
                 };
             }

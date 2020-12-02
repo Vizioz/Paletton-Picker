@@ -33,7 +33,6 @@
                         $scope.model.value = [model];
                     }
                 }
-                console.log($scope.model.value)
             }
         };
         
