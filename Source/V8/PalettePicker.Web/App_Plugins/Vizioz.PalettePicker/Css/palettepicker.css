@@ -18,6 +18,13 @@
     width: 100%;
 }
 
+@media (max-width: 767px) {
+    .palette-picker-editor table td, .palette-picker-editor table th {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+}
+
 /* Palette preview */
 .palette-preview {
     display: block;
@@ -132,8 +139,13 @@
         display: none;
     }
 
-/***/
+.palette-value-picker-dialog .umb-tooltip {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+}
 
+/***/
 .palette-property {
     display: block;
     width: 100%;
