@@ -1,0 +1,75 @@
+﻿<div class="vizioz-palette" ng-controller="Vizioz.PaletteColorSelector.PropertyEditorController as vm">
+    <div class="palette-picker-editor">
+        <div ng-if="node">
+            <umb-node-preview icon="node.icon"
+                              name="node.name"
+                              alias="node.alias"
+                              published="node.published"
+                              description="node.path"
+                              allow-remove="node"
+                              allow-edit="node"
+                              on-remove="vm.clear()"
+                              on-edit="vm.openPalettePicker()">
+            </umb-node-preview>
+            <select class="mt2" ng-model="model.value.propertyAlias" ng-options="option for option in propertyOptions">
+                <option value="" disabled>Select the palette property</option>
+            </select>
+        </div>
+        
+
+
+        <div ng-if="!node">
+            <div ng-hide="showSearch || model.value.query" aria-hidden="false">
+                <button type="button" class="umb-node-preview-add" ng-click="vm.openPalettePicker()">
+                    <localize key="general_choose" class="ng-isolate-scope">Choose</localize>
+                </button>
+                <div class="mt2" aria-hidden="false">
+                    <i class="icon icon-search" aria-hidden="true"></i>
+                    <button type="button" class="btn-link" ng-click="showSearch = true">Query for node with xpath</button>
+                </div>
+            </div>
+            <div ng-show="showSearch || model.value.query" aria-hidden="true" class="ng-hide" data-children-count="1">
+                <input type="text" ng-model="model.value.query" class="umb-property-editor umb-textstring" placeholder="Enter node xpath query" aria-invalid="false">
+                <input type="text" ng-model="model.value.propertyAlias" class="mt2 umb-property-editor umb-textstring" placeholder="Enter property alias" aria-invalid="false">
+                <ul class="unstyled list-icons mt3">
+                    <li style="max-width: 600px">
+                        <i class="icon icon-help-alt" aria-hidden="true"></i>
+                        <button type="button" class="btn-link ng-binding" ng-click="showHelp = !showHelp">Show query</button>
+                        <div class="small ng-hide" ng-show="showHelp" aria-hidden="true">
+                            <div>
+                                <h5>XPath query help</h5>
+                                <p>
+                                    Use Xpath query to set a root node on the tree, either based on a search from the root of the content tree, or by using a context-aware placeholder.
+                                </p>
+                                <p>
+                                    Placeholders finds the nearest published ID and runs its query from there, so for instance:
+                                </p>
+                                <pre>$parent/newsArticle</pre>
+                                <p>
+                                    Will try to get the parent if available, but will then fall back to the nearest ancestor and query for all news articles there.
+                                </p>
+                                <p>
+                                    Available placeholders: <br>
+                                    <code>$current</code>: current page or closest found ancestor<br>
+                                    <code>$parent</code>: parent page or closest found ancestor<br>
+                                    <code>$root</code>: root of the content tree<br>
+                                    <code>$site</code>: Ancestor node at level 1 <br>
+                                </p>
+                            </div>
+                            <div>
+                                <h5>Property alias</h5>
+                                <p>
+                                    Use the property alias from which the palette colors will be selected. If empty, it will use the first property using a palette picker editor.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="icon icon-delete red" aria-hidden="true"></i>
+                        <button type="button" class="btn-link" ng-click="showSearch = false; model.value.query = ''"> Cancel and clear query</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

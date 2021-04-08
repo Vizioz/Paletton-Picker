@@ -15,7 +15,30 @@
             "description": "Please add your predefined color palettes here",
             "key": "palettes",
             "view": "~/App_Plugins/Vizioz.PalettePicker/views/palettepicker.editor.html",
-            "css": [ "~/App_Plugins/Vizioz.PalettePicker/css/palettepicker.css" ],
+            "validation": [
+              {
+                "type": "Required"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "alias": "Vizioz.PalettePicker.ColorSelector",
+      "name": "Palette Color Selector",
+      "icon": "icon-brush",
+      "editor": {
+        "view": "~/App_Plugins/Vizioz.PalettePicker/views/palettecolorselector.html",
+        "valueType": "JSON"
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "label": "Palette",
+            "description": "Please choose the palette from which colours can be selected.",
+            "key": "palette",
+            "view": "~/App_Plugins/Vizioz.PalettePicker/views/palettecolorselector.editor.html",
             "validation": [
               {
                 "type": "Required"
@@ -32,7 +55,9 @@
     "~/App_Plugins/Vizioz.PalettePicker/js/palettepicker.controller.js",
     "~/App_Plugins/Vizioz.PalettePicker/js/palettepicker.valuepicker.controller.js",
     "~/App_Plugins/Vizioz.PalettePicker/js/palettepicker.preview.directive.js",
-    "~/App_Plugins/Vizioz.PalettePicker/js/palettepicker.xmlhelper.js"
+    "~/App_Plugins/Vizioz.PalettePicker/js/palettepicker.xmlhelper.js",
+    "~/App_Plugins/Vizioz.PalettePicker/js/palettecolorselector.propertyeditor.controller.js",
+    "~/App_Plugins/Vizioz.PalettePicker/js/palettecolorselector.controller.js"
   ],
   "css": [
     "~/App_Plugins/Vizioz.PalettePicker/css/palettepicker.css"
