@@ -15,3 +15,6 @@ Source/V8/packages/
 Source/V8/PalettePicker.V8.sln
 
 nuget.exe
+Source/V8/PalettePicker/.vs/
+Source/V8/PalettePicker.sln
+Source/V8/PalettePicker/app.config
