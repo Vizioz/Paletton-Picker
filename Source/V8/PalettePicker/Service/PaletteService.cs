@@ -70,8 +70,10 @@ namespace Vizioz.PalettePicker.Service
             }
 
             var type = jsonValue.Value<string>("type");
+            var prefix = jsonValue.Value<string>("prefix");
+            var parentClass = jsonValue.Value<string>("parentClass");
             var content = jsonValue.Value<string>("content");
-            var styles = this.GetStylesFromXmlContent(content, includePseudoElements, includePseudoClasses);
+            var styles = this.GetStylesFromXmlContent(content, prefix, parentClass, includePseudoElements, includePseudoClasses);
 
             return styles;
         }
@@ -191,6 +193,12 @@ namespace Vizioz.PalettePicker.Service
         /// <param name="content">
         /// The content.
         /// </param>
+        /// <param name="prefix">
+        /// The prefix.
+        /// </param>
+        /// <param name="parentClass">
+        /// The parent class.
+        /// </param>
         /// <param name="includePseudoElements">
         /// The include Pseudo Elements.
         /// </param>
@@ -200,7 +208,7 @@ namespace Vizioz.PalettePicker.Service
         /// <returns>
         /// The <see cref="string"/>.
         /// </returns>
-        private string GetStylesFromXmlContent(string content, bool includePseudoElements, bool includePseudoClasses)
+        private string GetStylesFromXmlContent(string content, string prefix, string parentClass, bool includePseudoElements, bool includePseudoClasses)
         {
             if (string.IsNullOrEmpty(content))
             {
@@ -218,7 +226,7 @@ namespace Vizioz.PalettePicker.Service
                 {
                     foreach (XmlNode color in colors)
                     {
-                        var classes = this.CreateClassesForXmlColor(color, includePseudoElements, includePseudoClasses);
+                        var classes = this.CreateClassesForXmlColor(color, prefix, parentClass, includePseudoElements, includePseudoClasses);
                         styles += classes;
                     }
                 }
@@ -237,6 +245,12 @@ namespace Vizioz.PalettePicker.Service
         /// <param name="color">
         /// The color.
         /// </param>
+        /// <param name="prefix">
+        /// The prefix.
+        /// </param>
+        /// <param name="parentClass">
+        /// The parent class.
+        /// </param>
         /// <param name="includePseudoElements">
         /// The include Pseudo Elements.
         /// </param>
@@ -246,7 +260,7 @@ namespace Vizioz.PalettePicker.Service
         /// <returns>
         /// The <see cref="string"/>.
         /// </returns>
-        private string CreateClassesForXmlColor(XmlNode color, bool includePseudoElements, bool includePseudoClasses)
+        private string CreateClassesForXmlColor(XmlNode color, string prefix, string parentClass, bool includePseudoElements, bool includePseudoClasses)
         {
             if (color.Attributes == null)
             {
@@ -261,7 +275,7 @@ namespace Vizioz.PalettePicker.Service
                 return string.Empty;
             }
 
-            var classes = this.CreateClasses(id, rgb);
+            var classes = this.CreateClasses(id, rgb, prefix, parentClass);
 
             if (includePseudoElements)
             {
@@ -270,7 +284,7 @@ namespace Vizioz.PalettePicker.Service
                     var element = (PseudoElement)pseudoElement;
                     var name = element.GetType()?.GetMember(element.ToString())?.First()?.GetCustomAttribute<DisplayAttribute>()?.Name;
                     var pseudoElementId = $"{name}-{id}::{name}";
-                    classes += this.CreateClasses(pseudoElementId, rgb);
+                    classes += this.CreateClasses(pseudoElementId, rgb, prefix, parentClass);
                 }
             }
 
@@ -281,7 +295,7 @@ namespace Vizioz.PalettePicker.Service
                     var element = (PseudoClass)pseudoClass;
                     var name = element.GetType()?.GetMember(element.ToString())?.First()?.GetCustomAttribute<DisplayAttribute>()?.Name;
                     var pseudoClassId = $"{name}-{id}:{name}";
-                    classes += this.CreateClasses(pseudoClassId, rgb);
+                    classes += this.CreateClasses(pseudoClassId, rgb, prefix, parentClass);
                 }
             }
 
@@ -297,15 +311,24 @@ namespace Vizioz.PalettePicker.Service
         /// <param name="color">
         /// The color.
         /// </param>
+        /// <param name="prefix">
+        /// The prefix.
+        /// </param>
+        /// <param name="parentClass">
+        /// The parent class.
+        /// </param>
         /// <returns>
         /// The <see cref="string"/>.
         /// </returns>
-        private string CreateClasses(string id, string color)
+        private string CreateClasses(string id, string color, string prefix, string parentClass)
         {
+            var parent = !string.IsNullOrEmpty(parentClass) ? $".{parentClass} " : string.Empty;
+            var pre = !string.IsNullOrEmpty(prefix) ? $".{prefix}-" : ".";
+
             return
-                $".{id}{{color:#{color} !important;}}\r\n" +
-                $".bg-{id}{{background-color:#{color} !important;}}\r\n" +
-                $".border-{id}{{border-color:#{color} !important;}}\r\n";
+                $"{parent}{pre}{id}{{color:#{color} !important;}}\r\n" +
+                $"{parent}{pre}bg-{id}{{background-color:#{color} !important;}}\r\n" +
+                $"{parent}{pre}border-{id}{{border-color:#{color} !important;}}\r\n";
         }
     }
 }

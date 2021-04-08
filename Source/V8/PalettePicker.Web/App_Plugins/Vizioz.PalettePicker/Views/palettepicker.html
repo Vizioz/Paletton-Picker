@@ -5,6 +5,14 @@
                 <localize key="general_add" class="ng-isolate-scope">Add</localize>
             </div>
             <div class="palette-property" ng-if="model.value">
+                <div class="palette-preview" ng-if="model.value.prefix || model.value.parentClass" style="padding-bottom: 0;">
+                    <div class="colorset" ng-if="model.value.prefix">
+                        <div class="colorset-title">Prefix: <span>.{{model.value.prefix}}-</span></div>
+                    </div>
+                    <div class="colorset" ng-if="model.value.parentClass">
+                        <div class="colorset-title">Parent Class: <span>.{{model.value.parentClass}} </span></div>
+                    </div>
+                </div>
                 <palette-preview value="model.value" hide-labels="true"></palette-preview>
             </div>
         </a>

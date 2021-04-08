@@ -100,11 +100,52 @@
     line-height: 9px;
 }
 
+.palette-params {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #bbbabf;
+}
+
+.palette-preview-param {
+    padding: 10px;
+    display: block;
+}
+
+.palette-preview-param label {
+    display: inline-block;
+    position: relative;
+    width: 120px;
+    float: left;
+}
+
+    .palette-preview-param label .umb-tooltip {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        max-width: 200px !important;
+        width: 200px !important;
+    }
+
+.palette-preview-param .controls {
+    margin-left: 125px;
+    display: block;
+}
+
+.palette-preview-param .controls input {
+    display: block;
+    width: 100%;
+}
+
+@media (max-width: 575px) {
+    .palette-preview .colorset .colorset-colors .color-block-desc {
+        display: none;
+    }
+}
 
 /* Palette picker */
 .palette-item {
     cursor: pointer;
     position: relative;
+    margin-bottom: 10px;
 }
 
     .palette-item:hover {

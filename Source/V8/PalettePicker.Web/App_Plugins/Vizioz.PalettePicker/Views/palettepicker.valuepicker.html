@@ -1,4 +1,4 @@
-﻿<div ng-controller="Vizioz.PalettePicker.ValuePickerController as vm">
+﻿<div ng-controller="Vizioz.PalettePicker.ValuePickerController as vm" class="palette-value-picker palette-value-picker-dialog">
     <umb-editor-view>
 
         <umb-editor-header name="model.title"
@@ -9,10 +9,38 @@
         </umb-editor-header>
 
         <umb-editor-container>
+            <div class="palette-params">
+                <umb-box>
+                    <umb-box-content class="form-horizontal">
+                        <div class="palette-preview-param">
+                            <label for="palette-prefix" ng-mouseover="vm.tooltipOver($event, prefixTooltip)" ng-mouseleave="vm.tooltipLeave(prefixTooltip)">
+                                <span>Prefix</span>
+                                <umb-tooltip ng-if="prefixTooltip.show" event="prefixTooltip.event">
+                                    <span>Add a prefix to the rendered stylesheet rules (i.e. .prefix-primary-0)</span>
+                                </umb-tooltip>
+                            </label>
+                            <div class="controls">
+                                <input id="palette-prefix" type="text" ng-model="vm.prefix" />
+                            </div>
+                        </div>
+                        <div class="palette-preview-param">
+                            <label for="palette-parent-class" ng-mouseover="vm.tooltipOver($event, parentTooltip)" ng-mouseleave="vm.tooltipLeave(parentTooltip)">
+                                <span>Parent class</span>
+                                <umb-tooltip ng-if="parentTooltip.show" event="parentTooltip.event">
+                                    <span>Add a parent class to the rendered stylesheet rules (i.e. .parent-class .primary-0)</span>
+                                </umb-tooltip>
+                            </label>
+                            <div class="controls">
+                                <input id="palette-parent-class" type="text" ng-model="vm.parentClass" />
+                            </div>
+                        </div>
+                    </umb-box-content>
+                </umb-box>
+            </div>
             <umb-box ng-repeat="item in model.config.palettes" ng-click="vm.select($index)" class="palette-item" ng-class="{selected:$index===selectedIndex}">
                 <umb-box-content>
                     <label class="palette-checkbox" for="palette-item-{{$index}}">
-                        <input id="palette-item-{{$index}}" type="radio" ng-model="model.value" ng-value="item" />
+                        <input id="palette-item-{{$index}}" type="radio" ng-model="model.value" ng-value="item"/>
                         <palette-preview value="item" hide-labels="true"></palette-preview>
                     </label>
                 </umb-box-content>
