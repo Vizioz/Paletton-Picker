@@ -54,6 +54,32 @@
         top: 0;
     }
 
+        .palette-preview .colorset .colorset-colors .color-block.selectable {
+            cursor: pointer;
+        }
+
+        .palette-preview .colorset .colorset-colors .color-block.selected:after {
+            content: "";
+            position: absolute;
+            top: -2px;
+            bottom: -2px;
+            left: -2px;
+            right: -2px;
+            z-index: 9;
+            pointer-events: none;
+            border: 3px solid #6ab4f0;
+            border-radius: 5px;
+        }
+
+        .palette-preview .colorset .colorset-colors .color-block .check_circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 25px;
+            height: 25px;
+        }
+            
         .palette-preview .colorset .colorset-colors .color-block .spectrum-color-picker + .sp-replacer {
             position: absolute;
             display: block;
@@ -84,6 +110,10 @@
         height: 40px;
         width: 100%;
         border: 1px solid black;
+    }
+
+    .palette-preview .colorset .colorset-colors .color-block .color-block-color:focus {
+        outline: none;
     }
 
 .palette-preview .colorset .colorset-colors .color-block-desc {

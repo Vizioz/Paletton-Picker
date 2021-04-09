@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Http;
 using Umbraco.Core;
+using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
 using Umbraco.Web.WebApi;
@@ -23,9 +24,9 @@ namespace Vizioz.PalettePicker.Controllers
         }
 
         [HttpGet]
-        public string GetPaletteValue(Udi id, string query, string propertyAlias)
+        public string GetPaletteValue(Udi id, string propertyAlias)
         {
-            var content = !string.IsNullOrEmpty(query) ? this.Umbraco.ContentSingleAtXPath(query) : this.Umbraco.Content(id);
+            var content = this.Umbraco.Content(id);
             var paletteValue = content?.Value<string>(propertyAlias);
 
             return paletteValue;

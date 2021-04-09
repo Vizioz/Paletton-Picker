@@ -7,8 +7,10 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System.Runtime.CompilerServices;
 using System.Web;
 using Newtonsoft.Json.Linq;
+using Umbraco.Core;
 using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Vizioz.PalettePicker.Models;
@@ -130,6 +132,35 @@ namespace Vizioz.PalettePicker
             var service = new PaletteService();
 
             return service.GetPalette(value);
+        }
+
+        public static string GetPaletteColorSelector(this IPublishedContent content, string propertyAlias)
+        {
+            var service = new PaletteService();
+            var jsonValue = content.Value<Newtonsoft.Json.Linq.JToken>(propertyAlias);
+
+            var nodeId = jsonValue.Value<string>("nodeId");
+            var paletteAlias = jsonValue.Value<string>("propertyAlias");
+            var colorId = jsonValue.Value<string>("colorId");
+
+            var palette = service.GetNodePalette(nodeId, paletteAlias);
+            var color = palette.Color(colorId);
+
+            return color.HexColor;
+        }
+
+        public static string GetPaletteColorSelector(this JToken value)
+        {
+            var service = new PaletteService();
+
+            var nodeId = value.Value<string>("nodeId");
+            var paletteAlias = value.Value<string>("propertyAlias");
+            var colorId = value.Value<string>("colorId");
+
+            var palette = service.GetNodePalette(nodeId, paletteAlias);
+            var color = palette.Color(colorId);
+
+            return color.HexColor;
         }
     }
 }

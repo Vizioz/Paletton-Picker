@@ -1,7 +1,9 @@
 ﻿<div ng-controller="Vizioz.PaletteColorSelector.Controller as vm">
     <div>
-        <div class="umb-node-preview-add">
-            <palette-preview value="palette" hide-labels="true"></palette-preview>
-        </div>
+        <a class="umb-node-preview-add">
+            <div class="palette-property" ng-if="palette">
+                <palette-preview value="palette" hide-labels="true" selected="model.value.colorId" on-color-select="vm.colorSelect(color)"></palette-preview>
+            </div>
+        </a>
     </div>
 </div>

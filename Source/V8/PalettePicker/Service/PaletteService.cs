@@ -14,6 +14,8 @@ using System.Linq;
 using System.Reflection;
 using System.Xml;
 using Newtonsoft.Json.Linq;
+using Umbraco.Core;
+using Umbraco.Web;
 using Vizioz.PalettePicker.Enumerations;
 using Vizioz.PalettePicker.Models;
 
@@ -22,8 +24,24 @@ namespace Vizioz.PalettePicker.Service
     /// <summary>
     /// The palette service.
     /// </summary>
-    internal class PaletteService
+    internal class PaletteService : IPaletteService
     {
+        /// <summary>
+        /// The umbraco context factory.
+        /// </summary>
+        private readonly IUmbracoContextFactory _umbracoContextFactory;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PaletteService"/> class.
+        /// </summary>
+        /// <param name="umbracoContextFactory">
+        /// The umbraco context factory.
+        /// </param>
+        public PaletteService(IUmbracoContextFactory umbracoContextFactory)
+        {
+            _umbracoContextFactory = umbracoContextFactory;
+        }
+
         /// <summary>
         /// The get palette.
         /// </summary>
@@ -33,7 +51,7 @@ namespace Vizioz.PalettePicker.Service
         /// <returns>
         /// The <see cref="Palette"/>.
         /// </returns>
-        internal Palette GetPalette(JToken jsonValue)
+        public Palette GetPalette(JToken jsonValue)
         {
             if (jsonValue == null)
             {
@@ -62,7 +80,7 @@ namespace Vizioz.PalettePicker.Service
         /// <returns>
         /// The <see cref="string"/>.
         /// </returns>
-        internal string GetPaletteCssStyles(JToken jsonValue, bool includePseudoElements = false, bool includePseudoClasses = false)
+        public string GetPaletteCssStyles(JToken jsonValue, bool includePseudoElements = false, bool includePseudoClasses = false)
         {
             if (jsonValue == null)
             {
@@ -76,6 +94,30 @@ namespace Vizioz.PalettePicker.Service
             var styles = this.GetStylesFromXmlContent(content, prefix, parentClass, includePseudoElements, includePseudoClasses);
 
             return styles;
+        }
+
+        /// <summary>
+        /// The get node palette.
+        /// </summary>
+        /// <param name="nodeUdi">
+        /// The node udi.
+        /// </param>
+        /// <param name="propertyAlias">
+        /// The property alias.
+        /// </param>
+        /// <returns>
+        /// The <see cref="Palette"/>.
+        /// </returns>
+        public Palette GetNodePalette(string nodeUdi, string propertyAlias)
+        {
+            using (var cref = _umbracoContextFactory.EnsureUmbracoContext())
+            {
+                var cache = cref.UmbracoContext.ContentCache;
+                var node = cache.GetById(Udi.Parse(nodeUdi));
+                var nodePaletteJson = node.Value<Newtonsoft.Json.Linq.JToken>(propertyAlias);
+
+                return this.GetPalette(nodePaletteJson);
+            }
         }
 
         /// <summary>

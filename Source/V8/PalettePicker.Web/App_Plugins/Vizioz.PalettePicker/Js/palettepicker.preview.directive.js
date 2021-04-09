@@ -4,7 +4,10 @@
             scope: {
                 value: "=",
                 hideLabels: "=",
-                editable: "="
+                editable: "=",
+                selectable: "<",
+                selected: "<",
+                onColorSelect: "&"
             },
             restrict: "E",
             replace: true,
@@ -25,6 +28,20 @@
 
                     if (scope.editable === true) {
                         scope.makePaletteEditable();
+                    }
+
+                    scope.selectable = scope.selectable || typeof scope.onColorSelect === "function";
+
+                    if (scope.selected) {
+                        angular.forEach(scope.palette,
+                            function (colorset) {
+                                angular.forEach(colorset.colors,
+                                    function (c) {
+                                        if (c.id === scope.selected) {
+                                            c.selected = true;
+                                        }
+                                    });
+                            });
                     }
                 };
 
@@ -85,6 +102,25 @@
                     }
                 };
 
+                $scope.onColorClick = function (color) {
+                    if ($scope.selectable) {
+                        angular.forEach($scope.palette,
+                            function(colorset) {
+                                angular.forEach(colorset.colors,
+                                    function(c) {
+                                        if (c.id === color.id) {
+                                            c.selected = !c.selected
+                                        } else {
+                                            c.selected = false;
+                                        }
+                                    });
+                            });
+                        if (typeof $scope.onColorSelect === "function") {
+                            $scope.onColorSelect({ color: color });
+                        }
+                    }
+                }
+
                 $scope.getPalette = function() {
                     return palettePickerXmlHelper.parsePaletteContent($scope.value.content);
                 };
@@ -102,7 +138,7 @@
 
                         });
                 };
-
+                
                 $scope.colorBlockStyles = function(color) {
                     return {
                         "left": color.left + "%",

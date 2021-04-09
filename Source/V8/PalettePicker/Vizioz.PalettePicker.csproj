@@ -58,6 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Composing\RegisterPaletteServiceComposer.cs" />
     <Compile Include="Controllers\PalettePickerBackofficeController.cs" />
     <Compile Include="Enumerations\PseudoClass.cs" />
     <Compile Include="Enumerations\PseudoElement.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Models\Palette.cs" />
     <Compile Include="PalettePickerExtensionMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\IPaletteService.cs" />
     <Compile Include="Service\PaletteService.cs" />
   </ItemGroup>
   <ItemGroup>
