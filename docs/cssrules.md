@@ -5,13 +5,15 @@ title: CSS Rules
 
 ## CSS rules {#reference-css}
 
-The CSS rules available to render will depend on the colour sets used on our template (primary, secondary-1, secondary-2, complement), and whether we are including pseudo elements and pseudo classes.
+The CSS rules available to render will depend on the colour sets used on our template (primary, secondary-1, secondary-2, complement), and whether we are including pseudo elements and pseudo classes. The CSS rules will also include the prefix or parent class if defined.
 
 As a general convention, the naming of the classes used for the CSS selectors are formed by 3 parts or words separated by "-":
 
 1. attribute to apply the colour to (empty for color, "bg" for background-color, "border" for border-color).
 2. pseudo class or pseudo element name, if any (i.e. "after", "first-of-type", etc).
 3. the colour id (i.e. "primary-1", "secondary-1-1", "complement-1").
+
+**NOTE:** If we defined a prefix or a parent class, these will be preppended to every CSS rule (i.e. ".parent-class .prefix-primary-1).
 
 For instance, the class ".bg-hover-primary-1" is formed by "bg" (for background-color), "hover" (for the :hover pseudo class), "primary-1" (for the primary-1 colour). It will apply primary-1 as the background colour on hover.
 
