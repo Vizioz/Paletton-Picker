@@ -14,7 +14,8 @@
 	<icon>packageIcon.png</icon>
     <dependencies>
       <dependency id="UmbracoCms" version="8.0.0" />
-      <dependency id="Newtonsoft.Json" version="12.0.1" />
+      <dependency id="Newtonsoft.Json" version="12.0.1" />	  
+	  <dependency id="Microsoft.AspNet.Mvc" version="5.2.7" />
     </dependencies>
   </metadata>
   <files>

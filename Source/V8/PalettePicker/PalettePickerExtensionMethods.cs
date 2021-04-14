@@ -7,7 +7,9 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
 using System.Web;
+using System.Web.Mvc;
 using Newtonsoft.Json.Linq;
 using Umbraco.Core;
 using Umbraco.Core.Models.PublishedContent;
@@ -88,6 +90,60 @@ namespace Vizioz.PalettePicker
         {
             var service = Umbraco.Web.Composing.Current.Factory.GetInstance<IPaletteService>();
             var styles = service.GetPaletteCssStyles(value, includePseudoElements, includePseudoClasses);
+
+            if (addStyleTag)
+            {
+                styles = $"<style type=\"text/css\">\r\n{styles}</style>";
+            }
+
+            return new HtmlString(styles);
+        }
+
+        /// <summary>
+        /// The get css styles.
+        /// </summary>
+        /// <param name="html">
+        /// The HTML helper.
+        /// </param>
+        /// <param name="content">
+        /// The content.
+        /// </param>
+        /// <param name="propertyAlias">
+        /// The property alias.
+        /// </param>
+        /// <param name="addStyleTag">
+        /// The style add tag.
+        /// </param>
+        /// <param name="includePseudoElements">
+        /// The include Pseudo Elements.
+        /// </param>
+        /// <param name="includePseudoClasses">
+        /// The include Pseudo Classes.
+        /// </param>
+        /// <returns>
+        /// The <see cref="IHtmlString"/>.
+        /// </returns>
+        public static IHtmlString GetCssStyles(
+            this HtmlHelper html, 
+            IPublishedContent content, 
+            string propertyAlias, 
+            bool addStyleTag = true,
+            bool includePseudoElements = false,
+            bool includePseudoClasses = false)
+        {
+            if (propertyAlias == null)
+            {
+                throw new ArgumentNullException(nameof(propertyAlias));
+            }
+
+            if (string.IsNullOrWhiteSpace(propertyAlias))
+            {
+                throw new ArgumentException("Value can't be empty or consist only of white-space characters.", nameof(propertyAlias));
+            }
+
+            var service = Umbraco.Web.Composing.Current.Factory.GetInstance<IPaletteService>();
+            var jsonValue = content.Value<Newtonsoft.Json.Linq.JToken>(propertyAlias);
+            var styles = service.GetPaletteCssStyles(jsonValue, includePseudoElements, includePseudoClasses);
 
             if (addStyleTag)
             {
