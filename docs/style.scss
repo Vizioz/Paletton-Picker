@@ -84,6 +84,7 @@ body {
   .side-bar-nav {
     margin-right: 40px;
     width: 210px;
+    border-right: 4px solid $color-primary-1;
 
     @include tablet {
       margin-right: 20px;
@@ -122,13 +123,16 @@ body {
 
 .side-link {
     display: block;
-    padding: 8px 40px 8px 0;
-    border-right: 4px solid $color-primary-1;
+    padding: 8px 40px 8px 0;    
     font-weight: 600;	
 
 	&.main-link {
 		text-transform: uppercase;
 		font-weight: 700;
+	}
+
+  &.sub-link {
+		padding-right: 0;
 	}
 	a {
 	    color: $color-primary-1;

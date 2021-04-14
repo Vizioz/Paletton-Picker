@@ -7,7 +7,28 @@ title: API reference
 
 ### Methods {#api-methods}
 
-- #### Get CSS styles (with Models Builder)
+- #### Get CSS styles (HTML helper)
+
+  _**GetCssStyles(this HtmlHelper html, IPublishedContent content, string propertyAlias, bool addStyleTag = true, bool includePseudoElements = false, bool includePseudoClasses = false)** : IHtmlString_
+
+  This method will return a CSS stylesheet as an Html string. It is an HTML helper extension method, and takes the IPublishedContent model and the property alias as parameters. It accepts several optional parameters too.
+
+  **How to use**
+
+  ````csharp
+  @Html.GetCssStyles(Model, "palettePickerPropertyAlias")
+  ````
+
+  **Parameters**
+
+  parameter | type | mandatory | description
+  :--- | :--- | :--- | :---
+  **html** | IHtmlHelper | mandatory | The HTML helper.
+  **content** | IPublishedContent | mandatory | The IPublishedContent from which we want to get the Palette Picker value.
+  **propertyAlias** | string | mandatory | The alias of the Palette Picker property.
+  **addStyleTag** | boolean | optional (default = true) | Whether to add the \<style\> tag to the returned Html string. If true, it will return the whole CSS stylesheet within the \<style\> tag. If false, it will return only the CSS rules.
+  **includePseudoClasses** | boolean | optional (default = false) | Whether to include CSS rules for pseudo elements, such as ::after, ::before, etc.
+  **includePseudoElements** | boolean | optional (default = false) | Whether to include CSS rules for pseudo classes, such as :focus, :hover, :last-child, etc.
 
   _**GetCssStyles(this JToken value, bool addStyleTag = true, bool includePseudoElements = false, bool includePseudoClasses = false)** : IHtmlString_
 
@@ -54,7 +75,7 @@ title: API reference
 
 - #### Get palette (with Models Builder)
 
-  _**GetPalette(JToken value)** : Palette_
+  _**GetPalette(this JToken value)** : Palette_
 
   This method will return all colours and colour sets information as a Palette object and is used on Palette Picker properties of PublishedContentModel objects. It is an extension method for the JToken class, which is the actual type of Palette Picker property returned by Models Builder.
 
@@ -88,6 +109,43 @@ title: API reference
   :--- | :--- | :--- | :---
   **content** | IPublishedContent | mandatory | The IPublishedContent from which we want to get the Palette Picker value.
   **propertyAlias** | string | mandatory | The alias of the Palette Picker property.
+
+- #### Get color selector (with Models Builder)
+
+  _**GetPaletteColorSelector(this JToken value)** : Palette_
+
+  This method will return the Palette Color Selector value in HEX format (i.e. #582A72) and is used on Palette Color Selector properties of PublishedContentModel objects. It is an extension method for the JToken class, which is the actual type of Palette Color Selector property returned by Models Builder.
+
+  **How to use**
+
+  ````csharp
+  @{ var color = Model.ColorSelectorProperty.GetPaletteColorSelector(); }
+  ````
+
+  **Parameters**
+
+  parameter | type | mandatory | description
+  :--- | :--- | :--- | :---
+  **value** | JToken | mandatory | The actual Palette Color Selector value.
+
+- #### Get color selector (without Models Builder)
+
+  _**GetPaletteColorSelector(this IPublishedContent content, string propertyAlias)** : String_
+
+  This method will return the Palette Color Selector value in HEX format (i.e. #582A72) and is used on IPublishedContent objects. It is an extension method for the IPublishedContent class.
+
+  **How to use**
+
+  ````csharp
+  @{ var color = Model.GetPaletteColorSelector("colorSelectorPropertyAlias"); }
+  ````
+
+  **Parameters**
+
+  parameter | type | mandatory | description
+  :--- | :--- | :--- | :---
+  **content** | IPublishedContent | mandatory | The IPublishedContent from which we want to get the Palette Color Selector value.
+  **propertyAlias** | string | mandatory | The alias of the Palette Color Selector property.
 
 ### Models {#api-models}
 
