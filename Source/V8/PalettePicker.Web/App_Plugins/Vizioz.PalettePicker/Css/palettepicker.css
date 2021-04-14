@@ -101,6 +101,11 @@
                 display: none;
             }
 
+            .palette-preview .colorset .colorset-colors .color-block .spectrum-color-picker + .sp-replacer + .color-block-color + .color-block-desc {
+                position: relative;
+                bottom: -42px;
+            }
+
             .palette-preview .colorset .colorset-colors .color-block .umb-tooltip {
                 text-align: center;
             }

@@ -114,7 +114,7 @@ namespace Vizioz.PalettePicker.Service
             {
                 var cache = cref.UmbracoContext.ContentCache;
                 var node = cache.GetById(Udi.Parse(nodeUdi));
-                var nodePaletteJson = node.Value<Newtonsoft.Json.Linq.JToken>(propertyAlias);
+                var nodePaletteJson = node?.Value<Newtonsoft.Json.Linq.JToken>(propertyAlias);
 
                 return this.GetPalette(nodePaletteJson);
             }
@@ -143,7 +143,7 @@ namespace Vizioz.PalettePicker.Service
 
                 var xmlDoc = new XmlDocument();
                 xmlDoc.LoadXml(content);
-                var url = xmlDoc.SelectSingleNode("//url")?.Value;
+                var url = xmlDoc.SelectSingleNode("//url")?.InnerText;
                 var colorSetNodes = xmlDoc.SelectNodes("//colorset");
 
                 if (colorSetNodes != null)
@@ -186,7 +186,7 @@ namespace Vizioz.PalettePicker.Service
                 setTitle = colorSetNode.Attributes["title"]?.Value;
             }
 
-            var colorNodes = colorSetNode?.SelectNodes("//colorset");
+            var colorNodes = colorSetNode?.SelectNodes("//color");
 
             if (colorNodes != null)
             {

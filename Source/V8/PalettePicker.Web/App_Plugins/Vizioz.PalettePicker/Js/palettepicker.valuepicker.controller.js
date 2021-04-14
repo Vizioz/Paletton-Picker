@@ -10,8 +10,8 @@
         vm.submit = submit;
         vm.tooltipOver = tooltipOver;
         vm.tooltipLeave = tooltipLeave;
-        vm.prefix = $scope.model.value.prefix;
-        vm.parentClass = $scope.model.value.parentClass;
+        vm.prefix = $scope.model.value ? $scope.model.value.prefix : null;
+        vm.parentClass = $scope.model.value ? $scope.model.value.parentClass : null;
 
         $scope.selectedIndex = null;
         $scope.prefixTooltip = { show: false, event: null };
@@ -49,7 +49,7 @@
 
         angular.forEach($scope.model.config.palettes,
             function(palette, index) {
-                if (palette.type === $scope.model.value.type && palette.content === $scope.model.value.content) {
+                if ($scope.model.value && palette.type === $scope.model.value.type && palette.content === $scope.model.value.content) {
                     $scope.selectedIndex = index;
                 }
             });

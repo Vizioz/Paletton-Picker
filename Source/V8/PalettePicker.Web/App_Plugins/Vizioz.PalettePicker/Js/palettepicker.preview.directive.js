@@ -30,8 +30,6 @@
                         scope.makePaletteEditable();
                     }
 
-                    scope.selectable = scope.selectable || typeof scope.onColorSelect === "function";
-
                     if (scope.selected) {
                         angular.forEach(scope.palette,
                             function (colorset) {
@@ -103,7 +101,8 @@
                 };
 
                 $scope.onColorClick = function (color) {
-                    if ($scope.selectable) {
+                    console.log($scope.selectable === true);
+                    if ($scope.selectable === true) {
                         angular.forEach($scope.palette,
                             function(colorset) {
                                 angular.forEach(colorset.colors,
