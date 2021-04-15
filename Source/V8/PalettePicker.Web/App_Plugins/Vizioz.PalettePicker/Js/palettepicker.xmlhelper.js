@@ -37,14 +37,14 @@
                     var right = colors.slice(midPoint + 1);
                     left.push(base);
                     left = $.merge(left, right);
-
+                    
                     angular.forEach(left,
                         function (color, index) {
                             var id = $(color).attr("id");
                             var nr = $(color).attr("nr");
                             var rgb = $(color).attr("rgb");
-                            var colorWidth = nr === "0" ? width * 2 : width;
-                            var colorLeft = parseInt(nr) > midPoint ? ((index + 1) * width) : (index * width);
+                            var colorWidth = index === midPoint ? width * 2 : width;
+                            var colorLeft = index > midPoint ? ((index + 1) * width) : (index * width);
 
                             paletteColorset.colors.push({
                                 id: id,

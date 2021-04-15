@@ -101,7 +101,6 @@
                 };
 
                 $scope.onColorClick = function (color) {
-                    console.log($scope.selectable === true);
                     if ($scope.selectable === true) {
                         angular.forEach($scope.palette,
                             function(colorset) {
