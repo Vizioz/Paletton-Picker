@@ -15,23 +15,17 @@
             templateUrl: "/App_Plugins/Vizioz.PalettePicker/Views/palettepicker.preview.html",
             link: function (scope) {
                 var preview = function () {
-                    var ret = scope.getPalette();
-
-                    if (!ret.valid) {
-                        scope.value.valid = false;
+                    scope.drawPalette();
+                    
+                    if (!scope.value || !scope.value.length) {
                         return;
                     } else {
-                        scope.value.valid = true;
                         scope.hasTooltip = scope.hideLabels === true;
-                        scope.palette = ret.palette;
-                    }
-
-                    if (scope.editable === true) {
                         scope.makePaletteEditable();
                     }
 
                     if (scope.selected) {
-                        angular.forEach(scope.palette,
+                        angular.forEach(scope.value,
                             function (colorset) {
                                 angular.forEach(colorset.colors,
                                     function (c) {
@@ -48,18 +42,22 @@
                         preview();
                     }, true);
             },
-            controller: function ($scope, $element, $timeout, angularHelper, assetsService, palettePickerXmlHelper) {
+            controller: function ($scope, $element, $timeout, angularHelper, assetsService) {
+
+                $scope.tooltip = {
+                    show: false,
+                    event: null
+                };
 
                 function changeColor(color, rgb) {
-                    var newPalette = palettePickerXmlHelper.changePaletteColor($scope.value.content, color, rgb);
                     angularHelper.safeApply($scope,
                         function() {
-                            $scope.value.content = newPalette;
+                            color.rgb = rgb;
                         });
                 }
 
                 function addSpectrum() {
-                    angular.forEach($scope.palette,
+                    angular.forEach($scope.value,
                         function(colorset) {
                             angular.forEach(colorset.colors,
                                 function(color) {
@@ -90,19 +88,21 @@
 
                 $scope.mouseOver = function ($event, color) {
                     if ($scope.hasTooltip) {
-                        color.tooltip = { show: true, event: $event };
+                        $scope.tooltip = { show: true, event: $event };
+                        color.tooltip = { show: true };
                     }
                 };
 
                 $scope.mouseLeave = function (color) {
                     if ($scope.hasTooltip) {
-                        color.tooltip = { show: false, event: null };
+                        $scope.tooltip = { show: false, event: null };
+                        color.tooltip = { show: false };
                     }
                 };
 
                 $scope.onColorClick = function (color) {
                     if ($scope.selectable === true) {
-                        angular.forEach($scope.palette,
+                        angular.forEach($scope.value,
                             function(colorset) {
                                 angular.forEach(colorset.colors,
                                     function(c) {
@@ -119,8 +119,19 @@
                     }
                 }
 
-                $scope.getPalette = function() {
-                    return palettePickerXmlHelper.parsePaletteContent($scope.value.content);
+                $scope.drawPalette = function () {
+                    angular.forEach($scope.value,
+                        function (colorset) {
+                            if (colorset && colorset.colors && colorset.colors.length) {
+                                var width = 100 / (colorset.colors.length + 1);
+                                var midPoint = Math.floor(colorset.colors.length / 2);
+                                angular.forEach(colorset.colors,
+                                    function (color, index) {
+                                        color.width = index === 0 ? width * 2 : width;
+                                        color.left = index === 0 ? midPoint * width : index > midPoint ? ((index + 1) * width) : ((index - 1) * width);
+                                    });
+                            }
+                        });
                 };
 
                 $scope.makePaletteEditable = function () {

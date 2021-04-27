@@ -87,6 +87,7 @@
     <Compile Include="Models\PaletteColor.cs" />
     <Compile Include="Models\PaletteColorSet.cs" />
     <Compile Include="Models\Palette.cs" />
+    <Compile Include="Models\PaletteProvider.cs" />
     <Compile Include="PalettePickerExtensionMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\IPaletteService.cs" />

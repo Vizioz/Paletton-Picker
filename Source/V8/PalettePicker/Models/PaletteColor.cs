@@ -7,6 +7,10 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Vizioz.PalettePicker.Models
 {
     /// <summary>
@@ -20,34 +24,37 @@ namespace Vizioz.PalettePicker.Models
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the hex.
+        /// Gets or sets the RGB.
         /// </summary>
-        public string Hex { get; set; }
+        public string Rgb { get; set; }
 
         /// <summary>
         /// Gets or sets the red.
         /// </summary>
-        public int Red { get; set; }
+        public int Red => this.DecomposedColors().ElementAt(0);
 
         /// <summary>
         /// Gets or sets the green.
         /// </summary>
-        public int Green { get; set; }
+        public int Green => this.DecomposedColors().ElementAt(1);
 
         /// <summary>
         /// Gets or sets the blue.
         /// </summary>
-        public int Blue { get; set; }
+        public int Blue => this.DecomposedColors().ElementAt(2);
 
         /// <summary>
-        /// The hex value.
+        /// The RGB absolute value.
         /// </summary>
-        public string HexColor => $"#{this.Hex}";
+        public string RgbAbsolute
+        {
+            get
+            {
+                var intColors = this.DecomposedColors();
 
-        /// <summary>
-        /// The RGB value.
-        /// </summary>
-        public string RgbColor => $"rgb({this.Red}, {this.Green}, {this.Blue})";
+                return $"rgb({intColors.ElementAt(0)}, {intColors.ElementAt(1)}, {intColors.ElementAt(2)})";
+            }
+        }
 
         /// <summary>
         /// The alpha.
@@ -70,7 +77,42 @@ namespace Vizioz.PalettePicker.Models
                 alphaValue = 1;
             }
 
-            return $"rgb({this.Red}, {this.Green}, {this.Blue}, {alphaValue})";
+            var intColors = this.DecomposedColors();
+
+            return $"rgb({intColors.ElementAt(0)}, {intColors.ElementAt(1)}, {intColors.ElementAt(2)}, {alphaValue})";
+        }
+
+        private List<int> DecomposedColors()
+        {
+            if (string.IsNullOrEmpty(this.Rgb))
+            {
+                return new List<int>{ 0, 0, 0 };
+            }
+
+            var rgb = this.Rgb.StartsWith("#") ? this.Rgb.Substring(1) : this.Rgb;
+
+            if (rgb.Length == 3)
+            {
+                return new List<int>
+                {
+                    Convert.ToInt32(rgb.Substring(0,1), 16),
+                    Convert.ToInt32(rgb.Substring(1,1), 16),
+                    Convert.ToInt32(rgb.Substring(2,1), 16)
+                };
+            } 
+            else if (rgb.Length == 6)
+            {
+                return new List<int>
+                {
+                    Convert.ToInt32(rgb.Substring(0,2), 16),
+                    Convert.ToInt32(rgb.Substring(2,2), 16),
+                    Convert.ToInt32(rgb.Substring(4,2), 16)
+                };
+            }
+            else
+            {
+                return new List<int> { 0, 0, 0 };
+            }
         }
     }
 }

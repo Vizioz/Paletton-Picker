@@ -1,6 +1,10 @@
 ﻿/* Palette prevalue picker */
-.palette-value-picker-container .umb-pane {
-    display: flex;
+.palette-value-picker-container .umb-control-group:not(:last-of-type) {
+    margin-bottom: 20px;
+}
+
+.palette-value-picker-container .umb-control-group:last-of-type::after {
+    display: none;
 }
 
 .palette-value-picker-container .help-text {
@@ -140,35 +144,36 @@
     border-bottom: 1px solid #bbbabf;
 }
 
-.palette-preview-param {
-    padding: 10px;
+.palette-form-field {
+    padding: 10px 0;
     display: block;
 }
 
-.palette-preview-param label {
-    display: inline-block;
-    position: relative;
-    width: 120px;
-    float: left;
-}
-
-    .palette-preview-param label .umb-tooltip {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        max-width: 200px !important;
-        width: 200px !important;
+    .palette-form-field label {
+        display: inline-block;
+        position: relative;
+        width: 120px;
+        float: left;
     }
 
-.palette-preview-param .controls {
-    margin-left: 125px;
-    display: block;
-}
+        .palette-form-field label .umb-tooltip {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            max-width: 200px !important;
+            width: 200px !important;
+        }
 
-.palette-preview-param .controls input {
-    display: block;
-    width: 100%;
-}
+    .palette-form-field .controls {
+        margin-left: 125px;
+        display: block;
+    }
+
+        .palette-form-field .controls input,
+        .palette-form-field .controls select {
+            display: block;
+            width: 100%;
+        }
 
 @media (max-width: 575px) {
     .palette-preview .colorset .colorset-colors .color-block-desc {

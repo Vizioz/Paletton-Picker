@@ -55,9 +55,12 @@
     "~/App_Plugins/Vizioz.PalettePicker/js/palettepicker.controller.js",
     "~/App_Plugins/Vizioz.PalettePicker/js/palettepicker.valuepicker.controller.js",
     "~/App_Plugins/Vizioz.PalettePicker/js/palettepicker.preview.directive.js",
-    "~/App_Plugins/Vizioz.PalettePicker/js/palettepicker.xmlhelper.js",
+    "~/App_Plugins/Vizioz.PalettePicker/js/palettepicker.provider.directive.js",
     "~/App_Plugins/Vizioz.PalettePicker/js/palettecolorselector.propertyeditor.controller.js",
-    "~/App_Plugins/Vizioz.PalettePicker/js/palettecolorselector.controller.js"
+    "~/App_Plugins/Vizioz.PalettePicker/js/palettecolorselector.controller.js",
+    "~/App_Plugins/Vizioz.PalettePicker/js/palettepicker.resource.js",
+    "~/App_Plugins/Vizioz.PalettePicker/providers/Json/palettepicker.provider.json.controller.js",
+    "~/App_Plugins/Vizioz.PalettePicker/providers/Paletton/palettepicker.provider.paletton.controller.js"
   ],
   "css": [
     "~/App_Plugins/Vizioz.PalettePicker/css/palettepicker.css"

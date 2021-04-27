@@ -1,7 +1,7 @@
 ﻿(function () {
     "use strict";
 
-    function colorSelectorPropertyEditorController($scope, $http, editorService, entityResource, iconHelper) {
+    function colorSelectorPropertyEditorController($scope, $http, editorService, entityResource, iconHelper, palettePickerResource) {
         
         var vm = this;
 
@@ -52,12 +52,10 @@
                 $scope.node.path = data;
             });
 
-            $http.get(
-                "/umbraco/backoffice/PalettePicker/PalettePicker/GetPalettePickerPropertiesInDocumentType?alias=" +
-                $scope.node.metaData.ContentTypeAlias).then(function(response) {
-                    $scope.propertyOptions = response.data;
-            });
-
+            palettePickerResource.getPalettePropertiesInDocument($scope.node.metaData.ContentTypeAlias).then(
+                function(response) {
+                    $scope.propertyOptions = response;
+                });
         }
 
         function openPalettePicker() {

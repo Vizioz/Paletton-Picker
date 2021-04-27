@@ -1,5 +1,5 @@
 ﻿<div class="palette-preview">
-    <div class="colorset" ng-repeat="colorset in palette">
+    <div class="colorset" ng-repeat="colorset in value">
         <div class="colorset-title" ng-bind="colorset.title"></div>
         <div class="colorset-colors" ng-class="{'has-labels': hideLabels !== true}">
             <span class="color-block"
@@ -20,7 +20,7 @@
                 <span class="color-block-desc" ng-if="hideLabels !== true">
                     {{color.id}}<br/>{{color.rgb}}
                 </span>
-                <umb-tooltip ng-if="color.tooltip.show" event="color.tooltip.event">
+                <umb-tooltip ng-if="color.tooltip.show" event="tooltip.event">
                     <span>{{color.id}}<br/>{{color.rgb}}</span>
                 </umb-tooltip>
             </span>

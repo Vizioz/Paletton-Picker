@@ -1,7 +1,7 @@
 ﻿(function () {
     "use strict";
 
-    function colorSelectorController($scope, $http, $routeParams, entityResource) {
+    function colorSelectorController($scope, $routeParams, entityResource, palettePickerResource) {
 
         var vm = this;
 
@@ -9,32 +9,30 @@
 
         function init() {
             if ($scope.model.config.palette.query) {
-                var rootId = $routeParams.id;
-                entityResource.getByQuery($scope.model.config.palette.query, rootId, "Document").then(function (ent) {
-                    $scope.model.value = {
-                        nodeId: ent.udi,
-                        propertyAlias: $scope.model.config.palette.propertyAlias,
-                        colorId: $scope.model.value.colorId
-                    };
-                    getPalettConfig();
-                });
+                 entityResource.getByQuery($scope.model.config.palette.query, $routeParams.id, "Document").then(
+                    function (response) {
+                        $scope.model.value = {
+                            nodeId: response.udi,
+                            propertyAlias: $scope.model.config.palette.propertyAlias,
+                            colorId: $scope.model.value.colorId
+                        };
+                        getPaletteConfig();
+                    });
             } else {
                 $scope.model.value = {
                     nodeId: $scope.model.config.palette.id,
                     propertyAlias: $scope.model.config.palette.propertyAlias,
                     colorId: $scope.model.value.colorId
                 };
-                getPalettConfig();
+                getPaletteConfig();
             }
         }
 
-        function getPalettConfig() {
-            $http.get("/umbraco/backoffice/PalettePicker/PalettePicker/GetPaletteValue?id=" +
-                $scope.model.value.nodeId +
-                "&propertyAlias=" +
-                $scope.model.value.propertyAlias).then(function(response) {
-                    $scope.palette = JSON.parse(response.data);
-            });
+        function getPaletteConfig() {
+            palettePickerResource.getPaletteConfig($scope.model.value.nodeId, $scope.model.value.propertyAlias)
+                .then(function (response) {
+                    $scope.palette = response;
+                });
         }
 
         function colorSelect(color) {

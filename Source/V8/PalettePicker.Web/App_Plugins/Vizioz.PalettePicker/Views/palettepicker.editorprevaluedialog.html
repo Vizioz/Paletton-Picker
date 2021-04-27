@@ -8,17 +8,35 @@
                            hide-description="true">
         </umb-editor-header>
         
-        <umb-editor-container class="flex palette-value-picker-container">
-            <umb-box class="flex" style="min-height:100%;">
+        <umb-editor-container class="palette-value-picker-container">
+            <umb-box>
                 <umb-box-content>
                     <div class="umb-control-group palette-value-picker">
-                        <div class="help-text">Paste a valid XML snippet containing your palette of colors (i.e. paletton.com)</div>
-                        <textarea ng-model="editModel.content" rows="10" required></textarea>
+                        <label for="palette-provider">
+                            <span>Provider</span>
+                        </label>
+                        <div class="controls">
+                            <select ng-model="vm.selectedProvider" ng-options="provider as provider.name for provider in providers" ng-change="vm.selectProvider(vm.selectedProvider)" id="palette-provic"></select>
+                        </div>
                     </div>
-                    <div class="palette-value-picker palette-editor-preview">
-                        <palette-preview value="editModel" editable="isEditable"></palette-preview>
+                    <div class="umb-control-group palette-value-picker" ng-if="vm.selectedProvider">
+                        <label for="palette-provider">
+                            <span>Palette Value</span>
+                        </label>
+                        <div class="controls">
+                            <palette-provider model="editModel" provider-view="template" on-change="vm.onChange(model)"></palette-provider>
+                        </div>
                     </div>
-                    <div ng-if="editModel.content && !editModel.valid" class="red">Invalid XML.</div>
+                    <div class="umb-control-group palette-value-picker" ng-if="vm.selectedProvider">
+                        <label for="palette-provider">
+                            <span>Preview</span>
+                        </label>
+                        <div class="controls">
+                            <div class="palette-value-picker palette-editor-preview">
+                                <palette-preview value="editModel.palette" editable="isEditable"></palette-preview>
+                            </div>
+                        </div>
+                        </div>
                 </umb-box-content>
             </umb-box>
         </umb-editor-container>
