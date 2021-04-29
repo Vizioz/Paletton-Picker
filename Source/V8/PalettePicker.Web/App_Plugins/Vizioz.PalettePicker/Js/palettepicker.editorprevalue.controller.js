@@ -35,7 +35,7 @@
             if ($scope.model.value) {
                 $scope.editModel = angular.copy($scope.model.value);
             } else {
-                $scope.editModel = { type: "Json" }
+                $scope.editModel = { type: "Paletton" }
             }
         }
 

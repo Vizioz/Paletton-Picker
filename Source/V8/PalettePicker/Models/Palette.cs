@@ -26,11 +26,6 @@ namespace Vizioz.PalettePicker.Models
         }
 
         /// <summary>
-        /// Gets or sets the url.
-        /// </summary>
-        public string Url { get; set; }
-
-        /// <summary>
         /// Gets or sets the color sets.
         /// </summary>
         public IEnumerable<PaletteColorSet> ColorSets { get; set; }

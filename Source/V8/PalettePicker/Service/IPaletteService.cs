@@ -54,6 +54,6 @@ namespace Vizioz.PalettePicker.Service
         /// <returns>
         /// The <see cref="Palette"/>.
         /// </returns>
-        Palette GetNodePalette(string nodeUdi, string propertyAlias);
+        Palette GetPalette(string nodeUdi, string propertyAlias);
     }
 }

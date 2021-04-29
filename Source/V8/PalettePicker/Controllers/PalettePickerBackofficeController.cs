@@ -6,12 +6,15 @@ using System.Net.Http;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
+using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Umbraco.Core;
 using Umbraco.Web;
+using Umbraco.Web.Composing;
 using Umbraco.Web.Mvc;
 using Umbraco.Web.WebApi;
 using Vizioz.PalettePicker.Models;
+using Vizioz.PalettePicker.Service;
 
 namespace Vizioz.PalettePicker.Controllers
 {
@@ -42,10 +45,10 @@ namespace Vizioz.PalettePicker.Controllers
         [System.Web.Http.HttpGet]
         public HttpResponseMessage GetPaletteValue(Udi id, string propertyAlias)
         {
-            var content = this.Umbraco.Content(id);
-            var paletteValue = content?.Value<string>(propertyAlias);
+            var service = Current.Factory.GetInstance<IPaletteService>();
+            var palette = service.GetPalette(id.ToString(), propertyAlias);
 
-            return this.Request.CreateResponse(HttpStatusCode.OK, paletteValue, this.FormatterConfiguration);
+            return this.Request.CreateResponse(HttpStatusCode.OK, palette, this.FormatterConfiguration);
         }
 
         [System.Web.Http.HttpGet]

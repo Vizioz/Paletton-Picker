@@ -53,7 +53,7 @@ namespace Vizioz.PalettePicker
             bool includePseudoClasses = false)
         {
             var service = Umbraco.Web.Composing.Current.Factory.GetInstance<IPaletteService>();
-            var jsonValue = content.Value<Newtonsoft.Json.Linq.JToken>(propertyAlias);
+            var jsonValue = content.Value<JToken>(propertyAlias);
             var styles = service.GetPaletteCssStyles(jsonValue, includePseudoElements, includePseudoClasses);
 
             if (addStyleTag)
@@ -168,7 +168,7 @@ namespace Vizioz.PalettePicker
         public static Palette GetPalette(this IPublishedContent content, string propertyAlias)
         {
             var service = Umbraco.Web.Composing.Current.Factory.GetInstance<IPaletteService>();
-            var jsonValue = content.Value<Newtonsoft.Json.Linq.JToken>(propertyAlias);
+            var jsonValue = content.Value<JToken>(propertyAlias);
 
             return service.GetPalette(jsonValue);
         }
@@ -192,16 +192,16 @@ namespace Vizioz.PalettePicker
         public static string GetPaletteColorSelector(this IPublishedContent content, string propertyAlias)
         {
             var service = Umbraco.Web.Composing.Current.Factory.GetInstance<IPaletteService>();
-            var jsonValue = content.Value<Newtonsoft.Json.Linq.JToken>(propertyAlias);
+            var jsonValue = content.Value<JToken>(propertyAlias);
 
             var nodeId = jsonValue.Value<string>("nodeId");
             var paletteAlias = jsonValue.Value<string>("propertyAlias");
             var colorId = jsonValue.Value<string>("colorId");
 
-            var palette = service.GetNodePalette(nodeId, paletteAlias);
+            var palette = service.GetPalette(nodeId, paletteAlias);
             var color = palette.Color(colorId);
 
-            return color.HexColor;
+            return color?.Rgb;
         }
 
         public static string GetPaletteColorSelector(this JToken value)
@@ -212,10 +212,10 @@ namespace Vizioz.PalettePicker
             var paletteAlias = value.Value<string>("propertyAlias");
             var colorId = value.Value<string>("colorId");
 
-            var palette = service.GetNodePalette(nodeId, paletteAlias);
+            var palette = service.GetPalette(nodeId, paletteAlias);
             var color = palette?.Color(colorId);
 
-            return color?.HexColor;
+            return color?.Rgb;
         }
     }
 }

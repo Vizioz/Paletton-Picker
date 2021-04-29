@@ -57,14 +57,12 @@ namespace Vizioz.PalettePicker.Service
                 return new Palette();
             }
 
-            var url = jsonValue.Value<string>("url");
             var paletteValue = jsonValue.Value<JArray>("palette");
             var paletteColorSets = paletteValue.ToObject<IEnumerable<PaletteColorSet>>();
 
             var palette = new Palette
             {
-                ColorSets = paletteColorSets,
-                Url = url
+                ColorSets = paletteColorSets
             };
 
             return palette;
@@ -97,7 +95,7 @@ namespace Vizioz.PalettePicker.Service
             var paletteValue = jsonValue.Value<JArray>("palette");
             var paletteColorSets = paletteValue.ToObject<IEnumerable<PaletteColorSet>>();
 
-            var styles = this.GetStylesFromArray(paletteColorSets, prefix, parentClass, includePseudoElements, includePseudoClasses);
+            var styles = this.GetCssStylesFromColorsets(paletteColorSets, prefix, parentClass, includePseudoElements, includePseudoClasses);
 
             return styles;
         }
@@ -114,20 +112,20 @@ namespace Vizioz.PalettePicker.Service
         /// <returns>
         /// The <see cref="Palette"/>.
         /// </returns>
-        public Palette GetNodePalette(string nodeUdi, string propertyAlias)
+        public Palette GetPalette(string nodeUdi, string propertyAlias)
         {
             using (var cref = _umbracoContextFactory.EnsureUmbracoContext())
             {
                 var cache = cref.UmbracoContext.ContentCache;
                 var node = cache.GetById(Udi.Parse(nodeUdi));
-                var nodePaletteJson = node?.Value<Newtonsoft.Json.Linq.JToken>(propertyAlias);
+                var nodePaletteJson = node?.Value<JToken>(propertyAlias);
 
                 return this.GetPalette(nodePaletteJson);
             }
         }
         
         /// <summary>
-        /// The get styles from array.
+        /// The get CSS styles from color sets.
         /// </summary>
         /// <param name="content">
         /// The content.
@@ -147,7 +145,7 @@ namespace Vizioz.PalettePicker.Service
         /// <returns>
         /// The <see cref="string"/>.
         /// </returns>
-        private string GetStylesFromArray(IEnumerable<PaletteColorSet> colorsets, string prefix, string parentClass, bool includePseudoElements, bool includePseudoClasses)
+        private string GetCssStylesFromColorsets(IEnumerable<PaletteColorSet> colorsets, string prefix, string parentClass, bool includePseudoElements, bool includePseudoClasses)
         {
             if (colorsets == null || !colorsets.Any())
             {

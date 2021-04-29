@@ -31,7 +31,7 @@
         function getPaletteConfig() {
             palettePickerResource.getPaletteConfig($scope.model.value.nodeId, $scope.model.value.propertyAlias)
                 .then(function (response) {
-                    $scope.palette = response;
+                    $scope.palette = response.colorSets;
                 });
         }
 
