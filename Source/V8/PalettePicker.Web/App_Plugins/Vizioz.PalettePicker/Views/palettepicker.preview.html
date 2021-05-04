@@ -7,7 +7,7 @@
                   ng-repeat="color in colorset.colors"
                   ng-style="colorBlockStyles(color)"
                   data-color-id="{{color.id}}">
-                <input ng-if="editable" class="spectrum-color-picker" type="hidden"/>
+                <input ng-if="editable" class="spectrum-color-picker" />
                 <span class="color-block-color"
                       ng-style="colorInnerStyles(color)"
                       ng-mouseover="mouseOver($event, color)"

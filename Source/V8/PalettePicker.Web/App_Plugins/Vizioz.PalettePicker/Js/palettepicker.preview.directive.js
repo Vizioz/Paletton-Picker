@@ -21,7 +21,9 @@
                         return;
                     } else {
                         scope.hasTooltip = scope.hideLabels === true;
-                        scope.makePaletteEditable();
+                        if (scope.editable === true) {
+                            scope.makePaletteEditable();
+                        }
                     }
 
                     if (scope.selected) {
@@ -60,26 +62,22 @@
                     angular.forEach($scope.value,
                         function(colorset) {
                             angular.forEach(colorset.colors,
-                                function(color) {
+                                function (color) {
                                     var elem = $element.find(".color-block[data-color-id='" +
                                         color.id +
                                         "'] input.spectrum-color-picker");
-                                    elem.spectrum({
+                                    $(elem).spectrum({
+                                        type: "color",
                                         color: color.rgb,
                                         showInitial: false,
                                         chooseText: "choose",
                                         cancelText: "cancel",
+                                        clearText: "clear",
                                         preferredFormat: "hex",
                                         showInput: true,
                                         clickoutFiresChange: true,
-                                        hide: function hide() {
-                                            $element.find(".btn.add").show();
-                                        },
                                         change: function change(c) {
                                             changeColor(color, c.toHexString());
-                                        },
-                                        show: function show() {
-                                            $element.find(".btn.add").hide();
                                         }
                                     });
                                 });
@@ -125,10 +123,11 @@
                             if (colorset && colorset.colors && colorset.colors.length) {
                                 var width = 100 / (colorset.colors.length + 1);
                                 var midPoint = Math.floor(colorset.colors.length / 2);
+                                var centered = colorset.colors.length % 2 !== 0;
                                 angular.forEach(colorset.colors,
                                     function (color, index) {
-                                        color.width = index === 0 ? width * 2 : width;
-                                        color.left = index === 0 ? midPoint * width : index > midPoint ? ((index + 1) * width) : ((index - 1) * width);
+                                        color.width = centered && index === midPoint ? width * 2 : width;
+                                        color.left = centered && index > midPoint ? ((index + 1) * width) : index * width;
                                     });
                             }
                         });
@@ -141,7 +140,7 @@
                                 "/App_Plugins/Vizioz.PalettePicker/vendor/spectrum/spectrum.css"
                             ],
                             $scope).then(function () {
-                                $timeout(function() {
+                                $timeout(function () {
                                     addSpectrum();
                                 });
 
