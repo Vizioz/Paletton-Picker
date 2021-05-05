@@ -16,7 +16,6 @@
             link: function (scope) {
                 var preview = function () {
                     scope.drawPalette();
-                    
                     if (!scope.value || !scope.value.length) {
                         return;
                     } else {
@@ -69,12 +68,13 @@
                                     $(elem).spectrum({
                                         type: "color",
                                         color: color.rgb,
-                                        showInitial: false,
                                         chooseText: "choose",
                                         cancelText: "cancel",
                                         clearText: "clear",
                                         preferredFormat: "hex",
                                         showInput: true,
+                                        showInitial: true,
+                                        showAlpha: false,
                                         clickoutFiresChange: true,
                                         change: function change(c) {
                                             changeColor(color, c.toHexString());
@@ -121,9 +121,9 @@
                     angular.forEach($scope.value,
                         function (colorset) {
                             if (colorset && colorset.colors && colorset.colors.length) {
-                                var width = 100 / (colorset.colors.length + 1);
-                                var midPoint = Math.floor(colorset.colors.length / 2);
                                 var centered = colorset.colors.length % 2 !== 0;
+                                var width = centered ? 100 / (colorset.colors.length + 1) : 100 / colorset.colors.length;
+                                var midPoint = Math.floor(colorset.colors.length / 2);
                                 angular.forEach(colorset.colors,
                                     function (color, index) {
                                         color.width = centered && index === midPoint ? width * 2 : width;

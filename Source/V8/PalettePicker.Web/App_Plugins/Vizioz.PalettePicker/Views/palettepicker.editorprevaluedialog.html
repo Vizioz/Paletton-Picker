@@ -11,6 +11,9 @@
         <umb-editor-container class="palette-value-picker-container">
             <umb-box>
                 <umb-box-content>
+                    <div class="umb-control-group palette-value-picker" ng-if="error">
+                        <div ng-bind="error" class="alert alert-error"></div>
+                    </div>
                     <div class="umb-control-group palette-value-picker">
                         <label for="palette-provider">
                             <span>Provider</span>
@@ -36,7 +39,7 @@
                                 <palette-preview value="editModel.palette" editable="isEditable"></palette-preview>
                             </div>
                         </div>
-                        </div>
+                    </div>
                 </umb-box-content>
             </umb-box>
         </umb-editor-container>

@@ -1,7 +1,7 @@
 ﻿(function () {
     "use strict";
 
-    function paletteEditorPrevalueController($scope, $timeout, palettePickerResource) {
+    function paletteEditorPrevalueController($scope, assetsService, palettePickerResource) {
 
         var vm = this;
 
@@ -42,7 +42,27 @@
         function selectProvider(provider) {
             vm.selectedProvider = provider;
             $scope.template = vm.selectedProvider.path + "/" + vm.selectedProvider.view;
+            if ($scope.model && $scope.model.value && $scope.model.value.type === provider.name) {
+                $scope.editModel = angular.copy($scope.model.value);
+            } else {
+                $scope.editModel = {
+                    content: "",
+                    palette: [],
+                    type: provider.name
+                };
+            }
             $scope.editModel.type = provider.name;
+            loadProviderStyles();
+        }
+
+        function loadProviderStyles() {
+            if (vm.selectedProvider.styleSheets && vm.selectedProvider.styleSheets.length) {
+                var styles = [];
+                for (var i = 0; i < vm.selectedProvider.styleSheets.length; i++) {
+                    styles.push(vm.selectedProvider.path + "/" + vm.selectedProvider.styleSheets[i]);
+                }
+                assetsService.load(styles);
+            }
         }
 
         function onChange(model) {
@@ -50,10 +70,13 @@
         }
         
         function submit() {
+            $scope.error = null;
             if ($scope.model.submit) {
-                if ($scope.editModel.palette && $scope.editModel.valid) {
+                if ($scope.editModel.palette && $scope.editModel.palette.length) {
                     $scope.model.submit($scope.editModel);
-                } 
+                } else {
+                    $scope.error = "The palette value is mandatory";
+                }
             }
         }
 

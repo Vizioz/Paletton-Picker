@@ -64,10 +64,12 @@ namespace Vizioz.PalettePicker.Controllers
             {
                 var controller = providerFolder.GetFiles("*.js").FirstOrDefault();
                 var view = providerFolder.GetFiles("*.html").FirstOrDefault();
+                var styles = providerFolder.GetFiles("*.css");
+                var styleSheets = styles.Select(x => x.Name).ToArray();
                 var folderPath = $"{virtualPath}/{providerFolder.Name}";
 
                 providers.Add(new PaletteProvider(providerFolder.Name, folderPath, view?.Name,
-                    controller?.Name));
+                    controller?.Name, styles.Select(x => x.Name).ToArray()));
             }
 
             return this.Request.CreateResponse(HttpStatusCode.OK, providers, this.FormatterConfiguration);
