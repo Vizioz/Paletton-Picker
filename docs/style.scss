@@ -82,12 +82,13 @@ body {
   position: relative;
 	  
   .side-bar-nav {
-    margin-right: 40px;
+    margin: 0 40px 0 0;
+    padding: 0;
     width: 210px;
     border-right: 4px solid $color-primary-1;
 
     @include tablet {
-      margin-right: 20px;
+      margin: 0 20px 0 0;
       width: 190px;
     }
   }
