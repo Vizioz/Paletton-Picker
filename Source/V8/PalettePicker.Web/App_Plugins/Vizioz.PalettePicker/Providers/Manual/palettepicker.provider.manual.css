@@ -1,0 +1,36 @@
+﻿.palette-manual .palette-manual-color {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+    align-items: start;
+}
+
+.palette-manual .palette-manual-color .palette-manual-color-picker {
+    flex: 1 0 auto;
+}
+
+    .palette-manual .palette-manual-color .palette-manual-color-picker .sp-original-input-container,
+    .palette-manual .palette-manual-color .palette-manual-color-picker .sp-original-input-container input.spectrum.with-add-on {
+        width: 100%;
+    }
+
+.palette-manual .palette-manual-color .btn-remove {
+    margin-left: 10px;
+}
+
+    .palette-manual .palette-manual-color .palette-manual-color-picker .sp-colorize-container {
+        border: 1px solid #ccc !important;
+        border-right: 0 !important;
+        border-radius: 4px 0 0 4px !important;
+    }
+
+    .palette-manual .palette-manual-color .palette-manual-color-picker input.spectrum.with-add-on {
+        background-color: rgb(255, 255, 255);
+        color: rgb(96, 108, 113);
+        border: 1px solid #ccc;
+        border-left: 0;
+        border-radius: 0 4px 4px 0 !important;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        padding: 0.3em 0.8em;
+    }

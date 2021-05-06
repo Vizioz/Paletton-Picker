@@ -1,0 +1,5 @@
+﻿<div ng-controller="Vizioz.PalettePicker.Provider.PalettonController as vm">
+    <div class="help-text">Paste a valid XML snippet containing your palette of colors (i.e. paletton.com)</div>
+    <textarea ng-model="model.content" rows="10" ng-change="vm.update()"></textarea>
+    <div ng-if="model.content && !isValid" class="red">Invalid XML.</div>
+</div>

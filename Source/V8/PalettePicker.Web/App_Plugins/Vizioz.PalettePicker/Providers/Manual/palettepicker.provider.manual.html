@@ -1,0 +1,16 @@
+﻿<div ng-controller="Vizioz.PalettePicker.Provider.ManualController as vm" class="palette-manual">
+    <div class="help-text">Manually select colours to add to a palette.</div>
+    <div ng-if="paletteContent.length">
+        <div ng-repeat="color in paletteContent track by $index" class="palette-manual-color" data-color-id="{{color.id}}">
+            <div class="palette-manual-color-picker">
+                <input class="spectrum-color-picker" />
+            </div>
+            <a class="btn btn-danger btn-remove" ng-click="vm.remove($index)" title="Delete">
+                <i class="icon icon-trash"></i>
+            </a>
+        </div>
+    </div>
+    <div>
+        <a class="btn" ng-click="vm.addColor()">Add Color</a>
+    </div>
+</div>
