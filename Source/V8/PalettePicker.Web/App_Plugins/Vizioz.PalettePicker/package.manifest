@@ -59,7 +59,7 @@
     "~/App_Plugins/Vizioz.PalettePicker/js/palettecolorselector.propertyeditor.controller.js",
     "~/App_Plugins/Vizioz.PalettePicker/js/palettecolorselector.controller.js",
     "~/App_Plugins/Vizioz.PalettePicker/js/palettepicker.resource.js",
-    // Custom Providers
+    // Providers (add custom providers here)
     "~/App_Plugins/Vizioz.PalettePicker/providers/Paletton/palettepicker.provider.paletton.controller.js",
     "~/App_Plugins/Vizioz.PalettePicker/providers/Manual/palettepicker.provider.manual.controller.js"
   ],

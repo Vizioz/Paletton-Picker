@@ -13,7 +13,11 @@
         }
 
         function setPaletteValue(item) {
-            $scope.model.value = item;
+            $scope.model.value = {
+                palette: item.palette,
+                parentClass: item.parentClass,
+                prefix: item.prefix
+            };
         }
 
         function edit() {
