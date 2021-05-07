@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<umbPackage>
+  <files>
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/package.manifest" orgPath="App_Plugins/Vizioz.PalettePicker/package.manifest" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Css/palettepicker.css" orgPath="App_Plugins/Vizioz.PalettePicker/Css/palettepicker.css" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Js/palettecolorselector.controller.js" orgPath="App_Plugins/Vizioz.PalettePicker/Js/palettecolorselector.controller.js" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Js/palettecolorselector.propertyeditor.controller.js" orgPath="App_Plugins/Vizioz.PalettePicker/Js/palettecolorselector.propertyeditor.controller.js" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Js/palettepicker.controller.js" orgPath="App_Plugins/Vizioz.PalettePicker/Js/palettepicker.controller.js" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Js/palettepicker.editorprevalue.controller.js" orgPath="App_Plugins/Vizioz.PalettePicker/Js/palettepicker.editorprevalue.controller.js" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Js/palettepicker.preview.directive.js" orgPath="App_Plugins/Vizioz.PalettePicker/Js/palettepicker.preview.directive.js" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Js/palettepicker.propertyeditor.controller.js" orgPath="App_Plugins/Vizioz.PalettePicker/Js/palettepicker.propertyeditor.controller.js" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Js/palettepicker.provider.directive.js" orgPath="App_Plugins/Vizioz.PalettePicker/Js/palettepicker.provider.directive.js" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Js/palettepicker.resource.js" orgPath="App_Plugins/Vizioz.PalettePicker/Js/palettepicker.resource.js" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Js/palettepicker.valuepicker.controller.js" orgPath="App_Plugins/Vizioz.PalettePicker/Js/palettepicker.valuepicker.controller.js" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Providers/Manual/palettepicker.provider.manual.controller.js" orgPath="App_Plugins/Vizioz.PalettePicker/Providers/Manual/palettepicker.provider.manual.controller.js" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Providers/Manual/palettepicker.provider.manual.css" orgPath="App_Plugins/Vizioz.PalettePicker/Providers/Manual/palettepicker.provider.manual.css" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Providers/Manual/palettepicker.provider.manual.html" orgPath="App_Plugins/Vizioz.PalettePicker/Providers/Manual/palettepicker.provider.manual.html" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Providers/Paletton/palettepicker.provider.paletton.controller.js" orgPath="App_Plugins/Vizioz.PalettePicker/Providers/Paletton/palettepicker.provider.paletton.controller.js" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Providers/Paletton/palettepicker.provider.paletton.html" orgPath="App_Plugins/Vizioz.PalettePicker/Providers/Paletton/palettepicker.provider.paletton.html" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Vendor/spectrum/spectrum.css" orgPath="App_Plugins/Vizioz.PalettePicker/Vendor/spectrum/spectrum.css" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Vendor/spectrum/spectrum.js" orgPath="App_Plugins/Vizioz.PalettePicker/Vendor/spectrum/spectrum.js" />
+
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Views/palettecolorselector.editor.html" orgPath="App_Plugins/Vizioz.PalettePicker/Views/palettecolorselector.editor.html" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Views/palettecolorselector.html" orgPath="App_Plugins/Vizioz.PalettePicker/Views/palettecolorselector.html" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Views/palettepicker.editor.html" orgPath="App_Plugins/Vizioz.PalettePicker/Views/palettepicker.editor.html" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Views/palettepicker.editorprevaluedialog.html" orgPath="App_Plugins/Vizioz.PalettePicker/Views/palettepicker.editorprevaluedialog.html" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Views/palettepicker.html" orgPath="App_Plugins/Vizioz.PalettePicker/Views/palettepicker.html" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Views/palettepicker.preview.html" orgPath="App_Plugins/Vizioz.PalettePicker/Views/palettepicker.preview.html" />
+    <file path="../Source/V8/PalettePicker.Web/App_Plugins/Vizioz.PalettePicker/Views/palettepicker.valuepicker.html" orgPath="App_Plugins/Vizioz.PalettePicker/Views/palettepicker.valuepicker.html" />
+    <file path="../Source/V8/PalettePicker.Web/bin/Vizioz.PalettePicker.dll" orgPath="bin/Vizioz.PalettePicker.dll" />
+  </files>
+  <info>
+    <package>
+      <name>Vizioz.PalettePicker</name>
+      <version>3.0.0</version>
+      <iconUrl>https://vizioz.github.io/Palette-Picker/images/logo.png</iconUrl>
+      <license url="http://opensource.org/licenses/MIT">MIT License</license>
+      <url>https://github.com/Vizioz/Palette-Picker</url>
+      <requirements type="Strict">
+        <major>8</major>
+        <minor>0</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Vizioz Limited</name>
+      <website>https://www.vizioz.com/</website>
+    </author>
+    <contributors>
+      <contributor>chouston@vizioz.com</contributor>
+      <contributor>mlopez@vizioz.com</contributor>
+    </contributors>
+    <readme><![CDATA[Palette Picker is a customizable colour palette picker for Umbraco. 
+
+It allows editors to select a colour palette from a predefined choice of palettes.]]></readme>
+  </info>
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+  <Actions />
+</umbPackage>
