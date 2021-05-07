@@ -17,23 +17,25 @@ To create Palette Picker the data type we do as for any other data type that we 
 
 ![Create Data Type]({{ site.baseurl }}/images/Developer-1.jpg)
 
-From the property editor dropdown, we need to select "Palette Picker". Once selected, we can see a new configuration property underneath for "Colour palettes". Here we will configure the colour templates that will be available to use on our document types. We can add new ones by clicking on the "Add" button. We will be prompted then by a side panel to paste a valid XML snippet to define a new palette of colours.
+From the property editor dropdown, we need to select "Palette Picker". Once selected, we can see a new configuration property underneath for "Colour palettes". Here we will configure the colour templates that will be available to use on our document types. We can add new ones by clicking on the "Add" button. We will be prompted then by a side panel where we can choose a palette provider and define a new palette of colours. By default, "Paletton" is selected and a default palette is added.
 
 ![Configure Palette Picker]({{ site.baseurl }}/images/Developer-3.jpg)
 
-Palette picker is based on [Paletton.com](https://paletton.com/). We can get our colour palette from there. The paletton interface is very intuitive. We can have a play with it until we find the right colours. Generally, it will let us choose up to 4 different colours, each one configuring a colour set. Each colour set will then split into 5 different shades, making our full palette. Once happy, if we click on "Tables/Export" on the bottom right corner, and then click on "as XML", it will generate the XML snippet with all selected colours. Palette picker will accept any colour configuration with sets of primary, secondary and complement colours. But the current version will only accept snippets in XML format. Future versions of this package might accept other formats. We can use a snippet from any other source as long as it is in XML format.
+Palette picker allows multiple palette providers from which we can add colour templates. Providers can be extended, and it is possible to configure and create new providers to use with the package. For further information about providers, please refer to the [Providers Section]({{ site.baseurl }}/api). By default, Palette Picker includes a "manual" provider and a "Paletton" provider. We will use the "Paletton" provider in this documentation.
+
+The "Paletton" provider is based on [Paletton.com](https://paletton.com/). We can get our colour palette from there. The paletton interface is very intuitive. We can have a play with it until we find the right colours. Generally, it will let us choose up to 4 different colours, each one configuring a colour set. Each colour set will then split into 5 different shades, making our full palette. Once happy, if we click on "Tables/Export" on the bottom right corner, and then click on "as XML", it will generate the XML snippet with all selected colours. Palette picker will accept any colour configuration with sets of primary, secondary and complement colours, but the current version will only accept snippets in XML format. Alternatvily, we can use a snippet from any other source as long as it is in the same XML format.
 
 ![Paletton]({{ site.baseurl }}/images/Paletton-1.jpg)
 
 ![Paletton XML]({{ site.baseurl }}/images/Paletton-2.jpg)
 
-We then copy the snippet into the textbox. If it is well formatted, we will see the template preview below it, otherwise it means the snippet is not well formatted or contains errors.
+Once we have selected the "Paletton" provider from the dropdown, we then copy the snippet into the textbox. If it is well formatted, we will see the template preview below it, otherwise it means the snippet is not well formatted or contains errors.
 
-Once the snipped is added (and is valid), we can perform some fine tuning before saving it and manually configure any of the colors of the palette, by clicking on them, as if a standard color picker.
+Once the snippet is added (and is valid), we can perform some fine tuning before saving it and manually configure any of the colors of the palette, by clicking on the different colors of the preview, as if a standard color picker.
 
 ![Palette Picker Colour Template]({{ site.baseurl }}/images/Developer-4.jpg)
 
-We can add as many templates as we like, which are visible in the data type configuration.
+We can add as many templates as we like, which are visible in the data type configuration. Templates can use different providers within the same data type. Each provider will have its own configuration. The palette preview will be visible and available for all provider configurations and will still allow fine tuning.
 
 Finally, we give a name to our newly created data type and save it.
 
@@ -140,7 +142,7 @@ This will render an internal CSS stylesheet with a series of rules from to the c
 </style>
 ````
 
-For secondary and complementary colours, the rules will have similar class selectors, for instance, bg-secondary-1-1, bg-complement-1. For full reference, please go to [CSS rules]({{ site.baseurl }}/cssrules).
+For different color sets, or different color ids, the rules will have similar class selectors, for instance, bg-secondary-1-1, bg-complement-1. For full reference, please go to [CSS rules]({{ site.baseurl }}/cssrules).
 
 Besides class selector, we can generate selectors for pseudo classes and pseudo elements. For full specification, please go to the [API section]({{ site.baseurl }}/api).
 

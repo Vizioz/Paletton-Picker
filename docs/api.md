@@ -155,10 +155,6 @@ title: API reference
 
   **Properties**
 
-  - _**Url** : string_
-
-    Optional URL indicating the source of the colour palette.
-
   - _**ColorSets** : IEnumerable&lt;PaletteColorSet&gt;_
 
     The list of colour sets included in the palette.
@@ -205,9 +201,9 @@ title: API reference
 
     The id of the colour (i.e. "primary-0", "secondary-1-0", "secondary-2-0", "complement-0", etc)
 
-  - _**Hex** : string_
+  - _**Rgb** : string_
 
-  The colour expressed as a hexadecimal value (i.e. AA3939).
+    The Hex Code (#RRGGBB) of the colour (i.e. #AA3939).
 
   - _**Red** : int_
 
@@ -221,11 +217,7 @@ title: API reference
 
     The blue component of the colour as an integer between 0 and 255.
 
-  - _**HexColor** : string_
-
-    The Hex Code (#RRGGBB) of the colour (i.e. #AA3939).
-
-  - _**RgbColor** : string_
+  - _**RgbAbsolute** : string_
 
     The Decimal Code (R, G, B) of the colour (i.e. rgb(170,57,57)).
 
